@@ -19,7 +19,7 @@ const App = () => (
             <ProtectedRoute exact path="/feed" component={Feed}></ProtectedRoute>
         </Switch>
         </div>
-        <footer classname="splash-only regular">
+        <footer className="splash-only regular">
             <h1>I am footer</h1>
         </footer>
     </div>
