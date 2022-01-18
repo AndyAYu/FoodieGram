@@ -14,7 +14,8 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 
 // We have not created this action yet, but will do so in the next step
-import { logout } from './actions/session_actions';
+import { logout, login, signup } from './actions/session_actions';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -45,6 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // If this is a first time user, start with an empty store
     store = configureStore({});
   }
+
+  window.login = login;
+  window.signup = signup;
+  window.dispatch = store.dispatch;
+  window.store = store;
   // Render our root component and pass in the store as a prop
   const root = document.getElementById('root');
 

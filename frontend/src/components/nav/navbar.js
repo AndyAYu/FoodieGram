@@ -28,8 +28,8 @@ class NavBar extends React.Component {
         } else {
             return (
                 <div>
-                    <Link to={'/signup'}>Signup</Link>
-                    <Link to={'/login'}>Login</Link>
+                     <span><button className="login-btn" onClick={() => this.props.openModal('Login')}>Login</button></span>
+                    <span><button className="signup-btn" onClick={() => this.props.openModal('Sign Up')}>Create Account</button></span>
                 </div>
             );
         }
@@ -37,10 +37,10 @@ class NavBar extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Chirper</h1>
+            <nav className="navbar">
+                <h1 className="logo">FoodieGram</h1>
                 {this.getLinks()}
-            </div>
+            </nav>
         );
     }
 }

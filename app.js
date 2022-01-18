@@ -16,11 +16,6 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 
-// app.get("/", (req, res) => {
-//     // debugger;
-//     res.send("Hello World");
-// });
-
 app.use(passport.initialize());
 require('./config/passport')(passport);
 

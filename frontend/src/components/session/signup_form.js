@@ -46,7 +46,7 @@ class SignupForm extends React.Component {
         return (
             <ul>
                 {Object.keys(this.state.errors).map((error, i) => (
-                    <li key={`error-${i}`}>
+                    <li className="errors-li" key={`error-${i}`}>
                         {this.state.errors[error]}
                     </li>
                 ))}
@@ -56,9 +56,10 @@ class SignupForm extends React.Component {
 
     render() {
         return (
-            <div className="signup-form-container">
-                <form onSubmit={this.handleSubmit}>
-                    <div className="signup-form">
+            <div className="auth-form-container">
+                <h2>Sign Up</h2>
+                <form className="auth-form" onSubmit={this.handleSubmit}>
+                    <div className="form-div">
                         <br />
                         <input type="text"
                             value={this.state.email}
@@ -84,7 +85,7 @@ class SignupForm extends React.Component {
                             placeholder="Confirm Password"
                         />
                         <br />
-                        <input type="submit" value="Submit" />
+                        <input className="submit-form-btn" type="submit" value="Submit" />
                         {this.renderErrors()}
                     </div>
                 </form>
