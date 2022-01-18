@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const getAllPosts = (data) => {
-    return axios.get(`/api/post`, data)
+    return axios.get(`/api/posts/`, data)
 }
 
 export const getPost = (postId) => {
@@ -9,7 +9,7 @@ export const getPost = (postId) => {
 };
 
 export const createPost = (post) => {
-    return axios.post(`/api/posts`, post)
+    return axios.post(`/api/posts/`, post)
 };
 
 export const editPost = (post) => {

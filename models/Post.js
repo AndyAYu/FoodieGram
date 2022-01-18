@@ -18,6 +18,8 @@ const PostSchema = new Schema ({
         type: String,
         required: true
     },
+    user: { type: Schema.Types.ObjectId, ref: 'User' },//belongs to
+    comments: [CommentSchema]// has many
 })
 
-module.exports = Post = mongoose.model('Post', PostSchema);
+module.exports = Post = mongoose.model('post', PostSchema);

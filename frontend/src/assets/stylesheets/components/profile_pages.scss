@@ -1,4 +1,11 @@
 .profile-page-container{
     height: 100%;
-    background-color: black;
+    position: absolute;
+ 
+}
+
+.profile-info-container{
+    display: flex;
+    justify-content: space-between;
+    // border: 1px solid black;
 }
