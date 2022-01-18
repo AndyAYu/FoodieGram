@@ -1,3 +1,5 @@
+@import '../splash.scss';
+
 .App {
   text-align: center;
 }
@@ -94,25 +96,42 @@
   top:0;
   left:0;
   display:flex;
+  // padding-left: 100px;
+  padding-right: 100px;
   align-items:center;
+  justify-content: space-between;
   background-color:rgb(247, 135, 8);
+  height: 100px;
   width:100%;
 }
 
 .login-btn{
-  margin-left: 700px;
+  // margin-left: 700px;
   padding: 12px;
+  border-radius: 4px;
+  font-family: $main-font;
+  color: white;
+  background: rgb(102, 7, 165);
+  border: none;
   cursor: pointer;
 }
 
 .signup-btn{
   margin-left: 20px;
   padding:12px;
+  margin-right: 100px;
+  border-radius: 4px;
+  font-family: $main-font;
+  color: white;
+  background: rgb(102, 7, 165);
+  border: none;
   cursor: pointer;
 }
 
 .logo{
-  margin-left: 200px;
+  margin-left: 100px;
   font-size: 24px;
+  font-family: $main-font;
+  color: white;
   cursor: pointer;
 }

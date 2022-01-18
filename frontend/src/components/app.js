@@ -15,6 +15,9 @@ const App = () => (
             <Route path='/pages/:userId' component={ProfilePageContainer} />
             <ProtectedRoute exact path="/feed" component={Feed}></ProtectedRoute>
         </Switch>
+        <footer>
+            <h1>I am footer</h1>
+        </footer>
     </div>
 );
 

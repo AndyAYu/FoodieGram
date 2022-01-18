@@ -6,8 +6,10 @@ class MainPage extends React.Component {
         return (
             <div>
                 <Modal />
+                <div className="circle"></div>
+                <div>FoodieGram</div>
                 <footer>
-                    I am footer
+                    <h1>I am footer</h1>
                 </footer>
             </div>
         );
