@@ -16,6 +16,7 @@ import { setAuthToken } from './util/session_api_util';
 // We have not created this action yet, but will do so in the next step
 import { logout, login, signup } from './actions/session_actions';
 
+// import './assets/stylesheets/index.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;

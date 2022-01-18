@@ -6,7 +6,6 @@ import MainPage from './main/main_page';
 import Modal from './modal/modal';
 import ProfilePageContainer from './profile_pages/profile_page_container'
 
-import '../App.css';
 
 const App = () => (
     <div>

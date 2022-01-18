@@ -1,0 +1,118 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height:auto;
+  background-color:rgb(234, 235, 236);
+  border:3px solid rgb(248, 249, 250);
+  border-radius: 4px;
+}
+
+.errors-li{
+  list-style: none;
+  display: inline-block;
+}
+
+.auth-form-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-form{
+  width: 100%;
+}
+
+.auth-form input{
+  width:80%;
+  text-align: center;
+}
+
+.submit-form-btn{
+  text-align: center;
+}
+
+.form-div{
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+.navbar{
+  position: fixed;
+  top:0;
+  left:0;
+  display:flex;
+  align-items:center;
+  background-color:rgb(247, 135, 8);
+  width:100%;
+}
+
+.login-btn{
+  margin-left: 700px;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.signup-btn{
+  margin-left: 20px;
+  padding:12px;
+  cursor: pointer;
+}
+
+.logo{
+  margin-left: 200px;
+  font-size: 24px;
+  cursor: pointer;
+}
