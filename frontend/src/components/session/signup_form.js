@@ -9,7 +9,8 @@ class SignupForm extends React.Component {
             handle: '',
             password: '',
             password2: '',
-            errors: {}
+            errors: {},
+            signedIn: this.props.signedIn,
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,11 +18,11 @@ class SignupForm extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.signedIn === true) {
-            this.props.history.push('/login');
-        }
-
         this.setState({ errors: nextProps.errors })
+    }
+
+    componentWillUnmount() {
+        this.props.closeModal();
     }
 
     update(field) {
@@ -39,7 +40,11 @@ class SignupForm extends React.Component {
             password2: this.state.password2
         };
 
-        this.props.signup(user, this.props.history);
+        this.props.signup(user, this.props.history)
+        if(this.state.signedIn){
+            this.props.login(user)
+        } 
+          
     }
 
     renderErrors() {
