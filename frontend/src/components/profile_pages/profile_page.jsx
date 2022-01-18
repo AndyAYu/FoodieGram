@@ -6,26 +6,24 @@ class ProfilePage extends React.Component{
 
     componentDidMount(){
         this.props.fetchAllUsers();
-        // this.props.fetchUser(this.props.match.params.userId)
-        // this.props.fetchPosts();
     }
     render(){
-        // debugger
-        const {loggedIn} = this.props;
+        const {loggedIn, users} = this.props;
+        const user = users[this.props.match.params.userId]
+        debugger
+        if (!user) return null;
         return(
             <div className='profile-page-container'>
-                {/* <div className='nav-bar-container'>
-                    <NavBar/>
-                </div> */}
                 <div className='profile-info-container'>
                     <div className='profile-picture'>
                         <img></img>
+                        {user.handle}
                         <div>About me goes here</div>
                     </div>
                     <div className='profile-posts'>
                         User posts go here
                     </div>
-                    {loggedIn ? <div>Friends Bar component goes here</div> : null}
+                    {loggedIn ? <div>Friends Bar component goes here</div> : <div></div>}
                 </div>
             </div>
         )

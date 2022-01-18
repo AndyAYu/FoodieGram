@@ -4,7 +4,8 @@ import { receiveAllUsers, receiveUser, fetchAllUsers} from '../../actions/user_a
 import ProfilePage from "./profile_page";
 
 const mSTP = state => ({
-    loggedIn: state.session.isAuthenticated
+    loggedIn: state.session.isAuthenticated,
+    users: state.entities.users
 })
 
 const mDTP = dispatch => ({
