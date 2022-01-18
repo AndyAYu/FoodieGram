@@ -14,6 +14,12 @@ const postsReducer = (state = null, action) => {
         case RECEIVE_POST:
             return action.post
         case REMOVE_POST:
-            
+            let nextState = Object.assign({}, state)
+            delete nextState[action.post.id];
+            return nextState;
+        default:
+            return state;
     }
-}
+};
+
+export default postsReducer;
