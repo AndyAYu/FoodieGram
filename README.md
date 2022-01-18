@@ -57,10 +57,12 @@ FoodieGram is a social media app built for foodies. Use it to follow your friend
 
 # Work Breakdown:
 1. Splash/Auth (collective baseline before branching)
+- Anuj/Sonja (1/17-1/18)
 2. Profile Pages 
+Jason/Andy (1/18)
 3. News feed, posts, tracked likes
-4. Live Chat
-5. Search Bar
+6. Live Chat
+7. Search Bar
 
 Bonus:
 Live map, Groups, Top foodies leaderboard
