@@ -4,13 +4,10 @@ class MainPage extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="splash-content">
                 <Modal />
                 <div className="circle"></div>
-                <div>FoodieGram</div>
-                <footer>
-                    <h1>I am footer</h1>
-                </footer>
+                <div className="tagline">Connect with friends and share your favorite restaurants in town</div>
             </div>
         );
     }

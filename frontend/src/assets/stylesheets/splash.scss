@@ -1,20 +1,36 @@
 $main-font: 'Ubuntu', sans-serif;
 
+
+header {
+    height: max-content;
+}
+
 html {
     height: 100%;
-    width: 100%;
 }
 
 body {
     height: 100%;
-    background: linear-gradient(#f0e616, #fdaa2d);
+    background: linear-gradient(#eccb0d, #fdaa2d);
     font-family: $main-font;
+}
+
+.tagline {
+    font-family: $main-font;
+    font-weight: 300;
+    color:rgb(255, 241, 241);
+    font-size: 50px;
+    position: absolute;
+    top: 350px;
+    left: 850px;
+    width: 800px;
+    overflow-wrap: break-word;
 }
 
 .circle {
     position: absolute;
-    left: -300px;
-    top: 150px;
+    left: 200px;
+    top: 70px;
     height: 600px;
     width: 600px;
     border-radius: 50%;
@@ -31,3 +47,17 @@ body {
     to{ transform: rotate(360deg); }
 }
 
+.splash-content {
+    height: 760px;
+    position: relative;
+}
+
+.main-content {
+    height: max-content;
+}
+
+footer {
+    height: 100px;
+    background-color: rgb(255, 185, 56);
+    width: 100%;
+}

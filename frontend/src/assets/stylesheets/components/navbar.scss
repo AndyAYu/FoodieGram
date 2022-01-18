@@ -92,16 +92,16 @@
 }
 
 .navbar{
-  position: fixed;
-  top:0;
-  left:0;
+  // position: fixed;
+  // top:0;
+  // left:0;
   display:flex;
   // padding-left: 100px;
-  padding-right: 100px;
+  // padding-right: 100px;
   align-items:center;
   justify-content: space-between;
   background-color:rgb(247, 135, 8);
-  height: 100px;
+  height: 70px;
   width:100%;
 }
 
@@ -111,21 +111,35 @@
   border-radius: 4px;
   font-family: $main-font;
   color: white;
-  background: rgb(102, 7, 165);
+  background: rgb(13, 177, 109);
+  height: 50px;
+  transition: all .5s;
   border: none;
   cursor: pointer;
+}
+
+.login-btn:hover{
+  // margin-left: 700px;
+  background: rgb(7, 122, 74);
 }
 
 .signup-btn{
   margin-left: 20px;
   padding:12px;
-  margin-right: 100px;
+  margin-right: 50px;
   border-radius: 4px;
   font-family: $main-font;
   color: white;
-  background: rgb(102, 7, 165);
+  height: 50px;
+  background: rgb(13, 177, 109);
   border: none;
+  transition: all .5s;
   cursor: pointer;
+}
+
+.signup-btn:hover{
+  // margin-left: 700px;
+  background: rgb(7, 122, 74);
 }
 
 .logo{
