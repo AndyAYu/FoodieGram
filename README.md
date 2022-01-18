@@ -66,3 +66,8 @@ Jason/Andy (1/18)
 
 Bonus:
 Live map, Groups, Top foodies leaderboard
+
+# Wireframe:
+![Index page](./wireframe/user_index.png)
+
+![Profile page](./wireframe/user_profile.png)
