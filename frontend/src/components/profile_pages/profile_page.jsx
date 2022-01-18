@@ -18,7 +18,7 @@ class ProfilePage extends React.Component{
                     <div className='profile-posts'>
                         User posts go here
                     </div>
-                    {loggedIn ? "Friends Bar goes here" : null}
+                    {loggedIn ? <div>Friends Bar component goes here</div> : null}
                 </div>
             </div>
         )
