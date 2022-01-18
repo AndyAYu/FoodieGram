@@ -1,4 +1,5 @@
 import {connect} from "react-redux";
+import { getAllPosts } from "../../util/post_api_util";
 import ProfilePage from "./profile_page";
 
 const mSTP = state => ({
@@ -6,7 +7,7 @@ const mSTP = state => ({
 })
 
 const mDTP = dispatch => ({
-    // fetchPost: postId => dispatch(fetchPost(postId))
+    fetchPost: () => dispatch(getAllPosts())
     // fetchFriends: () => dispatch(fetchFriends())
 })
 
