@@ -5,6 +5,7 @@ class MainPage extends React.Component {
     render() {
         return (
             <div>
+                <Modal />
                 <footer>
                     I am footer
                 </footer>
