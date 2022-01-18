@@ -5,14 +5,14 @@ export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
 export const RECEIVE_USER = 'RECEIVE_USER';
 
 //actions
-const receiveAllUsers = users => ({
+export const receiveAllUsers = users => ({
     type: RECEIVE_ALL_USERS,
     users
 });
 
-const receiveUser = userId => ({
+export const receiveUser = user => ({
     type: RECEIVE_USER,
-    userId
+    user
 });
 
 //thunk actions
@@ -22,7 +22,7 @@ export const fetchAllUsers = () => dispatch => (
         .then(users => dispatch(receiveAllUsers(users)))
 );
 
-export const fetchUser = userId => dispatch =>(
-    UserAPIUtil.getUser(userId)
-        .then(userId => dispatch(receiveUser(userId)))
+export const fetchUser = user => dispatch =>(
+    UserAPIUtil.getUser(user.id)
+        .then(user => dispatch(receiveUser(user)))
 )

@@ -5,12 +5,11 @@ import {
 
 const usersReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
-
+    let nextState= Object.assign({}, oldState)
+    // debugger
     switch(action.type){
         case RECEIVE_ALL_USERS:
-            return action.users;
-        case RECEIVE_USER:
-            return action.users[action.userId]
+            return action.users.data;
         default:
             return oldState;
     }
