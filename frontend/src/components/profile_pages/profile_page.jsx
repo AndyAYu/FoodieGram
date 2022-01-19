@@ -1,5 +1,6 @@
 import React from 'react';
-import NavBar from '../nav/navbar'
+import NavBar from '../nav/navbar';
+import Newsfeed from '../news_feed/news_feed';
 
 
 class ProfilePage extends React.Component{
@@ -24,7 +25,7 @@ class ProfilePage extends React.Component{
                         <div>Shortcuts</div>
                     </div>
                     <div className='profile-posts'>
-                        <div>All posts  </div>
+                        <div><Newsfeed />  </div>
                         <div></div>
                         <div>Create Post form component</div>
                         <div>Posts container component</div>
