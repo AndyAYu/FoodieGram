@@ -6,6 +6,8 @@ const users = require("./routes/api/users");
 const posts = require("./routes/api/posts")
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const conversations = require("./routes/api/conversations")
+const messages = require("./routes/api/messages")
 const path = require('path');
 
 if (process.env.NODE_ENV === 'production') {
