@@ -32,11 +32,7 @@ router.get('/:id', (req, res) => {
             );            
 });
 
-<<<<<<< HEAD
 router.post('/',
-=======
-router.post('/new_post',
->>>>>>> main
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
         const { errors, isValid } = validatePostInput(req.body);
@@ -59,19 +55,14 @@ router.post('/new_post',
 router.patch('/:id', 
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-        const { errors, isValid } = validatePostInput(req.address);
+        const { errors, isValid } = validatePostInput(req.body);
 
         if (!isValid) {
             return res.status(400).json(errors);
         }
 
-        Post.findById(req.params.id)
-        .then(post => post.update(req.body))
-        .then(post => res.json(post))
-        .catch(err =>
-            res.status(404).json({ nopostfound: 'No post found with that ID' })
-        )
-        
+        Post.findOneAndUpdate({_id: req.params.id}, 
+            {$set:{body: req.body.body, address: req.body.address, restaurant: req.body.restaurant}}, { returnDocument: 'after' })
 });
 
 module.exports = router;
