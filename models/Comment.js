@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const CommentSchema = new Schema({
-    content: String,   
+    body: {
+        type: String,
+        required: true
+    }, 
     post: { type: ObjectId,
         ref: 'Post'
     },
