@@ -3,7 +3,7 @@ const validText = require('./valid-text');
 
 module.exports = function validatePostInput(data) {
     let errors = {};
-
+    // debugger
 
     data.address = validText(data.address) ? data.address : '';
 
@@ -16,8 +16,8 @@ module.exports = function validatePostInput(data) {
     }
     data.body = validText(data.body) ? data.body : '';
 
-    if (!Validator.isLength(data.body, { min: 15, max: 50 })) {
-        errors.body = 'Body must be between 20 and 200 characters';
+    if (!Validator.isLength(data.body, { min: 10, max: 50 })) {
+        errors.body = 'Body must be between 10 and 50 characters';
     }
 
     if (Validator.isEmpty(data.body)) {
