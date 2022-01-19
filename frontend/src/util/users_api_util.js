@@ -5,8 +5,8 @@ export const getAllUsers = () => (
 )
 
 
-export const addFriend = friendId => (
-    axios.post(`/api/users`, {friendId})
+export const addFriend = userId => (
+    axios.post(`/api/users`, {userId})
 )
 
 export const removeFriend = friendId => (
