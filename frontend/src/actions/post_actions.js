@@ -17,7 +17,6 @@ export const receivePost = post => ({
     post
 })
 
-
 export const receiveEditedPost = post => ({
     type: RECEIVE_EDITED_POST,
     post

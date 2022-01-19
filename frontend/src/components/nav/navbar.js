@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 // import './navbar.css'
 
 class NavBar extends React.Component {
@@ -9,15 +9,21 @@ class NavBar extends React.Component {
         this.getLinks = this.getLinks.bind(this);
     }
 
+
     logoutUser(e) {
+        // debugger
         e.preventDefault();
         this.props.logout();
+        // this.props.history.push('/')
     }
 
     // Selectively render links dependent on whether the user is logged in
     getLinks() {
-        if (this.props.loggedIn) {
-            // debugger
+        // const {currentUser, allUsers} = this.props;
+        // let currentUserId;
+    
+        if (this.props.loggedIn) {          
+                
             return (
                 <div>
                     <Link to={'/posts'}>All Posts</Link>
@@ -38,6 +44,7 @@ class NavBar extends React.Component {
     }
 
     render() {
+        // debugger
         return (
             <nav className="navbar">
                 <h1 className="logo"><Link to ='/'>FoodieGram</Link></h1>
@@ -47,4 +54,4 @@ class NavBar extends React.Component {
     }
 }
 
-export default NavBar;
+export default withRouter(NavBar);
