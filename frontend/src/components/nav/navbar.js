@@ -17,8 +17,8 @@ class NavBar extends React.Component {
 
     // Selectively render links dependent on whether the user is logged in
     getLinks() {
-        const {currentUser, allUsers} = this.props;
-        let currentUserId;
+        // const {currentUser, allUsers} = this.props;
+        // let currentUserId;
     
         if (this.props.loggedIn) {          
                 

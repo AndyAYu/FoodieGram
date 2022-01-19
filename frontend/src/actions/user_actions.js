@@ -40,7 +40,7 @@ export const addFriendship = friendId => dispatch =>(
         .then(friend => dispatch(addFriend(friend)))
 )
 
-export const deleteFriendshop = friendId => dispatch => (
+export const deleteFriendship = friendId => dispatch => (
     UserAPIUtil.removeFriend(friendId)
         .then(()=> dispatch(deleteFriend(friendId)))
 )
