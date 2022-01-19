@@ -24,9 +24,9 @@ class NavBar extends React.Component {
                 
             return (
                 <div>
-                    <Link to={'/tweets'}>All Tweets</Link>
+                    <Link to={'/posts'}>All Posts</Link>
                     <Link to={`/pages/${1}`}>Profile</Link>
-                    <Link to={'/new_tweet'}>Write a Tweet</Link>
+                    <Link to={'/new_post'}>Write a Post</Link>
                     <button onClick={this.logoutUser}>Logout</button>
                 </div>
             );

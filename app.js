@@ -3,8 +3,11 @@ const app = express();
 const mongoose = require("mongoose");
 const db = require ("./config/keys").mongoURI;
 const users = require("./routes/api/users");
+const posts = require("./routes/api/posts")
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const conversations = require("./routes/api/conversations")
+const messages = require("./routes/api/messages")
 const path = require('path');
 
 if (process.env.NODE_ENV === 'production') {
@@ -23,6 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/users", users);
+app.use("/api/users/posts", posts);
 
 app.use(passport.initialize());
 require('./config/passport')(passport);

@@ -14,6 +14,7 @@ class SignupForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
         this.clearedErrors = false;
     }
 
@@ -31,6 +32,15 @@ class SignupForm extends React.Component {
         });
     }
 
+    handleDemoSubmit(e){
+        e.preventDefault();
+
+        this.props.login({
+            email: "demo@gmail.com",
+            password: "password"
+        })
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         let user = {
@@ -41,22 +51,31 @@ class SignupForm extends React.Component {
         };
 
         this.props.signup(user, this.props.history)
-        console.log(this.state.signedIn)
+        // console.log(this.state.signedIn)
         if(this.state.signedIn){
             this.props.login(user)
-        } 
-          
+        }       
     }
 
-    renderErrors() {
+    handleDemoSubmit(e){
+        e.preventDefault();
+
+        this.props.login({
+            email: "demo@gmail.com",
+            password: "password"
+        })
+    }
+
+
+    renderErrors(field) {
+        // debugger
         return (
-            <ul>
-                {Object.keys(this.state.errors).map((error, i) => (
-                    <li className="errors-li" key={`error-${i}`}>
-                        {this.state.errors[error]}
-                    </li>
-                ))}
-            </ul>
+            <div className="error">
+                {/* {Object.keys(this.state.errors).map((error, i) => (
+                    <li className="errors-li" key={`error-${i}`}> */}
+                        {this.state.errors[field]}
+                    {/* </li> */}
+            </div>
         );
     }
 
@@ -67,31 +86,40 @@ class SignupForm extends React.Component {
                 <form className="auth-form" onSubmit={this.handleSubmit}>
                     <div className="form-div">
                         <br />
+                        <label className="login-email-label">Email
                         <input type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
-                            placeholder="Email" className="signup-email"
-                        />
+                            placeholder="Email" className="login-email"
+                        />{this.renderErrors("email")}
+                        </label>
                         <br />
+                        <label className="login-handle-label">Handle
                         <input type="text"
                             value={this.state.handle}
                             onChange={this.update('handle')}
-                            placeholder="Handle" className="signup-handle"
-                        />
+                            placeholder="Handle" className="login-handle"
+                        />{this.renderErrors("handle")}
+                        </label>
                         <br />
+                        <label className="login-password-label">Password
                         <input type="password"
                             value={this.state.password}
                             onChange={this.update('password')}
-                            placeholder="Password" className="signup-password"
-                        />
+                            placeholder="Password" className="login-password"
+                        />{this.renderErrors("password")}
+                        </label>
                         <br />
+                        <label className="login-password-label">Confirm password
                         <input type="password"
                             value={this.state.password2}
                             onChange={this.update('password2')}
-                            placeholder="Confirm Password" className="signup-password2"
-                        />
+                            placeholder="Confirm Password" className="login-password"
+                        />{this.renderErrors("password2")}
+                        </label>
                         <br />
                         <input className="submit-form-btn" type="submit" value="Submit" />
+                        <button className="demo-form-btn" onClick={this.handleDemoSubmit}>Demo Login</button>
                         {this.renderErrors()}
                     </div>
                 </form>
