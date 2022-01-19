@@ -32,19 +32,20 @@ router.get('/:id', (req, res) => {
             );            
 });
 
-router.post('/new_posts',
+router.post('/new_post',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-        const { errors, isValid } = validatePostInput(req.address);
-
+        const { errors, isValid } = validatePostInput(req.body);
+        // debugger
         if (!isValid) {
             return res.status(400).json(errors);
         }
 
         const newPost = new Post({
-            body: req.body.text,
-            address: req.address.text,
-            user: req.user.id
+            body: req.body.body,
+            address: req.body.address,
+            user: req.body.user,
+            restaurant: req.body.restaurant
         });
 
         newPost.save().then(post => res.json(post));
