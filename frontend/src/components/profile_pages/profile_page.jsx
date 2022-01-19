@@ -27,7 +27,7 @@ class ProfilePage extends React.Component{
         index = users.findIndex(user => user._id === currentUser);
 
         if (users[index].friends.includes(users[this.props.match.params.userId]._id)){
-            return <div>Already friends</div>
+            return <div className='already-friends'>Already friends</div>
         } else{ return <button className='profile-add-friend' onClick={() => this.addFriend()}>Add Friend</button>       
         }
         
