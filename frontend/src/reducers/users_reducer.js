@@ -8,7 +8,7 @@ const usersReducer = (oldState = [], action) => {
     Object.freeze(oldState);
     let nextState = oldState.slice();
     let index;
-    debugger
+    // debugger
     switch(action.type){
         case RECEIVE_ALL_USERS:
             return action.users.data;
