@@ -15,10 +15,16 @@ const UserSchema = new Schema({
       type: String,
       required: true
     },
-    posts: [{type: mongoose.Schema.Types.ObjectId,
-    ref: 'Post'}],
-    comments: [{ type: mongoose.Schema.Types.ObjectId,
-    ref: 'Comment'}]
+    posts: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Post'}],
+    comments: [{ 
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Comment'}],
+    friends:[{ 
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    }]
   }, 
   {
     timestamps: true
