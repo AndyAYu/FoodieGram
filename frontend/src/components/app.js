@@ -9,12 +9,19 @@ import Feed from './feed/feed';
 
 const App = () => (
     <div>
-        <NavBarContainer />
+        <header>
+            <NavBarContainer />
+        </header>
+        <div className="main-content">
         <Switch>
             <AuthRoute exact path="/" component={MainPage} />
             <Route path='/pages/:userId' component={ProfilePageContainer} />
             <ProtectedRoute exact path="/feed" component={Feed}></ProtectedRoute>
         </Switch>
+        </div>
+        <footer className="splash-only regular">
+            <h1>I am footer</h1>
+        </footer>
     </div>
 );
 
