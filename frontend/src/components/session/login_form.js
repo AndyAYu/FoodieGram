@@ -65,16 +65,16 @@ class LoginForm extends React.Component {
     render() {
         return (
             <div className="auth-form-container">
-                <h2>Login</h2>
+                <div className="login-header">Login</div>
                 <form className="auth-form" onSubmit={this.handleSubmit}>
                     <div className="form-div">
                         <input type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
-                            placeholder="Email"
+                            placeholder="Email" className="login-email"
                         />
                         <br />
-                        <input type="password"
+                        <input type="password" className="login-password"
                             value={this.state.password}
                             onChange={this.update('password')}
                             placeholder="Password"
