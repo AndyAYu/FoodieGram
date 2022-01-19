@@ -10,16 +10,32 @@ const PostSchema = new Schema ({
         type: String,
         required: true
     },
-    user_id: {
-        type: Number,
-        required: true
-    },
+    // user_id: {
+    //     type: Number,
+    //     required: true
+    // },
     restaurant: {
         type: String,
         required: true
     },
-    user: { type: Schema.Types.ObjectId, ref: 'User' },//belongs to
-    comments: [CommentSchema]// has many
+    date: {
+        type: Date,
+        default: Date.now
+    },
+    user: { type: Schema.Types.ObjectId, 
+        ref: 'User' 
+    },
+    comments: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Comment'
+    }]
+
+    // comments: [{
+    //     type: ObjectId,
+    //     ref: 'comment'
+    // }]// has many
+}, {
+    timestamps: true
 })
 
-module.exports = Post = mongoose.model('post', PostSchema);
+module.exports = Post = mongoose.model('Post', PostSchema);
