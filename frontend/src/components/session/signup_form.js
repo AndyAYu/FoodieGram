@@ -48,15 +48,15 @@ class SignupForm extends React.Component {
           
     }
 
-    renderErrors() {
+    renderErrors(field) {
+        // debugger
         return (
-            <ul>
-                {Object.keys(this.state.errors).map((error, i) => (
-                    <li className="errors-li" key={`error-${i}`}>
-                        {this.state.errors[error]}
-                    </li>
-                ))}
-            </ul>
+            <div className="error">
+                {/* {Object.keys(this.state.errors).map((error, i) => (
+                    <li className="errors-li" key={`error-${i}`}> */}
+                        {this.state.errors[field]}
+                    {/* </li> */}
+            </div>
         );
     }
 
@@ -67,31 +67,40 @@ class SignupForm extends React.Component {
                 <form className="auth-form" onSubmit={this.handleSubmit}>
                     <div className="form-div">
                         <br />
+                        <label className="signup-email-label">Email
                         <input type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
                             placeholder="Email" className="signup-email"
-                        />
+                        />{this.renderErrors("email")}
+                        </label>
                         <br />
+                        <label className="signup-handle-label">Handle
                         <input type="text"
                             value={this.state.handle}
                             onChange={this.update('handle')}
                             placeholder="Handle" className="signup-handle"
-                        />
+                        />{this.renderErrors("email")}
+                        </label>
                         <br />
+                        <label className="signup-password-label">Password
                         <input type="password"
                             value={this.state.password}
                             onChange={this.update('password')}
                             placeholder="Password" className="signup-password"
-                        />
+                        />{this.renderErrors("email")}
+                        </label>
                         <br />
+                        <label className="signup-password2-label">Confirm password
                         <input type="password"
                             value={this.state.password2}
                             onChange={this.update('password2')}
                             placeholder="Confirm Password" className="signup-password2"
-                        />
+                        />{this.renderErrors("email")}
+                        </label>
                         <br />
                         <input className="submit-form-btn" type="submit" value="Submit" />
+                        <button className="demo-form-btn">Demo Login</button>
                         {this.renderErrors()}
                     </div>
                 </form>
