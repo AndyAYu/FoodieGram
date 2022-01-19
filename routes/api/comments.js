@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
         );
 });
 
-router.post('/new_comment',
+router.post('/',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
         const { errors, isValid } = validateCommentInput(req.body);
