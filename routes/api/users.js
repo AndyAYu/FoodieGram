@@ -114,4 +114,17 @@ router.post('/', passport.authenticate('jwt',{session: false}), (req, res) => {
   res.send({friendId: req.body.userId, currentUserId: req.user.id})
 })
 
+
+//delete friend
+router.delete( '/:friendId', passport.authenticate('jwt', {session:false}),  (req, res) => {
+  // debugger
+  // User.findById(req.user.id).then(currentUser => {
+  //     currentUser.friends.push(req.body.userId);
+  //     currentUser.save();
+  //   }
+  // )
+  res.send({ friendId: req.body.friendId, currentUserId: req.user.id })
+  })
+
+
 module.exports = router;

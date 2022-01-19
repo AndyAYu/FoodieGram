@@ -8,7 +8,7 @@ const usersReducer = (oldState = [], action) => {
     Object.freeze(oldState);
     let nextState = oldState.slice();
     let index;
-    // debugger
+    debugger
     switch(action.type){
         case RECEIVE_ALL_USERS:
             return action.users.data;
@@ -20,7 +20,11 @@ const usersReducer = (oldState = [], action) => {
             if (!nextState[index].friends.includes(action.friend.data.friendId)) nextState[index].friends.push(action.friend.data.friendId)
             return nextState;
         case DELETE_FRIEND:
-            return oldState;
+            nextState.forEach((user, i) => {
+                if (action.friendId.data.currentUserId === user._id) { index = i }
+            })
+            nextState[index].friends = nextState[index].friends.filter(friend => friend !== action.friendId.config.url.split('/')[3])
+            return nextState;
         default:
             return oldState;
     }
