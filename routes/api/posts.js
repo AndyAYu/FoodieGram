@@ -7,7 +7,7 @@ const passport = require('passport');
 const Post = require('../../models/Post');
 const validatePostInput = require('../../validation/posts');
 
-router.get('/test', (req,res) => {
+router.get('/', (req,res) => {
     Post.find()
         .sort({ date: -1})
         .then(posts => res.json(posts))
@@ -17,7 +17,7 @@ router.get('/test', (req,res) => {
 router.get('/user/:user_id', (req, res) => {
     Post.find({user: req.params.user_id})
         .sort({ date: -1 })
-        .then(posts => restart.json(posts))
+        .then(posts => res.json(posts))
         .catch(err =>
             res.status(404).json({ nopostsfound: 'No posts found from that user' }
         )
@@ -26,13 +26,13 @@ router.get('/user/:user_id', (req, res) => {
 
 router.get('/:id', (req, res) => {
     Post.findById(req.params.id)
-        .then(post => restart.json(post))
+        .then(post => res.json(post))
         .catch(err =>
             res.status(404).json({ nopostfound: 'No post found with that ID' })
             );            
 });
 
-router.post('/new_posts',
+router.post('/',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
         const { errors, isValid } = validatePostInput(req.address);
@@ -50,5 +50,23 @@ router.post('/new_posts',
         newPost.save().then(post => res.json(post));
     }
 );
+
+router.patch('/:id', 
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+        const { errors, isValid } = validatePostInput(req.address);
+
+        if (!isValid) {
+            return res.status(400).json(errors);
+        }
+
+        Post.findById(req.params.id)
+        .then(post => post.update(req.body))
+        .then(post => res.json(post))
+        .catch(err =>
+            res.status(404).json({ nopostfound: 'No post found with that ID' })
+        )
+        
+});
 
 module.exports = router;
