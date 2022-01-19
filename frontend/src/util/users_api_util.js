@@ -9,6 +9,6 @@ export const addFriend = userId => (
     axios.post(`/api/users`, {userId})
 )
 
-export const removeFriend = friendId => (
+export const removeFriend = (friendId) => (
     axios.delete(`/api/users/${friendId}`)
 )
