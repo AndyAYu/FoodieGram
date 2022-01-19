@@ -4,10 +4,18 @@ import { openModal } from '../../actions/modal_actions';
 
 import NavBar from './navbar';
 
-const mapStateToProps = state => ({
-    loggedIn: state.session.isAuthenticated,
-    currentUser: state.session.user.id
-});
+const mapStateToProps = state => {
+    let currentUserId
+    if(state.session.user){
+        currentUserId = state.session.user.id
+    }
+    return(
+        {
+            loggedIn: state.session.isAuthenticated,
+            currentUser: currentUserId
+        }
+    )
+};
 
 const mDTP = dispatch => ({
     logout: () => dispatch(logout()),
