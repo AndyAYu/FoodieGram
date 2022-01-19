@@ -4,11 +4,12 @@ import { receiveAllUsers, receiveUser, fetchAllUsers} from '../../actions/user_a
 import ProfilePage from "./profile_page";
 
 const mSTP = state => ({
-    loggedIn: state.session.isAuthenticated
+    loggedIn: state.session.isAuthenticated,
+    users: state.entities.users
 })
 
 const mDTP = dispatch => ({
-    fetchPosts: () => dispatch(receiveAllPosts()),
+    fetchAllPosts: () => dispatch(receiveAllPosts()),
     fetchUser: userId => dispatch(receiveUser(userId)),
     fetchAllUsers: () => dispatch(fetchAllUsers())
     // fetchFriends: () => dispatch(fetchFriends())
