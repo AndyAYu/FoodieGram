@@ -18,7 +18,7 @@ const PostSchema = new Schema ({
         type: String,
         required: true
     },
-    user: { type: Schema.Types.ObjectId, ref: 'User' },//belongs to
+    user: { type: Schema.Types.ObjectId, ref: 'user' },//belongs to
     comments: [CommentSchema]// has many
 })
 

@@ -13,9 +13,12 @@ const UserSchema = new Schema({
     password: {
       type: String,
       required: true
-    }
-  }, {
+    },
+    comments: [CommentSchema],
+    posts: [PostSchema]
+  }, 
+  {
     timestamps: true
   })
 
-module.exports = User = mongoose.model('User', UserSchema);
+module.exports = User = mongoose.model('user', UserSchema);
