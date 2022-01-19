@@ -11,9 +11,10 @@ const postsReducer = (state = null, action) => {
     let nextState = Object.assign({}, state)
     switch(action.type) {
         case RECEIVE_ALL_POSTS:
-            return action.posts;
+            nextState.all = action.posts.data;
+            return nextState;
         case RECEIVE_POST:
-            return action.post
+            return action.post.data;
         case REMOVE_POST:
             delete nextState[action.post.id];
             return nextState;
