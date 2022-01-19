@@ -10,13 +10,17 @@ const PostSchema = new Schema ({
         type: String,
         required: true
     },
-    user_id: {
-        type: Number,
-        required: true
-    },
+    // user_id: {
+    //     type: Number,
+    //     required: true
+    // },
     restaurant: {
         type: String,
         required: true
+    },
+    date: {
+        type: Date,
+        default: Date.now
     },
     user: { type: Schema.Types.ObjectId, 
         ref: 'User' 
