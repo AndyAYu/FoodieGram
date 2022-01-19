@@ -80,7 +80,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 450px;
+  height: 550px;
   padding: 20px;
   box-sizing: border-box;
   background-color: white;
@@ -90,7 +90,7 @@
   width: 100%;
 }
 
-.auth-form .login-email, .login-password{
+.auth-form .login-email, .login-password, .login-handle{
   width:100%;
   text-align: center;
   height: 40px;
@@ -102,6 +102,8 @@
   font-size: 15px;
   margin-bottom: 5px;
 }
+
+
 
 .login-email:focus, .login-password:focus{
   // background-color: rgb(173, 255, 153);
@@ -145,10 +147,18 @@
 
 }
 
-.login-email-label {
+.login-email-label{
   position: relative;
   width: 80%;
   margin-top: 20px;
+  font-weight: 300;
+  font-size: 14px;
+  color: rgb(68, 68, 68);
+}
+
+.login-handle-label {
+  position: relative;
+  width: 80%;
   font-weight: 300;
   font-size: 14px;
   color: rgb(68, 68, 68);
