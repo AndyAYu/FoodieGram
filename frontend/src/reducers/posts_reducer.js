@@ -5,13 +5,13 @@ import {
     REMOVE_POST
 } from '../actions/post_actions';
 
-const postsReducer = (state = null, action) => {
+const postsReducer = (state = {}, action) => {
     Object.freeze(state);
     
     let nextState = Object.assign({}, state)
     switch(action.type) {
         case RECEIVE_ALL_POSTS:
-            nextState.all = action.posts.data;
+            nextState = action.posts.data;
             return nextState;
         case RECEIVE_POST:
             return action.post.data;

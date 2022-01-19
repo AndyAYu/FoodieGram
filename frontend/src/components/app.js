@@ -6,6 +6,7 @@ import MainPage from './main/main_page';
 import ProfilePageContainer from './profile_pages/profile_page_container'
 import Feed from './feed/feed';
 import MessengerContainer from './messenger/messenger_container';
+import CreatePostFormContainer from './post/create_post_form_container';
 
 
 const App = () => (
@@ -14,6 +15,7 @@ const App = () => (
             <NavBarContainer />
         </header>
         <div className="main-content">
+            <CreatePostFormContainer />
         <Switch>
             <AuthRoute exact path="/" component={MainPage} />
             <Route path='/pages/:userId' component={ProfilePageContainer} />
