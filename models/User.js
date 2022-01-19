@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 const UserSchema = new Schema({
     handle: {
       type: String,
@@ -13,8 +14,13 @@ const UserSchema = new Schema({
     password: {
       type: String,
       required: true
-    }
-  }, {
+    },
+    posts: [{type: mongoose.Schema.Types.ObjectId,
+    ref: 'Post'}],
+    comments: [{ type: mongoose.Schema.Types.ObjectId,
+    ref: 'Comment'}]
+  }, 
+  {
     timestamps: true
   })
 
