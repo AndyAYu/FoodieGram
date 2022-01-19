@@ -9,7 +9,7 @@ const mSTP = state => ({
 })
 
 const mDTP = dispatch => ({
-    fetchPosts: () => dispatch(receiveAllPosts()),
+    fetchAllPosts: () => dispatch(receiveAllPosts()),
     fetchUser: userId => dispatch(receiveUser(userId)),
     fetchAllUsers: () => dispatch(fetchAllUsers())
     // fetchFriends: () => dispatch(fetchFriends())
