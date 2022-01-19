@@ -7,7 +7,7 @@ import FriendsBar from './friends_bar'
 const mSTP = state => {
     debugger
     if(state.entities.users && state.session.user){
-        let currentUserId = state.session.id
+        let currentUserId = state.session.user.id
         state.entities.users.filter((user,i) =>  user)
         return({
             currentUserId: currentUserId
