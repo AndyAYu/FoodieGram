@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
             );            
 });
 
-router.post('/posts',
+router.post('/new_posts',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
         const { errors, isValid } = validatePostInput(req.address);
@@ -47,7 +47,7 @@ router.post('/posts',
             user: req.user.id
         });
 
-        newPost.save().then(post => res.json(tweet));
+        newPost.save().then(post => res.json(post));
     }
 );
 
