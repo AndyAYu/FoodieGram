@@ -95,9 +95,23 @@ router.post("/register", (req, res) => {
     });
   })
 
+  //get all users
+
   router.get('/',(req, res) =>{
     User.find({})
       .then(users => res.json(users))
   })
+
+// add friend
+// debugger
+router.post('/', passport.authenticate('jwt',{session: false}), (req, res) => {
+  User.findById(req.user.id).then(currentUser => {
+    if(!currentUser.friends.includes(req.body.userId)){
+      currentUser.friends.push(req.body.userId);
+      currentUser.save();
+    }
+  })
+  res.send({friendId: req.body.userId, currentUserId: req.user.id})
+})
 
 module.exports = router;

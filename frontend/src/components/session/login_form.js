@@ -1,3 +1,4 @@
+import { deleteModel } from 'mongoose';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
@@ -12,6 +13,7 @@ class LoginForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
     }
 
@@ -49,16 +51,25 @@ class LoginForm extends React.Component {
         
     }
 
+    handleDemoSubmit(e){
+        e.preventDefault();
+
+        this.props.login({
+            email: "demo@gmail.com",
+            password: "password"
+        })
+    }
+
     // Render the session errors if there are any
-    renderErrors() {
+    renderErrors(field) {
+        // debugger
         return (
-            <ul>
-                {Object.keys(this.state.errors).map((error, i) => (
-                    <li className="errors-li" key={`error-${i}`}>
-                        {this.state.errors[error]}
-                    </li>
-                ))}
-            </ul>
+            <div className="error">
+                {/* {Object.keys(this.state.errors).map((error, i) => (
+                    <li className="errors-li" key={`error-${i}`}> */}
+                        {this.state.errors[field]}
+                    {/* </li> */}
+            </div>
         );
     }
 
@@ -68,22 +79,30 @@ class LoginForm extends React.Component {
                 <div className="login-header">Login</div>
                 <form className="auth-form" onSubmit={this.handleSubmit}>
                     <div className="form-div">
+                        <label className="login-email-label">Email
                         <input type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
                             placeholder="Email" className="login-email"
-                        />
+                        />{this.renderErrors("email")}
+                        </label>
                         <br />
+                        <label className="login-password-label">Password
                         <input type="password" className="login-password"
                             value={this.state.password}
                             onChange={this.update('password')}
                             placeholder="Password"
-                        />
+                        />{this.renderErrors("password")}
+                         </label>
                         <br />
-                        <input className="submit-form-btn" type="submit" value="Submit" />
-                        {this.renderErrors()}
+                        <div className="button-row">
+                            <input className="submit-form-btn" type="submit" value="Submit" />
+                        </div>
                     </div>
                 </form>
+                <button onClick={this.handleDemoSubmit} className="demo-form-btn">Demo Login</button>
+                    {/* <div className="no-account"><p>Don't have an account?</p>
+                    <button className="signup-bottom">Signup</button></div> */}
             </div>
         );
     }
