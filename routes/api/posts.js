@@ -7,7 +7,7 @@ const passport = require('passport');
 const Post = require('../../models/Post');
 const validatePostInput = require('../../validation/posts');
 
-router.get('/posts', (req,res) => {
+router.get('/test', (req,res) => {
     Post.find()
         .sort({ date: -1})
         .then(posts => res.json(posts))
