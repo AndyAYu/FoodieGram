@@ -11,7 +11,7 @@ class ProfilePage extends React.Component{
     render(){
         const {loggedIn, users} = this.props;
         const user = users[this.props.match.params.userId]
-        debugger
+        // debugger
         if (!user) return null;
         return(
             <div className='profile-page-container'>
