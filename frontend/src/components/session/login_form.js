@@ -13,6 +13,7 @@ class LoginForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
     }
 
@@ -96,10 +97,10 @@ class LoginForm extends React.Component {
                         <br />
                         <div className="button-row">
                             <input className="submit-form-btn" type="submit" value="Submit" />
-                            <button className="demo-form-btn">Demo Login</button>
                         </div>
                     </div>
                 </form>
+                <button onClick={this.handleDemoSubmit} className="demo-form-btn">Demo Login</button>
                     {/* <div className="no-account"><p>Don't have an account?</p>
                     <button className="signup-bottom">Signup</button></div> */}
             </div>
