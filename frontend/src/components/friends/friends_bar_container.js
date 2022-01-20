@@ -4,14 +4,21 @@ import { addFriendship, deleteFriendship, fetchAllUsers } from '../../actions/us
 
 import FriendsBar from './friends_bar'
 
-const mSTP = state => ({
+const mSTP = state => {
+    debugger
+    if(state.entities.users && state.session.user){
+        let currentUserId = state.session.user.id
+        state.entities.users.filter((user,i) =>  user)
+        return({
+            currentUserId: currentUserId
+        })
+    }
+    else{ return{}}
     
-})
+}
 
 const mDTP = dispatch => ({
     fetchAllUsers: () => dispatch(fetchAllUsers()),
-    addFriend: (friendId) => dispatch(addFriendship(friendId)),
-    removeFriend: (friendId) => dispatch(deleteFriendship(friendId))
 })
 
 export default connect(mSTP,mDTP)(FriendsBar)

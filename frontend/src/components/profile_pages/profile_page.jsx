@@ -1,5 +1,6 @@
 import React from 'react';
 
+import FriendsBarContainer from '../friends/friends_bar_container';
 import Newsfeed from '../news_feed/news_feed';
 
 
@@ -63,7 +64,7 @@ class ProfilePage extends React.Component{
 
 
                     </div>
-                    {loggedIn ? <div className='friends-bar'>Friends Bar component goes here</div> : <div></div>}
+                    {loggedIn ? <FriendsBarContainer/> : <div></div>}
                 </div>
             </div>
         )
