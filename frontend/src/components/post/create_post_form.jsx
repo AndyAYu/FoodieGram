@@ -63,7 +63,7 @@ class CreatePostForm extends React.Component {
         // debugger
         if (this.state.errors) {
             return (
-                <div>
+                <div className="post-errors">
                     {this.state.errors[field]}
                 </div>
             );
@@ -79,13 +79,13 @@ class CreatePostForm extends React.Component {
             return (
                 <div className={klass1} onClick={this.resetFields} >
                     <form className={klass2} onSubmit={this.handleSubmit} onClick={e => e.stopPropagation()}>
-                    <div className="login-header">Write a new post</div>
+                    <div className="post-header">Write a new post</div>
                         <div className="form-div">
                             <label className="rest-label">Restaurant name
                             <input type="text"
                                 value={this.state.restaurant}
                                 onChange={this.update('restaurant')}
-                                placeholder="Restaurant name" className="post-rest"
+                                placeholder="Ex: Clinton St. Baking Company" className="post-rest"
                             />
                             {this.renderErrors("restaurant")}
                             </label>
@@ -94,16 +94,16 @@ class CreatePostForm extends React.Component {
                             <input type="text" className="post-address"
                                 value={this.state.address}
                                 onChange={this.update('address')}
-                                placeholder="Address"
+                                placeholder="4 Clinton St, New York, NY 10002"
                             />
                             {this.renderErrors("address")}
                             </label>
                             <br />
-                            <label className="post-body-label">Thoughts on this place?
-                            <input type="text" className="post-body"
+                            <label className="post-body-label">Thoughts?
+                            <textarea className="post-body"
                                 value={this.state.body}
                                 onChange={this.update('body')}
-                                placeholder="Comment"
+                                placeholder="Lovely local spot."
                             />
                             {this.renderErrors("body")}
                             </label>

@@ -70,3 +70,49 @@ a.delete-post{
   bottom: 10px;
   display: flex;
 }
+
+.post-form {
+  height: 500px;
+  background-color: white;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.rest-label, .post-address-label, .post-body-label {
+  margin: 5px 0 5px 0;
+  width: 90%;
+  font-size: 13px;
+  color:rgba(82, 82, 82, 0.966);
+  position: relative;
+}
+
+.rest-label input, .post-address-label input, .post-body-label input {
+  height: 40px;
+  width: 350px;
+  border: 1px solid rgba(255, 194, 64, 0.904);
+  border-radius: 4px;
+}
+
+textarea::placeholder, .rest-label input::placeholder, .post-address-label input::placeholder, .post-body-label input::placeholder {
+  color:rgb(179, 179, 179);
+  font-weight: 300;
+  font-family: $main-font;
+}
+textarea {
+  height: 150px;
+  width: 350px;
+  border: 1px solid rgba(255, 194, 64, 0.904);
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.post-header {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.post-errors{
+  font-size: 12px;
+  color: rgb(243, 45, 45);
+  position: absolute;
+}

@@ -2,23 +2,31 @@
 
 .main-feed {
     height: max-content;
-    background-color: rgb(253, 234, 170);
+    background-color: linear-gradient(#eccb0d, #fdaa2d);
     width: 100%;
     display: flex;
+    padding-top: 50px;
 }
 
-.aside-right, .aside-left {
-    width: 300px;
-    background-color: green;
+.aside-left {
+    width: 20%;
+    background-color: transparent;
+}
+
+.aside-right {
+    width: 20%;
+    background-color: white;
 }
 
 .post-index {
-    width: 80%;
+    width: 50%;
     height: max-content;
     background-color: rgb(253, 255, 228);
     margin-left: 20px;
     margin-right: 20px;
     padding-bottom: 30px;
+    margin-bottom: 50px;
+    border-radius: 4px;
 }
 
 .post-index-item {

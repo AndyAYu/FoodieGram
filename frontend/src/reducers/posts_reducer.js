@@ -7,7 +7,7 @@ import {
 
 const postsReducer = (state = [], action) => {
     Object.freeze(state);
-    debugger
+    // debugger
     let nextState = state.slice();
     switch(action.type) {
         case RECEIVE_ALL_POSTS:
