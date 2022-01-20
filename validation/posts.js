@@ -6,6 +6,7 @@ module.exports = function validatePostInput(data) {
     
 
     data.address = validText(data.address) ? data.address : '';
+    data.restaurant = validText(data.restaurant) ? data.restaurant : '';
 
     if (!Validator.isLength(data.address, { min: 15, max: 50 })) {
         errors.address = 'Address must be between 15 and 50 characters';
@@ -22,6 +23,10 @@ module.exports = function validatePostInput(data) {
 
     if (Validator.isEmpty(data.body)) {
         errors.body = 'Body field is required';
+    }
+
+    if (Validator.isEmpty(data.restaurant)) {
+        errors.restaurant = 'Restaurant name is required';
     }
 
     return {

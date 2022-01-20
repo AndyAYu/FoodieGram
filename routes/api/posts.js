@@ -52,17 +52,34 @@ router.post('/',
     }
 );
 
-router.patch('/:id', 
-    passport.authenticate('jwt', { session: false }),
-    (req, res) => {
-        const { errors, isValid } = validatePostInput(req.body);
+router.patch('/:id', (req, res) => {     
+    const filter = {id: req.params.id};
+    const update = {
+        body: req.body.body,
+        restaurant: req.body.restaurant,
+        address: req.body.address
+    } 
 
-        if (!isValid) {
-            return res.status(400).json(errors);
+    Post.findOneAndUpdate(filter, update, {new: true}, (err, docs) => {
+        if (err) {
+            return res.status(400).json(err)
+        } else {
+            return res.json(docs)
         }
+    })
+        
+});
 
-        Post.findOneAndUpdate({_id: req.params.id}, 
-            {$set:{body: req.body.body, address: req.body.address, restaurant: req.body.restaurant}}, { returnDocument: 'after' })
+router.delete('/:id', (req, res) => {     
+    const filter = {id: req.params.id};
+
+    Post.findOneAndDelete(filter, (err, docs) => {
+        if (err) {
+            return res.status(400).json(err)
+        } else {
+            return res.json(docs)
+        }
+    })    
 });
 
 module.exports = router;

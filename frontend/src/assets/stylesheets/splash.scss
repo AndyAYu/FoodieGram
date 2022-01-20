@@ -16,6 +16,10 @@ body {
     font-family: $main-font;
 }
 
+.hidden {
+    display: none;
+}
+
 .tagline {
     font-family: $main-font;
     font-weight: 300;
@@ -61,7 +65,7 @@ body {
 }
 
 .main-content {
-    height: max-content;
+    min-height: 750px;
     background: linear-gradient(#eccb0d, #fdaa2d);
 }
 
