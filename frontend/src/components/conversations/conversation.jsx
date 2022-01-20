@@ -1,25 +1,27 @@
 import axios from 'axios';
 import React from 'react'
 import { useState, useEffect } from 'react'
+import img2 from '../../assets/images/user2.jpg';
 
 export default function Conversation({ conversation, currentUser }) {
-    // console.log(currentUser.id)
-    // useEffect(() => {
-    //     const friendId = conversation.members.find(m => m !== currentUser.id)
-    //     console.log(friendId);
-    //     const getUser = async () => {
-    //         try{
-    //             const res = await axios(`/api/users/${friendId}`)
-    //         } catch(err){
-    //             console.log(err);
-    //         };
-    //     };
-    //     getUser();
-    // },[currentUser, conversation]);
+    const [user, setUser] = useState(null);
+    useEffect(() => {
+        const friendId = conversation.members.find(m => m !== currentUser.id)
+        const getUser = async () => {
+            try{
+                const res = await axios(`/api/users?userId=${friendId}`)
+                setUser(res.data);
+            } catch(err){
+                console.log(err);
+            };
+        };
+        getUser();
+    },[currentUser, conversation]);
+
     return (
         <div className='conversation'>
-            <img src="" alt="hi" className="conversationImg" />
-            <span className="conversationName">John Doe</span>
+            <img src={img2} alt="" className="conversationImg" />
+            <span className="conversationName">{user? user.handle : "user"}</span>
         </div>
     )
 }
