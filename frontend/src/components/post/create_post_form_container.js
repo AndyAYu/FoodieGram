@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createPost } from '../../actions/post_actions';
+import { createPost, removePostErrors } from '../../actions/post_actions';
 import CreatePostForm from './create_post_form';
 
 const mSTP = (state, ownProps) => ({
@@ -11,7 +11,8 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = (dispatch, ownProps) => {
     return  {createPost: post => dispatch(createPost(post)),
-            hidePostForm: () => ownProps.hidePostForm()
+            hidePostForm: () => ownProps.hidePostForm(),
+            removePostErrors: () => dispatch(removePostErrors())
 }};
 
 export default connect(mSTP, mDTP)(CreatePostForm);

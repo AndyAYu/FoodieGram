@@ -30,13 +30,15 @@ class CreatePostForm extends React.Component {
     }
 
         resetFields(){
+            debugger
             this.setState({
                 body: "",
                 restaurant: "",
                 address: "",
-                errors: {}
+                errors: ""
             })
 
+            this.props.removePostErrors();
             this.props.hidePostForm();
         }
 
@@ -62,7 +64,7 @@ class CreatePostForm extends React.Component {
         renderErrors(field) {
             // debugger
             return (
-                <div className="error">
+                <div>
                     {this.state.errors[field]}
                 </div>
             );
@@ -72,10 +74,9 @@ class CreatePostForm extends React.Component {
             if (!this.props.userId) return null;
             const klass1 = this.props.showPost ? "post-bg" : "hidden";
             const klass2 = this.props.showPost ? "post-form" : "hidden";
-            
+            console.log(this.state);
             return (
-                <div className={klass1} onClick={this.props.hidePostForm} >
-                    <button onClick={this.props.hidePostForm}>X</button>
+                <div className={klass1} onClick={this.resetFields} >
                     <form className={klass2} onSubmit={this.handleSubmit} onClick={e => e.stopPropagation()}>
                     <div className="login-header">Write a new post</div>
                         <div className="form-div">

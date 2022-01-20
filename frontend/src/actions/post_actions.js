@@ -5,7 +5,9 @@ export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
 export const RECEIVE_POST = 'RECEIVE_POST';
 export const RECEIVE_EDITED_POST = 'RECEIVE_EDITED_POST';
 export const REMOVE_POST = 'REMOVE_POST';
-export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS"
+export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS";
+export const REMOVE_POST_ERRORS = "REMOVE_POST_ERRORS";
+
 
 //actions
 export const receiveAllPosts = posts => ({
@@ -29,9 +31,12 @@ export const removePost = postId => ({
 })
 
 export const receivePostErrors = errors => {
-    debugger
     return {type: RECEIVE_POST_ERRORS,
     errors
+}}
+
+export const removePostErrors = () => {
+    return {type: REMOVE_POST_ERRORS
 }}
 
 
