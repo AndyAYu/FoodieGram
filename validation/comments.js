@@ -3,7 +3,7 @@ const validText = require('./valid-text');
 
 module.exports = function validateCommentInput(data) {
     let errors = {}; 
-    debugger
+    
     
     data.body = validText(data.body) ? data.body : '';
     

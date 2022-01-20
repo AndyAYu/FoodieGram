@@ -26,14 +26,10 @@ const PostSchema = new Schema ({
         ref: 'User' 
     },
     comments: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Comment'
+        type: Schema.Types.ObjectId,
+        ref: 'Comments'
     }]
 
-    // comments: [{
-    //     type: ObjectId,
-    //     ref: 'comment'
-    // }]// has many
 }, {
     timestamps: true
 })

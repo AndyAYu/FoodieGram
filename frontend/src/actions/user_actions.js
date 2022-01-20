@@ -1,10 +1,12 @@
 import * as UserAPIUtil from '../util/users_api_util';
+import * as PostAPIutil from '../util/post_api_util';
 
 //action types
 export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const ADD_FRIEND = 'ADD_FRIEND';
-export const DELETE_FRIEND = 'DELETE_FRIEND'
+export const DELETE_FRIEND = 'DELETE_FRIEND';
+export const RECEIVE_POST = 'RECEIVE_POST';
 
 //actions
 export const receiveAllUsers = users => ({
@@ -27,6 +29,11 @@ const deleteFriend = friendId => ({
     friendId
 })
 
+const addPost = post => ({
+    type: RECEIVE_POST,
+    post
+})
+
 //thunk actions
 
 export const fetchAllUsers = () => dispatch => (
@@ -42,5 +49,10 @@ export const addFriendship = friendId => dispatch =>(
 
 export const deleteFriendship = (friendId) => dispatch => (
     UserAPIUtil.removeFriend(friendId)
-        .then((friend)=> dispatch(deleteFriend(friend)))
+        .then(()=> dispatch(deleteFriend(friendId)))
+)
+
+export const fetchPost = postId => dispatch => (
+    PostAPIutil.getPost(postId)
+        .then(post => dispatch(addPost(post)))
 )
