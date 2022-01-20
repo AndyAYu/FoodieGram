@@ -26,9 +26,9 @@ mongoose
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use("/api/users", users);
-app.use("/api/users/posts", posts);
 app.use("/api/users/posts/comments", comments);
+app.use("/api/users/posts", posts);
+app.use("/api/users", users);
 
 app.use(passport.initialize());
 require('./config/passport')(passport);

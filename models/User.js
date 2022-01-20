@@ -16,11 +16,11 @@ const UserSchema = new Schema({
       required: true
     },
     posts: [{
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'Post'}],
     comments: [{ 
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Comment'}],
+      type: Schema.Types.ObjectId,
+      ref: 'Comments'}],
     friends:[{ 
       type: Schema.Types.ObjectId,
       ref: 'User'

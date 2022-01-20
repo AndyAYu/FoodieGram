@@ -1,14 +1,15 @@
 import {
     RECEIVE_ALL_USERS,
     ADD_FRIEND,
-    DELETE_FRIEND
+    DELETE_FRIEND,
+    RECEIVE_POST,
 } from '../actions/user_actions';
 
 const usersReducer = (oldState = [], action) => {
     Object.freeze(oldState);
     let nextState = oldState.slice();
     let index;
-    // debugger
+    
     switch(action.type){
         case RECEIVE_ALL_USERS:
             return action.users.data;
@@ -18,6 +19,12 @@ const usersReducer = (oldState = [], action) => {
                 if(action.friend.data.currentUserId === user._id){ index = i}
             })
             if (!nextState[index].friends.includes(action.friend.data.friendId)) nextState[index].friends.push(action.friend.data.friendId)
+            return nextState;
+        case RECEIVE_POST:
+            nextState.forEach((user, i) => {
+                if (action.post.data.currentUserId === user._id) { index = i }
+            })
+            if (!nextState[index].posts.includes(action.post.data.postId)) nextState[index].posts.push(action.post.data.postId)
             return nextState;
         case DELETE_FRIEND:
             return oldState;

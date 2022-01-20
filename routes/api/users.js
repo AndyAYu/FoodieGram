@@ -88,6 +88,7 @@ router.post("/register", (req, res) => {
   });
 
   router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
+    
     res.json({
       id: req.user.id,
       handle: req.user.handle,
@@ -108,6 +109,10 @@ router.post('/', passport.authenticate('jwt',{session: false}), (req, res) => {
   User.findById(req.user.id).then(currentUser => {
     if(!currentUser.friends.includes(req.body.userId)){
       currentUser.friends.push(req.body.userId);
+      currentUser.save();
+    }
+    if(!currentUser.posts.includes(req.body.userId)){
+      currentUser.posts.push(req.body.userId);
       currentUser.save();
     }
   })
