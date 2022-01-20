@@ -1,4 +1,5 @@
 import React from 'react';
+import PostIndexContainer from '../post/post_index_container';
 
 import FriendsBarContainer from '../friends/friends_bar_container';
 import Newsfeed from '../news_feed/news_feed';
@@ -57,7 +58,7 @@ class ProfilePage extends React.Component{
                         <div>Shortcuts</div>
                     </div>
                     <div className='profile-posts'>
-                        <div><Newsfeed />  </div>
+                        <div><PostIndexContainer />  </div>
                         <div></div>
                         <div>Create Post form component</div>
                         <div>Posts container component</div>

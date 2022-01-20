@@ -1,15 +1,18 @@
 import { connect } from 'react-redux';
-import { receiveAllPosts } from ''
+import { fetchAllUsers } from '../../actions/user_actions';
 import NewsFeed from './news_feed';
+//{ session, entities: {users}}
 
-const mSTP = ({ session, entities: {users}}) => {
+const mSTP = (state) => {
+    // debugger
     return {
-        currentUser: users[session.id]
+        currentUser: users[session.id],
+        users: Object.values(state.entities.users)
     };
 };
 
 const mDTP = dispatch => ({
-    receiveAllPosts: () => dispatch(receiveAllPosts())
+    fetchAllUsers: () => dispatch(fetchAllUsers())
 });
 
-export default connect(mSTP, mDTP)(NewsFeed)
+export default connect(mSTP, mDTP)(NewsFeed);

@@ -1,21 +1,32 @@
 import React from "react";
 // import { Link } from 'react-router-dom';
 // const NewsFeed = ({ currentUser})
-// import Post from "../../../../models/Post";
+import PostIndexContainer from '../post/post_index_container';
 // import Comment from "../../../../models/Comment";
 
-class Newsfeed extends React.Component {
+class NewsFeed extends React.Component {
+    constructor(props){
+        super(props);
+    }
+
+    componentDidMount(){
+        // debugger
+        // this.props.fetchAllUsers();
+    }
+
     render(){
         return(
-            <div>
-                <h1>hello</h1>
-                <h1>hello</h1>
-                <h1>hello</h1>
-                <h1>hello</h1>
-                <h1>hello</h1>
+            <div className="main-feed">
+                <aside className="aside-left">
+                    <h1>Shortcuts</h1>
+                </aside>
+                <PostIndexContainer />
+               <aside className="aside-right">
+                   Friends Bar
+               </aside>
             </div>
         )
     }
 }
 
-export default Newsfeed;
+export default NewsFeed;
