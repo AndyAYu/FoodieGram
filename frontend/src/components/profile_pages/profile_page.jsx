@@ -2,7 +2,7 @@ import React from 'react';
 
 import FriendsBarContainer from '../friends/friends_bar_container';
 import Newsfeed from '../news_feed/news_feed';
-
+// import FriendsBar from '../friends/friends_bar';
 
 class ProfilePage extends React.Component{
 

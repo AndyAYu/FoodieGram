@@ -95,10 +95,10 @@ router.post("/register", (req, res) => {
     });
   })
 
-  // router.get('/',(req, res) =>{
-  //   User.find({})
-  //     .then(users => res.json(users))
-  // })
+  router.get('/',(req, res) =>{
+    User.find({})
+      .then(users => res.json(users))
+  })
 
     router.get('/',async (req, res) => {
       const userId = req.query.userId;
