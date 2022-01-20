@@ -72,6 +72,7 @@ class EditPostForm extends React.Component {
             if (!this.props.userId || !this.props.post) return null;
             const klass1 = this.props.editPostForm ? "post-bg" : "hidden";
             const klass2 = this.props.editPostForm ? "post-form" : "hidden";
+            // debugger
             return (
                 <div className={klass1} onClick={this.resetFields} >
                     <form className={klass2} onSubmit={this.handleSubmit} onClick={e => e.stopPropagation()}>

@@ -9,7 +9,8 @@ class CreatePostForm extends React.Component {
             restaurant: "",
             address: "",
             user: "",
-            errors: {}
+            errors: {},
+            haveErrors: false
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,9 +18,6 @@ class CreatePostForm extends React.Component {
         this.resetFields = this.resetFields.bind(this);
     }
 
-    componentWillReceiveProps(nextProps) {
-        this.setState({ errors: nextProps.errors })
-    }
     
     update(field) {
         return e => this.setState({
@@ -28,52 +26,54 @@ class CreatePostForm extends React.Component {
         });
     }
 
-        resetFields(){
-            debugger
-            this.setState({
-                body: "",
-                restaurant: "",
-                address: "",
-                errors: ""
-            })
+    resetFields(){
+        this.setState({
+            body: "",
+            restaurant: "",
+            address: "",
+            errors: {}
+        })
+        // debugger
+        this.props.removePostErrors();
+        this.props.hidePostForm();
+    }
 
-            this.props.removePostErrors();
-            this.props.hidePostForm();
+    componentWillReceiveProps(nextProps) {
+        this.setState({ errors: nextProps.errors, haveErrors: true })
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        
+        let newPost = {
+        body: this.state.body,
+        restaurant: this.state.restaurant,
+        address: this.state.address,
+        user: this.state.user
         }
 
+        if (!this.state.body || !this.state.restaurant || !this.state.address) {
+           const postErrors = document.getElementById("post-errors")
+            postErrors.classList.remove('hidden')
+        } 
 
-        handleSubmit(e) {
-            e.preventDefault();
-            
-            let newPost = {
-            body: this.state.body,
-            restaurant: this.state.restaurant,
-            address: this.state.address,
-            user: this.state.user
-            }
+        this.props.createPost(newPost).then(()=> this.resetFields());
+    }
 
-            this.props.createPost(newPost);
-
-            if (!this.state.errors){
-                this.resetFields();
-            }
-        }
-
-
-        renderErrors(field) {
-            // debugger
-            return (
-                <div>
-                    {this.state.errors[field]}
-                </div>
-            );
-        }
+    renderErrors(field) {
+        // debugger
+        return (
+            <div className="post-errors hidden">
+                {this.state.errors[field]}
+            </div>
+        );
+    }
 
         render() {
             if (!this.props.userId) return null;
             const klass1 = this.props.showPost ? "post-bg" : "hidden";
             const klass2 = this.props.showPost ? "post-form" : "hidden";
-            console.log(this.state);
+     
             return (
                 <div className={klass1} onClick={this.resetFields} >
                     <form className={klass2} onSubmit={this.handleSubmit} onClick={e => e.stopPropagation()}>
@@ -85,7 +85,7 @@ class CreatePostForm extends React.Component {
                                 onChange={this.update('restaurant')}
                                 placeholder="Restaurant name" className="post-rest"
                             />
-                            {this.renderErrors("restaurant")}
+                            {this.renderErrors("")}
                             </label>
                             <br />
                             <label className="post-address-label">Address

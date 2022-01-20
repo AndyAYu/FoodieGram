@@ -22,10 +22,10 @@ class PostIndexItem extends React.Component {
     }
 
     render(){
-        if (!this.props.post) return null;
+        if (!this.props.post || !this.props.users) return null;
         const userId = this.props.post.user;
-        const userObj = this.props.users.filter(user => user._id === userId);
-    
+        const userObj = this.props.users ? (this.props.users.filter(user => user._id === userId)) : (null)
+        
         const edit = this.props.post.user === this.props.currentUser[0]._id ? (
             <div className="post-buttons">
                 <button onClick={this.openEditForm} className="post-edit-button">Edit</button>
@@ -34,11 +34,11 @@ class PostIndexItem extends React.Component {
         ) : (
             null
         )
-        
+  
         return (
         <li className="post-index-item">
-            <h1>{this.props.post.date.slice(0, 10)}</h1>
-            <h1>{userObj[0].handle}</h1>
+            <h1>Posted on {this.props.post.date.slice(0, 10)}</h1>
+            {/* <h1>{userObj[0].handle}</h1> */}
             <h1>{this.props.post.restaurant}</h1>
             <h1>{this.props.post.address}</h1>
             <h1>{this.props.post.body}</h1>
