@@ -9,13 +9,7 @@ class PostIndexItem extends React.Component {
         if (!this.props.post) return null;
         const userId = this.props.post.user;
         const userObj = this.props.users.filter(user => user._id === userId);
-
-        
-
-        console.log(this.props.post)
-        console.log(this.props.currentUser)
-
-        debugger
+    
         const edit = this.props.post.user === this.props.currentUser[0]._id ? (
             <div className="post-buttons">
                 <button className="post-edit-button">Edit</button>
