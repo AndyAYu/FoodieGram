@@ -88,6 +88,7 @@ router.post("/register", (req, res) => {
   });
 
   router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
+    
     res.json({
       id: req.user.id,
       handle: req.user.handle,
@@ -95,12 +96,30 @@ router.post("/register", (req, res) => {
     });
   })
 
-  //get all users
-
   router.get('/',(req, res) =>{
     User.find({})
       .then(users => res.json(users))
   })
+
+    router.get('/',async (req, res) => {
+      const userId = req.query.userId;
+      const handle = req.query.handle;
+      try {
+        const user = userId
+          ? await User.findById(userId)
+          : await User.findOne({ handle: handle });
+        const { password, updatedAt, ...other } = user._doc;
+        res.status(200).json(other);
+      } catch (err) {
+        res.status(500).json(err);
+      }
+    });
+  //get all users
+
+  // router.get('/',(req, res) =>{
+  //   User.find({})
+  //     .then(users => res.json(users))
+  // })
 
 // add friend
 // debugger
@@ -110,8 +129,25 @@ router.post('/', passport.authenticate('jwt',{session: false}), (req, res) => {
       currentUser.friends.push(req.body.userId);
       currentUser.save();
     }
+    if(!currentUser.posts.includes(req.body.userId)){
+      currentUser.posts.push(req.body.userId);
+      currentUser.save();
+    }
   })
   res.send({friendId: req.body.userId, currentUserId: req.user.id})
 })
+
+
+//delete friend
+router.delete( '/:friendId', passport.authenticate('jwt', {session:false}),  (req, res) => {
+  // debugger
+  User.findById(req.user.id).then(currentUser => {
+      currentUser.friends.push(req.body.userId);
+      currentUser.save();
+    }
+  )
+  res.send({ friendId: req.body.userId, currentUserId: req.user.id })
+  })
+
 
 module.exports = router;

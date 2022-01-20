@@ -48,6 +48,7 @@ class NavBar extends React.Component {
                     <Link to={'/posts'}>All Posts</Link>
                     <Link to={`/pages/${1}`}>Profile</Link>
                     <button onClick={this.showPostForm}>Write a Post</button>
+                    <Link to={'/messenger'}>Live Chat</Link>
                     <button onClick={this.logoutUser}>Logout</button>
                     <CreatePostFormContainer showPost={this.state.showPost} hidePostForm={this.hidePostForm} />
                 </div>

@@ -1,7 +1,6 @@
 .messenger{
     height: calc(100vh - 70px);
     display: flex;
-    margin-top:20px;
 }
 
 .chatMenu{
@@ -10,6 +9,7 @@
 
 .chatBox{
     flex:5.5;
+
 }
 
 .chatBoxBottom{
@@ -54,10 +54,23 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: white;
+}
+
+.chatMenuWrapper, .chatOnlineWrapper{
+    background-color: rgb(235, 232, 232);
 }
 
 .chatBoxTop{
     height:100%;
     overflow-y: scroll;
     padding-right: 10px;
+}
+
+.noConversationText{
+    font-size: 2rem;
+    color:rgb(10, 10, 10);
+    cursor: default;
+    text-align: center;
+    margin-top: 20px;
 }
