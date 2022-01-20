@@ -41,8 +41,9 @@ position: absolute;
 
 .delete-post {
   border: none;
-  background-color: rgb(255, 255, 209);
-  color: $red;
+ 
+  background-color:rgba(16, 196, 209, 0.904);
+  color: white;
   height: 40px;
   font-size: 14px;
   margin-left: 10px;
@@ -53,7 +54,8 @@ position: absolute;
 }
 
 .delete-post:hover{
-  background-color:rgba(255, 194, 64, 0.904)
+  background-color: rgb(255, 255, 209);
+  color: $red;
 }
 
 a.delete-post{
