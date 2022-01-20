@@ -9,8 +9,14 @@ class PostIndexItem extends React.Component {
         if (!this.props.post) return null;
         const userId = this.props.post.user;
         const userObj = this.props.users.filter(user => user._id === userId);
+
+        
+
+        console.log(this.props.post)
+        console.log(this.props.currentUser)
+
         debugger
-        const edit = this.props.currentUser._id === this.props.post.user ? (
+        const edit = this.props.post.user === this.props.currentUser[0]._id ? (
             <div className="post-buttons">
                 <button className="post-edit-button">Edit</button>
                 <button className="post-delete-button">Delete</button>
@@ -18,7 +24,7 @@ class PostIndexItem extends React.Component {
         ) : (
             null
         )
-      
+        
         return (
         <li className="post-index-item">
             <h1>{this.props.post.date.slice(0, 10)}</h1>
@@ -26,7 +32,7 @@ class PostIndexItem extends React.Component {
             <h1>{this.props.post.restaurant}</h1>
             <h1>{this.props.post.address}</h1>
             <h1>{this.props.post.body}</h1>
-            {edit}
+           {edit}
         </li>
         )
     }
