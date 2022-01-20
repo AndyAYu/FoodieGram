@@ -15,10 +15,11 @@ export const receiveAllPosts = posts => ({
     posts
 })
 
-export const receivePost = post => ({
+export const receivePost = post => {
+  return  {
     type: RECEIVE_POST,
     post
-})
+}}
 
 export const receiveEditedPost = post => ({
     type: RECEIVE_EDITED_POST,
@@ -51,12 +52,11 @@ export const getPost = postId => dispatch => (
     .then(post => dispatch(receivePost(post.data)))
 )
 
-export const createPost = post => dispatch => {
-
- return   PostAPIutil.createPost(post)
+export const createPost = post => dispatch => (
+    PostAPIutil.createPost(post)
     .then(post => dispatch(receivePost(post)))
     .catch(err => dispatch(receivePostErrors(err.response.data)))
-}
+)
 
 export const editPost = post => dispatch => (
     PostAPIutil.editPost(post)

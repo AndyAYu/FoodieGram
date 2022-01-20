@@ -52,28 +52,30 @@ class CreatePostForm extends React.Component {
         user: this.state.user
         }
 
-        if (!this.state.body || !this.state.restaurant || !this.state.address) {
-           const postErrors = document.getElementById("post-errors")
-            postErrors.classList.remove('hidden')
-        } 
-
-        this.props.createPost(newPost).then(()=> this.resetFields());
+        this.props.createPost(newPost).then((res) => {
+            // debugger
+            if (res.errors) {
+                this.setState({errors: res.errors })
+            } else { this.resetFields() }})
     }
 
     renderErrors(field) {
         // debugger
-        return (
-            <div className="post-errors hidden">
-                {this.state.errors[field]}
-            </div>
-        );
+        if (this.state.errors) {
+            return (
+                <div>
+                    {this.state.errors[field]}
+                </div>
+            );
+        }
+        
     }
 
         render() {
             if (!this.props.userId) return null;
             const klass1 = this.props.showPost ? "post-bg" : "hidden";
             const klass2 = this.props.showPost ? "post-form" : "hidden";
-     
+    
             return (
                 <div className={klass1} onClick={this.resetFields} >
                     <form className={klass2} onSubmit={this.handleSubmit} onClick={e => e.stopPropagation()}>
@@ -85,7 +87,7 @@ class CreatePostForm extends React.Component {
                                 onChange={this.update('restaurant')}
                                 placeholder="Restaurant name" className="post-rest"
                             />
-                            {this.renderErrors("")}
+                            {this.renderErrors("restaurant")}
                             </label>
                             <br />
                             <label className="post-address-label">Address
