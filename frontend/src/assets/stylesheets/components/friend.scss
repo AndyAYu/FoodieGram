@@ -10,4 +10,20 @@
     border: 1px solid yellow;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.friend-list-item{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding-top: 10%;
+    // padding-bottom: 10%;
+    height: 10%;
+
+}
+
+.friend-link-profile{
+    color: blue;
 }
