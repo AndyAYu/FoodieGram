@@ -19,7 +19,8 @@ class PostIndex extends React.Component {
         const specificPosts = this.props.match.params.userId ? this.props.posts.filter(post => this.props.currentUser[0].friends.includes(post.user)) :
         this.props.posts; 
             debugger
-        const eachPost = specificPosts.map((post, idx) => <PostIndexItem post={post} key={idx} users={this.props.users} currentUser={this.props.currentUser} />)
+        const eachPost = specificPosts.map((post, idx) => <PostIndexItem post={post} key={idx} 
+        users={this.props.users} currentUser={this.props.currentUser} deletePost={this.props.deletePost}/>)
         return (
             <div className="post-index">
                 <ul>

@@ -61,6 +61,7 @@ export const createPost = post => dispatch => {
 export const editPost = post => dispatch => (
     PostAPIutil.editPost(post)
     .then(post => dispatch(receiveEditedPost(post)))
+    .catch(err => dispatch(receivePostErrors(err.response.data)))
 )
 
 export const deletePost = postId => dispatch => (

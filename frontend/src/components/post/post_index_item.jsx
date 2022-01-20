@@ -13,7 +13,7 @@ class PostIndexItem extends React.Component {
         const edit = this.props.post.user === this.props.currentUser[0]._id ? (
             <div className="post-buttons">
                 <button className="post-edit-button">Edit</button>
-                <button className="post-delete-button">Delete</button>
+                <button onClick={()=>this.props.deletePost(this.props.post._id)} className="post-delete-button">Delete</button>
             </div>
         ) : (
             null

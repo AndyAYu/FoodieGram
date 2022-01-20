@@ -11,22 +11,31 @@ const postsReducer = (state = [], action) => {
     let nextState = state.slice();
     switch(action.type) {
         case RECEIVE_ALL_POSTS:
-            nextState = action.posts.data;
-            return nextState;
+            return action.posts.data;
         case RECEIVE_POST:
             nextState.unshift(action.post.data);
             return nextState;
         case REMOVE_POST:
-            delete nextState[action.post.id];
+            nextState.forEach((post, idx, object) => {
+                if (post._id === action.postId) {
+                    object.splice(idx, 1);
+                }
+            })
             return nextState;
         case RECEIVE_EDITED_POST:
-            for (let i = 0; i < state.length; i++) {
-                if (state[i].id !== action.post.id) {
-                    nextState.push(state[i]);
-                } else {
-                    nextState.push(action.post);
+            // for (let i = 0; i < state.length; i++) {
+            //     if (state[i].id !== action.post.id) {
+            //         nextState.push(state[i]);
+            //     } else {
+            //         nextState.push(action.post);
+            //     }
+            // }
+            nextState.forEach((post, idx, object) => {
+                if (post._id === action.post._id) {
+                    object.splice(idx, 1);
                 }
-            }
+                nextState.unshift(action.post.data);
+            })
             return nextState;
         default:
             return state;
