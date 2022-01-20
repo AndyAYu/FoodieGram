@@ -15,7 +15,6 @@ const App = () => (
             <NavBarContainer />
         </header>
         <div className="main-content">
-            <CreatePostFormContainer />
         <Switch>
             <AuthRoute exact path="/" component={MainPage} />
             <Route path='/pages/:userId' component={ProfilePageContainer} />

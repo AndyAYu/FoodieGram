@@ -5,6 +5,7 @@ export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
 export const RECEIVE_POST = 'RECEIVE_POST';
 export const RECEIVE_EDITED_POST = 'RECEIVE_EDITED_POST';
 export const REMOVE_POST = 'REMOVE_POST';
+export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS"
 
 //actions
 export const receiveAllPosts = posts => ({
@@ -27,6 +28,13 @@ export const removePost = postId => ({
     postId
 })
 
+export const receivePostErrors = errors => {
+    debugger
+    return {type: RECEIVE_POST_ERRORS,
+    errors
+}}
+
+
 //thunk action
 export const getAllPosts = (data) => dispatch => (
     PostAPIutil.getAllPosts(data)
@@ -35,13 +43,15 @@ export const getAllPosts = (data) => dispatch => (
 
 export const getPost = postId => dispatch => (
     PostAPIutil.getPost(postId)
-    .then(post => dispatch(receivePost(post)))
+    .then(post => dispatch(receivePost(post.data)))
 )
 
-export const createPost = post => dispatch => (
-    PostAPIutil.createPost(post)
+export const createPost = post => dispatch => {
+
+ return   PostAPIutil.createPost(post)
     .then(post => dispatch(receivePost(post)))
-)
+    .catch(err => dispatch(receivePostErrors(err.response.data)))
+}
 
 export const editPost = post => dispatch => (
     PostAPIutil.editPost(post)

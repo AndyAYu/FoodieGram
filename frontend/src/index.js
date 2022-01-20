@@ -5,7 +5,8 @@ import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout, login, signup } from './actions/session_actions';
-import { getAllPosts, receivePost, removePost, editPost, getPost, createPost } from './actions/post_actions';
+import { getAllPosts, receivePost, removePost, editPost, getPost } from './actions/post_actions';
+import { createPost } from './util/post_api_util';
 
 // import './assets/stylesheets/index.scss';
 

@@ -9,6 +9,7 @@ export const getPost = (postId) => {
 };
 
 export const createPost = (post) => {
+    debugger
     return axios.post(`/api/users/posts/`, post)
 };
 
