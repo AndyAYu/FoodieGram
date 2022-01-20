@@ -1,0 +1,13 @@
+.friend-list-item{
+    height: 50%;
+    border: 1px solid black;
+    // display: flex;
+    text-align: center;
+}
+
+.friends-bar{
+    width: 20%;
+    border: 1px solid yellow;
+    display: flex;
+    flex-direction: column;
+}
