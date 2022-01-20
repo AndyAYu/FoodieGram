@@ -4,8 +4,8 @@ class FriendsBar extends React.Component{
 
     render(){
         return(
-            <div>
-
+            <div className='friends-bar'>
+                HELLO
             </div>
         )
     }

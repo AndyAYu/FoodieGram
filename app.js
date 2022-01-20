@@ -27,8 +27,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/users", users);
-app.use("/api/users/posts", posts);
-app.use("/api/users/posts/comments", comments);
+app.use("/api/users/posts", posts)
+app.use("/api/conversations", conversations);
+app.use("/api/messages", messages);
 
 app.use(passport.initialize());
 require('./config/passport')(passport);

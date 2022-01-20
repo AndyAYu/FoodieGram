@@ -1,5 +1,6 @@
 import React from 'react';
 
+import FriendsBarContainer from '../friends/friends_bar_container';
 import Newsfeed from '../news_feed/news_feed';
 
 
@@ -7,7 +8,9 @@ class ProfilePage extends React.Component{
 
     constructor(props){
         super(props)
+
         this.addFriend = this.addFriend.bind(this);
+        this.removeFriend = this.removeFriend.bind(this);
         this.befriended = this.befriended.bind(this);
     }
 
@@ -21,15 +24,21 @@ class ProfilePage extends React.Component{
         this.props.addFriend(this.props.users[this.props.match.params.userId]._id);
     }
 
+    removeFriend(){
+        // debugger
+        this.props.removeFriend(this.props.users[this.props.match.params.userId]._id)
+    }
+
     befriended(){
         const {users, currentUser} = this.props;
         let index;
         index = users.findIndex(user => user._id === currentUser);
 
-        if (users[index].friends.includes(users[this.props.match.params.userId]._id)){
-            return <div className='already-friends'>Already friends</div>
-        } else{ return <button className='profile-add-friend' onClick={() => this.addFriend()}>Add Friend</button>       
-        }
+        if (users[index].friends.includes(users[this.props.match.params.userId]._id)) 
+            { return <button className='profile-remove-friend' onClick={() => this.removeFriend()}>Remove Friend</button>}
+        else 
+            { return <button className='profile-add-friend' onClick={() => this.addFriend()}>Add Friend</button>   }     
+    
         
     }
     render(){
@@ -55,7 +64,7 @@ class ProfilePage extends React.Component{
 
 
                     </div>
-                    {loggedIn ? <div className='friends-bar'>Friends Bar component goes here</div> : <div></div>}
+                    {loggedIn ? <FriendsBarContainer/> : <div></div>}
                 </div>
             </div>
         )
