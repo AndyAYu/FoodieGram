@@ -3,7 +3,7 @@ import Conversation from '../conversations/conversation';
 import Message from '../message/message';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import { io } from 'socket.io-client';
+import io from 'socket.io-client';
 
 
 export default function Messenger (props) {
@@ -14,11 +14,12 @@ export default function Messenger (props) {
     const [newMessage, setNewMessage] = useState("");
     const [arrivalMessage, setArrivalMessage] = useState(null);
     const scrollRef = useRef();
-    const socket = useRef(io("ws://localhost:8000"));
+    const socket = io();
+
 
     useEffect(() => {
-        socket.current = io("ws://localhost:8000");
-        socket.current.on("getMessage", data => {
+        socket.off();
+        socket.on("getMessage", data => {
             setArrivalMessage({
                 sender: data.senderId,
                 text: data.text,
@@ -34,8 +35,8 @@ export default function Messenger (props) {
 
 
     useEffect(() => {
-        socket.current.emit("addUser", user.id);
-        socket.current.on("getUsers", users=> {
+        socket.emit("addUser", user.id);
+        socket.on("getUsers", users=> {
             console.log(users)
         })
     }, [user]);
@@ -73,13 +74,13 @@ export default function Messenger (props) {
 
         const receiverId = currentChat.members.find(member => member !== user.id)
 
-        socket.current.emit("sendMessage", {
+        socket.emit("sendMessage", {
             senderId: user.id,
             receiverId,
             text: newMessage
         })
         try {
-            const res = await axios.post(`/api/messages`, message);
+            const res = await axios.post(`api/messages`, message);
             setMessages([...messages, res.data]);
             setNewMessage("");
         } catch(err){
@@ -96,8 +97,7 @@ export default function Messenger (props) {
         <div className="messenger">
             <div className="chatMenu">
                 <div className="chatMenuWrapper">
-                    <h2>menu</h2>
-                    <input  placeholder='Search for friends' className='chatMenuInput' />
+                    <h2>Conversations</h2>
                     {
                         conversations.map((convo, idx) => (
                             convo ? 
@@ -139,7 +139,7 @@ export default function Messenger (props) {
             </div>
             <div className="chatOnline">
                 <div className="chatOnlineWrapper">
-                    <h2>online</h2>
+                    <h2>Friends</h2>
                 </div>
             </div>
         </div>
