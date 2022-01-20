@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PostIndex from './post_index';
-import { getAllPosts, editPost, deletePost } from '../../actions/post_actions';
+import { getAllPosts, deletePost } from '../../actions/post_actions';
 import { fetchAllUsers } from '../../actions/user_actions';
 
 const mSTP = state => {
@@ -13,7 +13,6 @@ const mSTP = state => {
 const mDTP = dispatch => ({
     getAllPosts: data => dispatch(getAllPosts(data)),
     fetchAllUsers: () => dispatch(fetchAllUsers()),
-    editPost: post => dispatch(editPost(post)),
     deletePost: postId => dispatch(deletePost(postId))
 });
 

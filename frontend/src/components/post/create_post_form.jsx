@@ -24,8 +24,7 @@ class CreatePostForm extends React.Component {
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value,
-            user: this.props.userId,
-            errors: ""
+            user: this.props.userId
         });
     }
 

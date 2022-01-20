@@ -30,11 +30,13 @@ const postsReducer = (state = [], action) => {
             //         nextState.push(action.post);
             //     }
             // }
-            nextState.forEach((post, idx, object) => {
-                if (post._id === action.post._id) {
-                    object.splice(idx, 1);
+            // debugger
+            nextState.forEach((post) => {
+                if (post._id === action.post.data._id) {
+                    post["body"] = action.post.data.body;
+                    post["restaurant"] = action.post.data.restaurant;
+                    post["address"] = action.post.data.address;
                 }
-                nextState.unshift(action.post.data);
             })
             return nextState;
         default:

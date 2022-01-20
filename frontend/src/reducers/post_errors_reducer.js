@@ -7,7 +7,7 @@ import {
 const _nullErrors = [];
 
 const PostErrorsReducer = (state = _nullErrors, action) => {
-    debugger
+    // debugger
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_POST_ERRORS:
