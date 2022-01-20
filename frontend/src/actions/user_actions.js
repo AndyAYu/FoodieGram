@@ -24,9 +24,9 @@ const addFriend = friend => ({
     friend
 });
 
-const deleteFriend = friendId => ({
+const deleteFriend = friendInfo => ({
     type: DELETE_FRIEND,
-    friendId
+    friendInfo
 })
 
 const addPost = post => ({
@@ -49,7 +49,7 @@ export const addFriendship = friendId => dispatch =>(
 
 export const deleteFriendship = (friendId) => dispatch => (
     UserAPIUtil.removeFriend(friendId)
-        .then(()=> dispatch(deleteFriend(friendId)))
+        .then(friendId=> dispatch(deleteFriend(friendId)))
 )
 
 export const fetchPost = postId => dispatch => (
