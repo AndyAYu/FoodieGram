@@ -9,6 +9,7 @@ const passport = require('passport');
 const conversations = require("./routes/api/conversations")
 const messages = require("./routes/api/messages")
 const path = require('path');
+const socket = require('socket.io');
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('frontend/build'));
@@ -35,4 +36,53 @@ require('./config/passport')(passport);
 
 const port = process.env.PORT || 4000;
 
-app.listen(port, () => {console.log(`Listening on port ${port}`)});
+const server = app.listen(port, () => {console.log(`Listening on port ${port}`)});
+
+const io = socket(server, {
+    cors:{
+        origin:"http://localhost:3000",
+        methods: ["GET", "POST"],
+        credentials: true,
+    }
+});
+
+let usersArr = [];
+
+const addUser = (userId, socketId) => {
+    !usersArr.some(user => user.userId === userId) && 
+    usersArr.push({ userId, socketId });
+};
+
+const removeUser = (socketId) => {
+    usersArr = usersArr.filter(user => user.socketId !== socketId)
+};
+
+const getUser = userId => {
+    console.log(userId)
+    return usersArr.find(user => user.userId === userId)
+};
+
+io.on("connection", (socket) => {
+    console.log("a user connected");
+    socket.on("addUser", userId => {
+        addUser(userId, socket.id);
+        socket.emit("getUsers", usersArr)
+    });
+
+
+    socket.on("sendMessage", ({ senderId, receiverId, text}) => {
+        const user = getUser(receiverId);
+        console.log(user)
+        socket.to(user.socketId).emit("getMessage", {
+            senderId, 
+            text,
+        })
+    })
+
+
+    socket.on("disconnect", () => {
+        console.log("a user disconnected!")
+        removeUser(socket.id);
+        socket.emit("getUsers", usersArr)
+    });
+});
