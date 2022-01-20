@@ -58,12 +58,7 @@ class ProfilePage extends React.Component{
                         <div>Shortcuts</div>
                     </div>
                     <div className='profile-posts'>
-                        <div><PostIndexContainer />  </div>
-                        <div></div>
-                        <div>Create Post form component</div>
-                        <div>Posts container component</div>
-
-
+                        <div><PostIndexContainer /></div>
                     </div>
                     {loggedIn ? <FriendsBarContainer/> : <div></div>}
                 </div>

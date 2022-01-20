@@ -21,3 +21,52 @@ position: absolute;
   border:3px solid rgb(248, 249, 250);
   border-radius: 4px;
 }
+
+.rest-name{
+  font-size: 20px;
+  font-weight: 700;
+  margin: 20px 0 10px 0;
+}
+
+.rest-address{
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.post-body {
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.delete-post {
+  border: none;
+  background-color: rgb(255, 255, 209);
+  color: $red;
+  height: 40px;
+  font-size: 14px;
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+.delete-post:hover{
+  background-color:rgba(255, 194, 64, 0.904)
+}
+
+a.delete-post{
+  display: block;
+  line-height: 20px;
+  height: 20px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.post-buttons{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+}

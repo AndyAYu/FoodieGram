@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { editPost, removePostErrors, getPost } from '../../actions/post_actions';
-import EditPostForm from './edit_post_form';
+import ShowPost from './show_post';
 import { withRouter } from 'react-router-dom';
 
 const mSTP = (state, ownProps) => {
@@ -8,7 +8,6 @@ const mSTP = (state, ownProps) => {
     return {
     currentUser: state.entities.users.filter(user => user._id === state.session.user.id),
     userId: state.session.user.id,
-    errors: state.errors.post,
     postId: ownProps.match.params.postId,
     post: state.entities.posts[0]
     }}
@@ -17,11 +16,8 @@ const mSTP = (state, ownProps) => {
     }
 };
 
-const mDTP = (dispatch, ownProps) => ({
-    editPost: post => dispatch(editPost(post)),
-    // closeEditForm: () => ownProps.closeEditForm(),
-    removePostErrors: () => dispatch(removePostErrors()),
+const mDTP = (dispatch) => ({
     getPost: postId => dispatch(getPost(postId))
 });
 
-export default withRouter(connect(mSTP, mDTP)(EditPostForm));
+export default withRouter(connect(mSTP, mDTP)(ShowPost));
