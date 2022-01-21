@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const getAllPosts = (data) => {
-    return axios.get(`/api/users/posts/`, data)
+export const getAllPosts = () => {
+    return axios.get(`/api/users/posts/`)
 }
 
 export const getPost = (postId) => {

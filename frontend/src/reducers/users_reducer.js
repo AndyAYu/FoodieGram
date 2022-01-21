@@ -20,12 +20,12 @@ const usersReducer = (oldState = [], action) => {
             })
             if (!nextState[index].friends.includes(action.friend.data.friendId)) nextState[index].friends.push(action.friend.data.friendId)
             return nextState;
-        case RECEIVE_POST:
-            nextState.forEach((user, i) => {
-                if (action.post.data.currentUserId === user._id) { index = i }
-            })
-            if (!nextState[index].posts.includes(action.post.data.postId)) nextState[index].posts.push(action.post.data.postId)
-            return nextState;
+        // case RECEIVE_POST:
+        //     nextState.forEach((user, i) => {
+        //         if (action.post.data.currentUserId === user._id) { index = i }
+        //     })
+        //     if (!nextState[index].posts.includes(action.post.data.postId)) nextState[index].posts.push(action.post.data.postId)
+        //     return nextState;
         case DELETE_FRIEND:
             nextState.forEach((user, i) => {
                 if (action.friendInfo.data.currentUserId === user._id) { index = i }

@@ -29,10 +29,10 @@ const deleteFriend = friendInfo => ({
     friendInfo
 })
 
-const addPost = post => ({
-    type: RECEIVE_POST,
-    post
-})
+// const addPost = post => ({
+//     type: RECEIVE_POST,
+//     post
+// })
 
 //thunk actions
 
@@ -52,7 +52,7 @@ export const deleteFriendship = (friendId) => dispatch => (
         .then(friendId=> dispatch(deleteFriend(friendId)))
 )
 
-export const fetchPost = postId => dispatch => (
-    PostAPIutil.getPost(postId)
-        .then(post => dispatch(addPost(post)))
-)
+// export const fetchPost = postId => dispatch => (
+//     PostAPIutil.getPost(postId)
+//         .then(post => dispatch(addPost(post)))
+// )

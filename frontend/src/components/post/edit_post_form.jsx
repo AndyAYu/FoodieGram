@@ -1,13 +1,14 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class EditPostForm extends React.Component {
     constructor(props){
         super(props);
     
         this.state = {
-            body: this.props.post.body,
-            restaurant: this.props.post.restaurant,
-            address: this.props.post.address,
+            body: "",
+            restaurant: "",
+            address: "",
             user: this.props.userId,
             errors: {}
         }
@@ -17,6 +18,15 @@ class EditPostForm extends React.Component {
         this.resetFields = this.resetFields.bind(this);
     }
 
+    // componentDidMount(){
+    //     this.props.getPost(this.props.match.params.postId);
+
+    //     this.setState({
+    //         body: this.props.post.body,
+    //         restaurant: this.props.post.restaurant,
+    //         address: this.props.post.address
+    //     })
+    // }
 
     componentWillReceiveProps(nextProps) {
         this.setState({ errors: nextProps.errors })
@@ -37,7 +47,7 @@ class EditPostForm extends React.Component {
             })
 
             this.props.removePostErrors();
-            this.props.closeEditForm();
+            // this.props.closeEditForm();
         }
 
 
@@ -51,11 +61,13 @@ class EditPostForm extends React.Component {
             user: this.state.user
             }
 
-            this.props.editPost(newPost);
-
-            if (!this.state.errors){
-                this.resetFields();
-            }
+            this.props.editPost(newPost).then((res) => {
+                // debugger
+                if (res.errors) {
+                    this.setState({errors: res.errors })
+                } else { this.props.history.push(`/posts/${this.props.match.params.postId}`)
+                }
+            })
         }
 
 
@@ -69,13 +81,15 @@ class EditPostForm extends React.Component {
         }
 
         render() {
+          
+            // debugger
             if (!this.props.userId || !this.props.post) return null;
-            const klass1 = this.props.editPostForm ? "post-bg" : "hidden";
-            const klass2 = this.props.editPostForm ? "post-form" : "hidden";
+            // const klass1 = this.props.editPostForm ? "post-bg" : "hidden";
+            // const klass2 = this.props.editPostForm ? "post-form" : "hidden";
             // debugger
             return (
-                <div className={klass1} onClick={this.resetFields} >
-                    <form className={klass2} onSubmit={this.handleSubmit} onClick={e => e.stopPropagation()}>
+                <div>
+                    <form onSubmit={this.handleSubmit} onClick={e => e.stopPropagation()}>
                     <div className="login-header">Edit your post</div>
                         <div className="form-div">
                             <label className="rest-label">Restaurant name
@@ -116,4 +130,4 @@ class EditPostForm extends React.Component {
 
 }
 
-export default EditPostForm;
+export default withRouter(EditPostForm);

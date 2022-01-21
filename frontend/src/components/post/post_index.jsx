@@ -22,7 +22,7 @@ class PostIndex extends React.Component {
         const eachPost = specificPosts.map((post, idx) => <PostIndexItem post={post} key={idx} 
         users={this.props.users} 
         currentUser={this.props.currentUser} 
-        deletePost={this.props.deletePost} editPost={this.props.editPost}/>)
+        deletePost={this.props.deletePost} editPost={this.props.editPost} idx={idx}/>)
         return (
             <div className="post-index">
                 <ul>

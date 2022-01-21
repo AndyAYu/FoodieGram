@@ -19,7 +19,6 @@ class NewsFeed extends React.Component {
         return(
             <div className="main-feed">
                 <aside className="aside-left">
-                    <h1>Shortcuts</h1>
                 </aside>
                 <PostIndexContainer />
                <aside className="aside-right">

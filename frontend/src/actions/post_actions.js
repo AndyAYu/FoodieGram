@@ -15,15 +15,18 @@ export const receiveAllPosts = posts => ({
     posts
 })
 
-export const receivePost = post => ({
+export const receivePost = post => {
+  return  {
     type: RECEIVE_POST,
     post
-})
+}}
 
-export const receiveEditedPost = post => ({
+export const receiveEditedPost = post => {
+  debugger  
+    return {
     type: RECEIVE_EDITED_POST,
     post
-})
+}}
 
 export const removePost = postId => ({
     type: REMOVE_POST,
@@ -41,22 +44,22 @@ export const removePostErrors = () => {
 
 
 //thunk action
-export const getAllPosts = (data) => dispatch => (
-    PostAPIutil.getAllPosts(data)
+export const getAllPosts = () => dispatch => (
+    PostAPIutil.getAllPosts()
     .then(posts => dispatch(receiveAllPosts(posts)))
 )
 
-export const getPost = postId => dispatch => (
-    PostAPIutil.getPost(postId)
-    .then(post => dispatch(receivePost(post.data)))
-)
+export const getPost = postId => dispatch => {
+    debugger
+    return PostAPIutil.getPost(postId)
+    .then(post => dispatch(receiveEditedPost(post.data)))
+}
 
-export const createPost = post => dispatch => {
-
- return   PostAPIutil.createPost(post)
+export const createPost = post => dispatch => (
+    PostAPIutil.createPost(post)
     .then(post => dispatch(receivePost(post)))
     .catch(err => dispatch(receivePostErrors(err.response.data)))
-}
+)
 
 export const editPost = post => dispatch => (
     PostAPIutil.editPost(post)

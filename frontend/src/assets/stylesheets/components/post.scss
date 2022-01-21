@@ -21,3 +21,148 @@ position: absolute;
   border:3px solid rgb(248, 249, 250);
   border-radius: 4px;
 }
+
+.rest-name{
+  font-size: 20px;
+  font-weight: 700;
+  margin: 20px 0 10px 0;
+}
+
+.rest-address{
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.post-body {
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.delete-post {
+  border: none;
+ 
+  background-color:rgba(16, 196, 209, 0.904);
+  color: white;
+  height: 40px;
+  font-size: 14px;
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+.delete-post:hover{
+  background-color: rgb(255, 255, 209);
+  color: $red;
+}
+
+a.delete-post{
+  display: block;
+  line-height: 20px;
+  height: 20px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.post-buttons{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+}
+
+.post-form {
+  height: 500px;
+  background-color: white;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.rest-label, .post-address-label, .post-body-label {
+  margin: 5px 0 5px 0;
+  width: 90%;
+  font-size: 13px;
+  color:rgba(82, 82, 82, 0.966);
+  position: relative;
+}
+
+.rest-label input, .post-address-label input, .post-body-label input {
+  height: 40px;
+  width: 350px;
+  border: 1px solid rgba(255, 194, 64, 0.904);
+  border-radius: 4px;
+}
+
+textarea::placeholder, .rest-label input::placeholder, .post-address-label input::placeholder, .post-body-label input::placeholder {
+  color:rgb(179, 179, 179);
+  font-weight: 300;
+  font-family: $main-font;
+}
+textarea {
+  height: 70px;
+  width: 350px;
+  border: 1px solid rgba(255, 194, 64, 0.904);
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.post-header {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.post-errors{
+  font-size: 12px;
+  color: rgb(243, 45, 45);
+  position: absolute;
+}
+
+// .post-photo-0{
+//   width: 300px;
+//   height: 300px;
+//   // background-image: url('.././images/seed1.png');
+//   background-color: grey;
+//   margin-bottom: 20px;
+// }
+
+.post-photo-1{
+  width: 300px;
+  height: 300px;
+  background-image: url('../../images/mala.png');
+  // background-color: red;
+  margin-bottom: 20px;
+}
+
+.post-photo-2{
+  width: 300px;
+  height: 266px;
+  background-image: url('../../images/ayada.png');
+  // background-color: red;
+  margin-bottom: 20px;
+}
+
+.post-photo-3{
+  width: 300px;
+  height: 300px;
+  // background-image: url('.././images/seed1.png');
+  background-color: red;
+  margin-bottom: 20px;
+}
+
+// .post-photo-4{
+//   width: 300px;
+//   height: 300px;
+//   // background-image: url('.././images/seed1.png');
+//   background-color: red;
+//   margin-bottom: 20px;
+// }
+
+// .post-photo-5{
+//   width: 300px;
+//   height: 300px;
+//   // background-image: url('.././images/seed1.png');
+//   background-color: red;
+//   margin-bottom: 20px;
+// }
