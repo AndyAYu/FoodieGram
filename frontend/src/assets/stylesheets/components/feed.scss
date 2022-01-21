@@ -9,13 +9,13 @@
 }
 
 .aside-left {
-    width: 20%;
+    width: 50%;
     background-color: transparent;
 }
 
 .aside-right {
-    width: 20%;
-    background-color: white;
+    width: 40%;
+    background-color: transparent;
 }
 
 .post-index {
@@ -41,3 +41,11 @@
     position: relative;
 }
 
+.pi-container {
+    width: 1000px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgb(150, 150, 150);
+    background-color: rgb(253, 255, 228);
+    margin-bottom: 50px;
+}
