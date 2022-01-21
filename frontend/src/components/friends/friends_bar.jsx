@@ -6,7 +6,7 @@ class FriendsBar extends React.Component{
 
     constructor(props){
         super(props)
-        
+      
         this.handleMessenger = this.handleMessenger.bind(this);
         this.handlePage = this.handlePage.bind(this);
     }
