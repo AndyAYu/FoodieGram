@@ -4,7 +4,7 @@ import FileBase64 from 'react-file-base64';
 class CreatePostForm extends React.Component {
     constructor(props){
         super(props);
-        debugger
+        // debugger
         this.state = {
             body: "",
             restaurant: "",
@@ -18,7 +18,7 @@ class CreatePostForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
         this.resetFields = this.resetFields.bind(this);
-        debugger
+        // debugger
     }
 
     
@@ -82,7 +82,7 @@ class CreatePostForm extends React.Component {
         
     }
         render() {
-            debugger
+            // debugger
             if (!this.props.userId) return null;
             const klass1 = this.props.showPost ? "post-bg" : "hidden";
             const klass2 = this.props.showPost ? "post-form" : "hidden";
