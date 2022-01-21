@@ -8,7 +8,7 @@ const mSTP = state => {
     // debugger
     if(state.entities.users && state.session.user){
         let currentUserId = state.session.user.id
-        let currentUserIndex = state.entities.users.findIndex((user,i) =>  user)
+        let currentUserIndex = state.entities.users.findIndex(user => user._id === currentUserId)
         let currentUser = state.entities.users[currentUserIndex]
         let currentUserFriends = currentUser.friends
         return({
