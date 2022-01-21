@@ -3,7 +3,7 @@ import Conversation from '../conversations/conversation';
 import Message from '../message/message';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import io from 'socket.io-client';
+import { io } from 'socket.io-client';
 
 
 export default function Messenger (props) {
@@ -17,16 +17,15 @@ export default function Messenger (props) {
     const socket = io();
 
 
-    useEffect(() => {
-        socket.off();
-        socket.on("getMessage", data => {
-            setArrivalMessage({
-                sender: data.senderId,
-                text: data.text,
-                createdAt: Date.now(),
-            })
-        })
-    },[])
+    // useEffect(() => {
+    //     socket.on("getMessage", data => {
+    //         setArrivalMessage({
+    //             sender: data.senderId,
+    //             text: data.text,
+    //             createdAt: Date.now(),
+    //         })
+    //     })
+    // },[])
 
     useEffect(() => {
         arrivalMessage && currentChat?.members.includes(arrivalMessage.sender) &&
@@ -34,12 +33,12 @@ export default function Messenger (props) {
     },[arrivalMessage, currentChat]);
 
 
-    useEffect(() => {
-        socket.emit("addUser", user.id);
-        socket.on("getUsers", users=> {
-            console.log(users)
-        })
-    }, [user]);
+    // useEffect(() => {
+    //     socket.emit("addUser", user.id);
+    //     socket.on("getUsers", users=> {
+    //         console.log(users)
+    //     })
+    // }, [user]);
 
     useEffect(() => {
         const getConversations = async () => {
@@ -74,13 +73,13 @@ export default function Messenger (props) {
 
         const receiverId = currentChat.members.find(member => member !== user.id)
 
-        socket.emit("sendMessage", {
-            senderId: user.id,
-            receiverId,
-            text: newMessage
-        })
+        // socket.emit("sendMessage", {
+        //     senderId: user.id,
+        //     receiverId,
+        //     text: newMessage
+        // })
         try {
-            const res = await axios.post(`api/messages`, message);
+            const res = await axios.post(`/api/messages`, message);
             setMessages([...messages, res.data]);
             setNewMessage("");
         } catch(err){

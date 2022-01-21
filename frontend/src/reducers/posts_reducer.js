@@ -7,7 +7,7 @@ import {
 
 const postsReducer = (state = [], action) => {
     Object.freeze(state);
-    
+    // debugger
     let nextState = state.slice();
     switch(action.type) {
         case RECEIVE_ALL_POSTS:
@@ -23,22 +23,7 @@ const postsReducer = (state = [], action) => {
             })
             return nextState;
         case RECEIVE_EDITED_POST:
-            // for (let i = 0; i < state.length; i++) {
-            //     if (state[i].id !== action.post.id) {
-            //         nextState.push(state[i]);
-            //     } else {
-            //         nextState.push(action.post);
-            //     }
-            // }
-            // debugger
-            nextState.unshift(action.post.data);
-
-            nextState.forEach((post, idx, object) => {
-                if (post._id === action.post.data._id) {
-                    object.splice(idx, 1);
-                }
-            });
-            return nextState;
+            return [action.post];
         default:
             return state;
     }

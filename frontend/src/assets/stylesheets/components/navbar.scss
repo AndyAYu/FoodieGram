@@ -1,44 +1,5 @@
 @import '../splash.scss';
 
-// .App {
-//   text-align: center;
-// }
-
-// .App-logo {
-//   height: 40vmin;
-//   pointer-events: none;
-// }
-
-// @media (prefers-reduced-motion: no-preference) {
-//   .App-logo {
-//     animation: App-logo-spin infinite 20s linear;
-//   }
-// }
-
-// .App-header {
-//   background-color: #282c34;
-//   min-height: 100vh;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   font-size: calc(10px + 2vmin);
-//   color: white;
-// }
-
-// .App-link {
-//   color: #61dafb;
-// }
-
-// @keyframes App-logo-spin {
-//   from {
-//     transform: rotate(0deg);
-//   }
-//   to {
-//     transform: rotate(360deg);
-//   }
-// }
-
 .modal-background {
   position: fixed;
   top: 0;
@@ -335,3 +296,66 @@ a:visited{
   color: white;
   cursor: pointer;
 }
+
+.logout-btn {
+  margin-left: 20px;
+  padding:12px;
+  margin-right: 50px;
+  border-radius: 4px;
+  font-family: $main-font;
+  color: white;
+  height: inherit;
+  // background: rgb(13, 177, 109);
+  background: rgb(252, 101, 81);
+  
+  border: none;
+  transition: all .5s;
+  cursor: pointer;
+}
+
+
+.logout-btn:hover{
+  background-color: rgb(21, 197, 197);
+}
+
+.other-btn {
+  margin-left: 20px;
+  padding:12px;
+  border-radius: 4px;
+  font-family: $main-font;
+  color: white;
+  height: inherit;
+  font-size: 13px;
+  // background: rgb(13, 177, 109);
+  background: rgb(252, 101, 81);
+  
+  border: none;
+  transition: all .5s;
+  cursor: pointer;
+}
+
+.other-btn:hover{
+  background-color: rgb(21, 197, 197);
+}
+
+// .pizza {
+//     position: absolute;
+//     height: 50px;
+//     width: 50px;
+//     border-radius: 50%;
+//     background-image: url('../../images/pizza.png');
+//     // background-size: 600px;
+//     background-size: 50px;
+// }
+
+// .pizza:hover {
+//     animation-name: rotate;
+//     animation-duration: 80s;
+//     animation-iteration-count: infinite;
+//     animation-timing-function: linear;
+// }
+
+// @keyframes rotate{
+//     from{ transform: rotate(-360deg); }
+//     to{ transform: rotate(360deg); }
+// }

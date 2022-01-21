@@ -27,6 +27,21 @@
 
 }
 
+.friend-info{
+    display: flex;
+    // height: 99%;
+    // width: 200%;
+}
+
+.friend-profile-photo{
+    // display: inline-block;
+}
+
+.friend-name{
+    padding-top: 5%;
+    font-size: 40px;
+    color: darkblue;
+}
 .friend-page-button{
     color: blue;
     background-color: lightpink;
