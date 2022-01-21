@@ -3,6 +3,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Switch, Route } from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container';
 import MainPage from './main/main_page';
+import AboutUsContainer from '../components/about_us/about_us'
 import ProfilePageContainer from './profile_pages/profile_page_container'
 import Feed from './feed/feed';
 import MessengerContainer from './messenger/messenger_container';
@@ -26,7 +27,7 @@ const App = () => (
         </Switch>
         </div>
         <footer className="splash-only regular">
-            <h1>I am footer</h1>
+            <AboutUsContainer/>
         </footer>
     </div>
 );

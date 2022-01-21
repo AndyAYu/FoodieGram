@@ -14,18 +14,18 @@ export default function Messenger (props) {
     const [newMessage, setNewMessage] = useState("");
     const [arrivalMessage, setArrivalMessage] = useState(null);
     const scrollRef = useRef();
-    const socket = useRef(io("ws://localhost:8000"));
+    const socket = io();
 
-    useEffect(() => {
-        socket.current = io("ws://localhost:8000");
-        socket.current.on("getMessage", data => {
-            setArrivalMessage({
-                sender: data.senderId,
-                text: data.text,
-                createdAt: Date.now(),
-            })
-        })
-    },[])
+
+    // useEffect(() => {
+    //     socket.on("getMessage", data => {
+    //         setArrivalMessage({
+    //             sender: data.senderId,
+    //             text: data.text,
+    //             createdAt: Date.now(),
+    //         })
+    //     })
+    // },[])
 
     useEffect(() => {
         arrivalMessage && currentChat?.members.includes(arrivalMessage.sender) &&
@@ -33,12 +33,12 @@ export default function Messenger (props) {
     },[arrivalMessage, currentChat]);
 
 
-    useEffect(() => {
-        socket.current.emit("addUser", user.id);
-        socket.current.on("getUsers", users=> {
-            console.log(users)
-        })
-    }, [user]);
+    // useEffect(() => {
+    //     socket.emit("addUser", user.id);
+    //     socket.on("getUsers", users=> {
+    //         console.log(users)
+    //     })
+    // }, [user]);
 
     useEffect(() => {
         const getConversations = async () => {
@@ -73,11 +73,11 @@ export default function Messenger (props) {
 
         const receiverId = currentChat.members.find(member => member !== user.id)
 
-        socket.current.emit("sendMessage", {
-            senderId: user.id,
-            receiverId,
-            text: newMessage
-        })
+        // socket.emit("sendMessage", {
+        //     senderId: user.id,
+        //     receiverId,
+        //     text: newMessage
+        // })
         try {
             const res = await axios.post(`/api/messages`, message);
             setMessages([...messages, res.data]);
@@ -96,8 +96,7 @@ export default function Messenger (props) {
         <div className="messenger">
             <div className="chatMenu">
                 <div className="chatMenuWrapper">
-                    <h2>menu</h2>
-                    <input  placeholder='Search for friends' className='chatMenuInput' />
+                    <h2>Conversations</h2>
                     {
                         conversations.map((convo, idx) => (
                             convo ? 
@@ -139,7 +138,7 @@ export default function Messenger (props) {
             </div>
             <div className="chatOnline">
                 <div className="chatOnlineWrapper">
-                    <h2>online</h2>
+                    <h2>Friends</h2>
                 </div>
             </div>
         </div>
