@@ -59,7 +59,7 @@ export const createPost = post => dispatch => {
  return   PostAPIutil.createPost(post)
     .then(post => dispatch(receivePost(post)))
     .catch(err => dispatch(receivePostErrors(err.response.data)))
-)
+}
 
 export const editPost = post => dispatch => (
     PostAPIutil.editPost(post)
