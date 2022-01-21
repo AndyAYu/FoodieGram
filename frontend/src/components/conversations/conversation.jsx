@@ -9,7 +9,7 @@ export default function Conversation({ conversation, currentUser }) {
         const friendId = conversation.members.find(m => m !== currentUser.id)
         const getUser = async () => {
             try{
-                const res = await axios(`/api/users?userId=${friendId}`)
+                const res = await axios.get(`/api/users?userId=${friendId}`)
                 setUser(res.data);
             } catch(err){
                 console.log(err);
@@ -21,7 +21,7 @@ export default function Conversation({ conversation, currentUser }) {
     return (
         <div className='conversation'>
             <img src={img2} alt="" className="conversationImg" />
-            <span className="conversationName">{user? user.handle : "user"}</span>
+            <span className="conversationName">{"Jason"}</span>
         </div>
     )
 }
