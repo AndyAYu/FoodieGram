@@ -315,7 +315,7 @@ a:visited{
 
 
 .logout-btn:hover{
-  background-color: rgb(233, 161, 5);
+  background-color: rgb(21, 197, 197);
 }
 
 .other-btn {
@@ -335,5 +335,27 @@ a:visited{
 }
 
 .other-btn:hover{
-  background-color: rgb(233, 161, 5);
+  background-color: rgb(21, 197, 197);
 }
+
+// .pizza {
+//     position: absolute;
+//     height: 50px;
+//     width: 50px;
+//     border-radius: 50%;
+//     background-image: url('../../images/pizza.png');
+//     // background-size: 600px;
+//     background-size: 50px;
+// }
+
+// .pizza:hover {
+//     animation-name: rotate;
+//     animation-duration: 80s;
+//     animation-iteration-count: infinite;
+//     animation-timing-function: linear;
+// }
+
+// @keyframes rotate{
+//     from{ transform: rotate(-360deg); }
+//     to{ transform: rotate(360deg); }
+// }
