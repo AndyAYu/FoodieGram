@@ -25,7 +25,7 @@ const AboutUs = () => (
                         <a href="https://www.github.com/apgupta3091"></a>
                     </div>
                     <div className="linkedIn-Icon">
-                        <a href="https://www.google.com"></a>
+                        <a href="https://www.linkedin.com/in/anujgupta19/"></a>
                     </div>
                     <div className="angellist-Icon">
                         <a href="https://www.angel.co"/>

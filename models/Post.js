@@ -10,10 +10,10 @@ const PostSchema = new Schema ({
         type: String,
         required: true
     },
-    // user_id: {
-    //     type: Number,
-    //     required: true
-    // },
+    postImage:{
+        type: String,
+        required: true
+    },
     restaurant: {
         type: String,
         required: true

@@ -36,7 +36,7 @@ router.post('/',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
         const { errors, isValid } = validatePostInput(req.body);
-        // debugger
+        debugger
         if (!isValid) {
             return res.status(400).json(errors);
         }
@@ -45,7 +45,8 @@ router.post('/',
             body: req.body.body,
             address: req.body.address,
             user: req.body.user,
-            restaurant: req.body.restaurant
+            restaurant: req.body.restaurant,
+            postImage: req.body.postImage
         });
 
         newPost.save().then(post => res.json(post));
