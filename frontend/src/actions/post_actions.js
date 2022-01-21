@@ -22,7 +22,7 @@ export const receivePost = post => {
 }}
 
 export const receiveEditedPost = post => {
-  debugger  
+//   debugger  
     return {
     type: RECEIVE_EDITED_POST,
     post
@@ -55,7 +55,7 @@ export const getPost = postId => dispatch => (
 )
 
 export const createPost = post => dispatch => {
-    debugger
+    // debugger
  return   PostAPIutil.createPost(post)
     .then(post => dispatch(receivePost(post)))
     .catch(err => dispatch(receivePostErrors(err.response.data)))
