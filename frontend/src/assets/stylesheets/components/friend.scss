@@ -1,8 +1,9 @@
 .friend-list-item{
     height: 50%;
-    border: 1px solid black;
+    // border: 1px solid black;
     // display: flex;
     text-align: center;
+    margin-bottom: 2px;
 }
 
 .friends-bar{
@@ -11,7 +12,7 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    // justify-content: space-evenly;
 }
 
 .friend-list-item{
@@ -29,8 +30,7 @@
 
 .friend-info{
     display: flex;
-    // height: 99%;
-    // width: 200%;
+    margin-left: 20px;
 }
 
 .friend-profile-photo{
@@ -38,26 +38,47 @@
 }
 
 .friend-name{
-    padding-top: 5%;
+    // padding-top: 5%;
     font-size: 40px;
-    color: darkblue;
+    color: rgb(7, 53, 122); 
+    height: 100px;
+    box-sizing: border-box;
+    line-height: 100px;
+    margin-left: 10px;
+
 }
 .friend-page-button{
-    color: blue;
+    color: rgb(20, 94, 255);
     background-color: lightpink;
     text-decoration: none;
-    // width: 50%;
-    display: flex;
-    justify-content: space-evenly;
-    // font-family: $main-font;
-
+    font-family: $main-font;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    margin: 10px auto 5px auto;
+    box-sizing: border-box;
+    transition: all .3s;
+    cursor: pointer;
 }
 
-.friend-page-messenger{
-    color: red;
+.friend-page-messenger {
+    color: rgb(238, 36, 113);
     background-color: lightpink;
+    margin-bottom: 10px;
     text-decoration: none;
-    // width: 50%;
-    display: flex;
-    justify-content: space-evenly;
+    font-family: $main-font;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    margin: 10px auto;
+    box-sizing: border-box;
+    transition: all .3s;
+    cursor: pointer;
+    
+}
+
+.friend-page-messenger:hover, .friend-page-button:hover {
+    background-color: rgb(113, 198, 204);
 }

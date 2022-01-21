@@ -49,17 +49,17 @@ export const getAllPosts = () => dispatch => (
     .then(posts => dispatch(receiveAllPosts(posts)))
 )
 
-export const getPost = postId => dispatch => {
-    debugger
-    return PostAPIutil.getPost(postId)
-    .then(post => dispatch(receiveEditedPost(post.data)))
-}
+export const getPost = postId => dispatch => (
+    PostAPIutil.getPost(postId)
+    .then(post => dispatch(receivePost(post.data)))
+)
 
-export const createPost = post => dispatch => (
-    PostAPIutil.createPost(post)
+export const createPost = post => dispatch => {
+    debugger
+ return   PostAPIutil.createPost(post)
     .then(post => dispatch(receivePost(post)))
     .catch(err => dispatch(receivePostErrors(err.response.data)))
-)
+}
 
 export const editPost = post => dispatch => (
     PostAPIutil.editPost(post)
