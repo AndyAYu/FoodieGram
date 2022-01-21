@@ -28,7 +28,7 @@ class PostIndexItem extends React.Component {
             
         return (
         <li className="post-index-item">
-            <div>Posted on {this.props.post.date.slice(0, 10)} by {userObj[0].handle}</div>
+            <div>Posted on {this.props.post.date.slice(0, 10)}</div>
             <div className="rest-name">{this.props.post.restaurant}</div>
             <div className="rest-address">{this.props.post.address}</div>
             <div className={`post-photo-${this.props.idx}`}></div>
