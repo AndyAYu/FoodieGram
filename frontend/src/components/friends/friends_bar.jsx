@@ -35,8 +35,10 @@ class FriendsBar extends React.Component{
                                     <div className='friend-name'>{user.handle.charAt(0).toUpperCase() + user.handle.slice(1)}</div>
                                 
                                 </div>
-                                <button className='friend-page-button' onClick={() => this.handlePage(i)}>Page</button>
-                                <button className='friend-page-messenger' onClick={() => this.handleMessenger()}>Messenger</button>                      
+                                <div className="friend-buttons">
+                                    <button className='friend-page-button' onClick={() => this.handlePage(i)}>Page</button>
+                                    <button className='friend-page-messenger' onClick={() => this.handleMessenger()}>Messenger</button>
+                                </div>                 
                             </div>
                         )
                     }

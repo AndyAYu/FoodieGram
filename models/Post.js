@@ -10,18 +10,18 @@ const PostSchema = new Schema ({
         type: String,
         required: true
     },
-    postImage:{
-        type: String,
-        required: true
-    },
+    // postImage:{
+    //     type: String,
+    //     required: true
+    // },
     restaurant: {
         type: String,
         required: true
     },
 
-    photo: {
-        type: String
-    },
+    // photo: {
+    //     type: String
+    // },
     
     date: {
         type: Date,

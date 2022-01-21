@@ -1,3 +1,5 @@
+@import './../splash.scss';
+
 .friend-list-item{
     height: 50%;
     // border: 1px solid black;
@@ -16,7 +18,7 @@
 }
 
 .friend-list-item{
-    background-image: linear-gradient(to right, red , lightblue);
+    background-image: linear-gradient(to right, $red , lightblue);
     display: flex;
     flex-direction: column;
     border-radius: 10px;
@@ -48,31 +50,32 @@
 
 }
 .friend-page-button{
-    color: rgb(20, 94, 255);
-    background-color: lightpink;
+    color: white;
+    background-color: rgba(16, 196, 209, 0.904);
     text-decoration: none;
     font-family: $main-font;
     height: 40px;
     border: none;
     border-radius: 5px;
-    width: 200px;
-    margin: 10px auto 5px auto;
+    width: 100px;
+    margin-top: 10px;
     box-sizing: border-box;
     transition: all .3s;
     cursor: pointer;
 }
 
 .friend-page-messenger {
-    color: rgb(238, 36, 113);
-    background-color: lightpink;
+    color: white;
+    background-color: rgba(16, 196, 209, 0.904);
     margin-bottom: 10px;
     text-decoration: none;
     font-family: $main-font;
     height: 40px;
     border: none;
     border-radius: 5px;
-    width: 200px;
-    margin: 10px auto;
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
     box-sizing: border-box;
     transition: all .3s;
     cursor: pointer;
@@ -80,5 +83,11 @@
 }
 
 .friend-page-messenger:hover, .friend-page-button:hover {
-    background-color: rgb(113, 198, 204);
+    background-color: rgb(255, 255, 209);
+    color: $red;
+}
+
+.friend-buttons{
+    display: flex;
+    justify-content: center;
 }

@@ -4,21 +4,21 @@ import FileBase64 from 'react-file-base64';
 class CreatePostForm extends React.Component {
     constructor(props){
         super(props);
-        debugger
+
         this.state = {
             body: "",
             restaurant: "",
             address: "",
             user: "",
-            postImage: [],
+            // postImage: [],
             errors: {},
             haveErrors: false
         }
-        this.getpostImage = this.getpostImage.bind(this);
+        // this.getpostImage = this.getpostImage.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
         this.resetFields = this.resetFields.bind(this);
-        debugger
+        // debugger
     }
 
     
@@ -35,7 +35,7 @@ class CreatePostForm extends React.Component {
             body: "",
             restaurant: "",
             address: "",
-            postImage: [],
+            // postImage: []
             errors: {}
         })
         // debugger
@@ -43,10 +43,10 @@ class CreatePostForm extends React.Component {
         this.props.hidePostForm();
     }
 
-    getpostImage(postImage) {
-        // debugger
-        this.setState({ postImage: postImage })
-    }
+    // getpostImage(postImage) {
+    //     // debugger
+    //     this.setState({ postImage: postImage })
+    // }
 
     componentWillReceiveProps(nextProps) {
         this.setState({ errors: nextProps.errors, haveErrors: true })
@@ -82,7 +82,7 @@ class CreatePostForm extends React.Component {
         
     }
         render() {
-            debugger
+            // debugger
             if (!this.props.userId) return null;
             const klass1 = this.props.showPost ? "post-bg" : "hidden";
             const klass2 = this.props.showPost ? "post-form" : "hidden";
@@ -92,7 +92,7 @@ class CreatePostForm extends React.Component {
                     <form className={klass2} onSubmit={this.handleSubmit} onClick={e => e.stopPropagation()}>
                     <div className="post-header">Write a new post</div>
                         <div className="form-div">
-                            <label className="post-label">Upload Image
+                            {/* <label className="post-label">Upload Image
                             <input type="text"
                                 value={this.state.postImage}
                                 onChange={this.update('postImage')}
@@ -101,7 +101,7 @@ class CreatePostForm extends React.Component {
                                 <FileBase64
                                     multiple={false}
                                     onDone={this.getpostImage} />
-                            </label>
+                            </label> */}
                             <br />
                             <label className="rest-label">Restaurant name
                             <input type="text"
