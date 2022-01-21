@@ -55,7 +55,7 @@ class ProfilePage extends React.Component{
                         <div className='profile-name'> {user.handle}</div>
                         <div className="about-me">About me goes here</div>
                         {this.befriended()}
-                        <div>Shortcuts</div>
+                        {/* <div>Shortcuts</div> */}
                     </div>
                     {/* <div className='profile-posts'> */}
                         <PostIndexContainer />

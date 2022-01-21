@@ -10,18 +10,7 @@ class PostIndexItem extends React.Component {
             editPostForm: false
         }
 
-        // this.openEditForm = this.openEditForm.bind(this);
-        // this.closeEditForm = this.closeEditForm.bind(this);
     }
-
-    // openEditForm(){
-    //     this.setState({ editPostForm: true})
-
-    // }
-
-    // closeEditForm(){
-    //     this.setState({ editPostForm: false})
-    // }
 
     render(){
         if (!this.props.post || !this.props.users) return null;
@@ -36,12 +25,13 @@ class PostIndexItem extends React.Component {
         ) : (
             null
         )
-  
+            
         return (
         <li className="post-index-item">
             <div>Posted on {this.props.post.date.slice(0, 10)} by {userObj[0].handle}</div>
             <div className="rest-name">{this.props.post.restaurant}</div>
             <div className="rest-address">{this.props.post.address}</div>
+            <div className={`post-photo-${this.props.idx}`}></div>
             <div className="post-body">{this.props.post.body}</div>
            {edit}
            <EditPostFormContainer post={this.props.post} editPostForm={this.state.editPostForm} closeEditForm={this.closeEditForm} />

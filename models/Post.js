@@ -18,6 +18,11 @@ const PostSchema = new Schema ({
         type: String,
         required: true
     },
+
+    photo: {
+        type: String
+    },
+    
     date: {
         type: Date,
         default: Date.now
