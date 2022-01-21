@@ -39,15 +39,16 @@ const port = process.env.PORT || 4000;
 
 const server = app.listen(port, () => {console.log(`Listening on port ${port}`)});
 
-const io = socket(server, {
+io = socket(server, {
     cors:{
         origin:"http://localhost:3000",
-        methods: ["GET", "POST"],
-        credentials: true,
+        transports: ["websocket", "polling"]
     }
 });
 
+
 let usersArr = [];
+
 
 const addUser = (userId, socketId) => {
     !usersArr.some(user => user.userId === userId) && 
@@ -59,7 +60,7 @@ const removeUser = (socketId) => {
 };
 
 const getUser = userId => {
-    console.log(userId)
+    console.log(usersArr)
     return usersArr.find(user => user.userId === userId)
 };
 
@@ -67,23 +68,22 @@ io.on("connection", (socket) => {
     console.log("a user connected");
     socket.on("addUser", userId => {
         addUser(userId, socket.id);
-        socket.emit("getUsers", usersArr)
+        io.emit("getUsers", usersArr)
     });
 
 
-    socket.on("sendMessage", ({ senderId, receiverId, text}) => {
-        const user = getUser(receiverId);
-        console.log(user)
-        socket.to(user.socketId).emit("getMessage", {
-            senderId, 
-            text,
-        })
-    })
+    // socket.on("sendMessage", ({ senderId, receiverId, text}) => {
+    //     const user = getUser(receiverId);
+    //     io.to(user.socketId).emit("getMessage", {
+    //         senderId, 
+    //         text,
+    //     })
+    // })
 
 
-    socket.on("disconnect", () => {
-        console.log("a user disconnected!")
-        removeUser(socket.id);
-        socket.emit("getUsers", usersArr)
-    });
+    // socket.on("disconnect", () => {
+    //     console.log("a user disconnected!")
+    //     removeUser(socket.id);
+    //     socket.emit("getUsers", usersArr)
+    // });
 });
