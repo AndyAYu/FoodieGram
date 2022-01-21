@@ -1,7 +1,7 @@
 const express = require ('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const { restart } = require('nodemon');
+// const { restart } = require('nodemon');
 const passport = require('passport');
 
 const Post = require('../../models/Post');
