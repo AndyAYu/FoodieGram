@@ -129,10 +129,6 @@ router.post('/', passport.authenticate('jwt',{session: false}), (req, res) => {
       currentUser.friends.push(req.body.userId);
       currentUser.save();
     }
-    if(!currentUser.posts.includes(req.body.userId)){
-      currentUser.posts.push(req.body.userId);
-      currentUser.save();
-    }
   })
   res.send({friendId: req.body.userId, currentUserId: req.user.id})
 })
