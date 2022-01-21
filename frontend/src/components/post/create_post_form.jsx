@@ -25,8 +25,9 @@ class CreatePostForm extends React.Component {
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value,
-            user: this.props.userId
-        });
+            user: this.props.userId,
+            handle: this.props.currentUser.handle
+        })
     }
 
     resetFields(){
@@ -43,7 +44,7 @@ class CreatePostForm extends React.Component {
     }
 
     getpostImage(postImage) {
-        debugger
+        // debugger
         this.setState({ postImage: postImage })
     }
 
@@ -53,7 +54,7 @@ class CreatePostForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
+        // debugger
         let newPost = {
         body: this.state.body,
         restaurant: this.state.restaurant,

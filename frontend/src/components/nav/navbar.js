@@ -45,12 +45,6 @@ class NavBar extends React.Component {
                 
             return (
                 <div>
-                    {/* <Link to={`/pages/${1}`} className="other-btn">Profile</Link>
-                    <button className="other-btn" onClick={this.showPostForm}>Write a Post</button>
-                    <Link to={'/messenger'} className="other-btn">Live Chat</Link>
-                    <button className="logout-btn" onClick={this.logoutUser}>Logout</button> */}
-
-                    <Link to={'/posts'} className="other-btn">All Posts</Link>
                     <Link to={`/pages/${currentUserIndex}`} className="other-btn">Profile</Link>
                     <button onClick={this.showPostForm} className="other-btn">Write a Post</button>
                     <Link to={'/messenger'} className="other-btn">Live Chat</Link>
