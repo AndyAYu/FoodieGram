@@ -20,7 +20,8 @@
 
 .post-index {
     width: 40%;
-    height: max-content;
+    height: 100vh;
+    overflow-y: scroll;
     background-color: rgb(253, 255, 228);
     margin-right: 20px;
     padding-bottom: 30px;
