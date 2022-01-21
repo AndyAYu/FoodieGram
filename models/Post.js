@@ -25,11 +25,7 @@ const PostSchema = new Schema ({
     user: { type: Schema.Types.ObjectId, 
         ref: 'User' 
     },
-    comments: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Comments'
-    }]
-
+    
 }, {
     timestamps: true
 })

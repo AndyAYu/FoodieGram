@@ -8,7 +8,9 @@ class MainPage extends React.Component {
                 <Modal />
                 <div className="circle"></div>
                 <div className="tagline">Connect with friends and share your favorite restaurants in town</div>
+                
             </div>
+
         );
     }
 }
