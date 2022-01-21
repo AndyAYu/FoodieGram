@@ -66,3 +66,22 @@
     background-color: rgb(214, 139, 0);
     cursor: pointer;
 }
+
+.not-own-friend {
+  border: none;
+ 
+  background-color:rgba(16, 196, 209, 0.904);
+  color: white;
+  height: 40px;
+  font-size: 14px;
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+.not-own-friend:hover{
+  background-color: rgb(255, 255, 209);
+  color: $red;
+}

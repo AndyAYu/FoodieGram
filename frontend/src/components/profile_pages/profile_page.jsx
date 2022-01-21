@@ -35,7 +35,7 @@ class ProfilePage extends React.Component{
         let index;
         index = users.findIndex(user => user._id === currentUser);
         // debugger
-        if (index === Number(this.props.match.params.userId)) return <div>You can't be your own friend</div>
+        if (index === Number(this.props.match.params.userId)) return <div className='not-own-friend'>You can't be your own friend</div>
 
         if (users[index].friends.includes(users[this.props.match.params.userId]._id)) 
             { return <button className='profile-remove-friend' onClick={() => this.removeFriend()}>Remove Friend</button>}
@@ -46,9 +46,10 @@ class ProfilePage extends React.Component{
     }
     render(){
         const {loggedIn, users} = this.props;
-        const user = users[this.props.match.params.userId]
+        const user = users[this.props.match.params.userId];
         // debugger
         if (!user) return null;
+        const upperCaseName = user.handle.charAt(0).toUpperCase() + user.handle.slice(1)
         return(
             <div className='profile-page-container'>
                 <div className='profile-info-container'>
@@ -57,8 +58,8 @@ class ProfilePage extends React.Component{
                      
                      
                         {/* <div>Shortcuts</div> */}
-                        <div className='profile-name'> {user.handle.charAt(0).toUpperCase() + user.handle.slice(1)}</div>
-                        <div className="about-me">About me goes here</div>
+                        <div className='profile-name'> {upperCaseName}</div>
+                        <div className="about-me">Hi my name is {upperCaseName} and I am a foodie from New York!</div>
                         {this.befriended()}
                         {/* <div>Shortcuts</div> */}
                     </div>

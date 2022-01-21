@@ -23,6 +23,7 @@ class FriendsBar extends React.Component{
         // debugger
         return(
             <div className='friends-bar'>
+                <div className='friends-bar-title'>My Friends:</div>
                 {allUsers.map((user,i) => {
                     // debugger
                     if(currentUserFriends.includes(user._id) && user._id !== currentUserId){
