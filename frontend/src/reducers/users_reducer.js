@@ -30,7 +30,7 @@ const usersReducer = (oldState = [], action) => {
             nextState.forEach((user, i) => {
                 if (action.friendInfo.data.currentUserId === user._id) { index = i }
             })
-            nextState[index].friends = nextState[index].friends.filter(friend => friend !== action.friendInfo.config.url.split('/')[3])
+            nextState[index].friends = nextState[index].friends.filter(friend => friend !== action.friendInfo.config.url.split('/')[3] && friend !== null)
             return nextState;
         default:
             return oldState;
