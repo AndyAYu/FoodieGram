@@ -38,7 +38,7 @@ class NavBar extends React.Component {
 
 
     getLinks() {
-        // const {currentUser, allUsers} = this.props;
+        const {currentUserIndex} = this.props;
         // let currentUserId;
     
         if (this.props.loggedIn) {          
@@ -46,7 +46,7 @@ class NavBar extends React.Component {
             return (
                 <div>
                     <Link to={'/posts'}>All Posts</Link>
-                    <Link to={`/pages/${1}`}>Profile</Link>
+                    <Link to={`/pages/${currentUserIndex}`}>Profile</Link>
                     <button onClick={this.showPostForm}>Write a Post</button>
                     <Link to={'/messenger'}>Live Chat</Link>
                     <button onClick={this.logoutUser}>Logout</button>
