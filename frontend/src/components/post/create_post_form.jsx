@@ -22,8 +22,9 @@ class CreatePostForm extends React.Component {
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value,
-            user: this.props.userId
-        });
+            user: this.props.userId,
+            handle: this.props.currentUser.handle
+        })
     }
 
     resetFields(){
@@ -49,11 +50,12 @@ class CreatePostForm extends React.Component {
         body: this.state.body,
         restaurant: this.state.restaurant,
         address: this.state.address,
+        handle: this.state.handle,
         user: this.state.user
         }
 
         this.props.createPost(newPost).then((res) => {
-            // debugger
+            debugger
             if (res.errors) {
                 this.setState({errors: res.errors })
             } else { this.resetFields() }})
