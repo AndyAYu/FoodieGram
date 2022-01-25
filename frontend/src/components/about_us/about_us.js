@@ -59,10 +59,10 @@ const AboutUs = () => (
                     <a href="https://github.com/Jasonchu94"></a>
                     </div>
                     <div className="linkedIn-Icon">
-                        <a href="https://www.google.com"></a>
+                    <a href="https://www.linkedin.com/in/jasonchu94/"></a>
                     </div>
                     <div className="angellist-Icon">
-                        <a href="https://www.angel.co"/>
+                    <a href="https://angel.co/u/jason-chu-20"/>
                      </div>
                     <div className="linkedIn"></div>
                 </div>
