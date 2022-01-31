@@ -6,9 +6,9 @@ class EditPostForm extends React.Component {
         super(props);
     
         this.state = {
-            body: "",
-            restaurant: "",
-            address: "",
+            body: this.props.post.body,
+            restaurant: this.props.post.restaurant,
+            address: this.props.post.address,
             user: this.props.userId,
             errors: {}
         }
@@ -17,16 +17,6 @@ class EditPostForm extends React.Component {
         this.renderErrors = this.renderErrors.bind(this);
         this.resetFields = this.resetFields.bind(this);
     }
-
-    // componentDidMount(){
-    //     this.props.getPost(this.props.match.params.postId);
-
-    //     this.setState({
-    //         body: this.props.post.body,
-    //         restaurant: this.props.post.restaurant,
-    //         address: this.props.post.address
-    //     })
-    // }
 
     componentWillReceiveProps(nextProps) {
         this.setState({ errors: nextProps.errors })
@@ -54,18 +44,19 @@ class EditPostForm extends React.Component {
         handleSubmit(e) {
             e.preventDefault();
             
-            let newPost = {
+            let editedPost = {
+            _id: this.props.match.params.postId,
             body: this.state.body,
             restaurant: this.state.restaurant,
             address: this.state.address,
             user: this.state.user
             }
-
-            this.props.editPost(newPost).then((res) => {
-                // debugger
+            debugger
+            this.props.editPost(editedPost).then((res) => {
+                debugger
                 if (res.errors) {
                     this.setState({errors: res.errors })
-                } else { this.props.history.push(`/posts/${this.props.match.params.postId}`)
+                } else { this.props.history.push(`/feed`)
                 }
             })
         }
@@ -120,7 +111,7 @@ class EditPostForm extends React.Component {
                             </label>
                             <br />
                             <div className="button-row">
-                                <input className="submit-form-btn" type="submit" value="Create Post" />
+                                <input className="submit-form-btn" type="submit" value="Edit Post" />
                             </div>
                         </div>
                     </form>

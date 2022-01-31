@@ -20,7 +20,7 @@ class PostIndex extends React.Component {
         (this.props.posts); 
     
         const eachPost = specificPosts.sort((post1, post2) => {
-            return new Date(post2.date) - new Date(post1.date);
+            return new Date(post2.updatedAt) - new Date(post1.updatedAt);
         })
         // debugger
         const postItem = eachPost.map((post, idx) => <PostIndexItem post={post} key={idx} 

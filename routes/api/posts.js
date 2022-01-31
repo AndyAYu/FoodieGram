@@ -58,14 +58,16 @@ router.post('/',
 });
 
 router.patch('/:id', (req, res) => {     
-    const filter = {id: req.params.id};
+    // const filter = req.params.id;
     const update = {
         body: req.body.body,
         restaurant: req.body.restaurant,
         address: req.body.address
     } 
 
-    Post.findOneAndUpdate(filter, update, {new: true}, (err, docs) => {
+    Post.findByIdAndUpdate(req.params.id, update, {new: true})
+        .populate('user')
+        .exec((err, docs) => {
         if (err) {
             return res.status(400).json(err)
         } else {
