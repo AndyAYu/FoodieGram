@@ -76,9 +76,7 @@ router.patch('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {     
-    const filter = {id: req.params.id};
-
-    Post.findOneAndDelete(filter, (err, docs) => {
+    Post.findByIdAndDelete(req.params.id, (err, docs) => {
         if (err) {
             return res.status(400).json(err)
         } else {
