@@ -10,6 +10,7 @@ const validatePostInput = require('../../validation/posts');
 router.get('/', (req,res) => {
     Post.find()
         .sort({ date: -1})
+        .populate('user')
         .then(posts => res.json(posts))
         .catch(err => res.status(404).json({ nopostsfound: 'No posts found'}));
 });
@@ -45,23 +46,27 @@ router.post('/',
             body: req.body.body,
             address: req.body.address,
             user: req.body.user,
-            restaurant: req.body.restaurant,
+            restaurant: req.body.restaurant
             // postImage: req.body.postImage
         });
 
-        newPost.save().then(post => res.json(post));
-    }
-);
+        newPost.save((err, post) => {
+            post
+            .populate('user')
+            .then(post => res.json(post));
+    })
+});
 
 router.patch('/:id', (req, res) => {     
-    const filter = {id: req.params.id};
     const update = {
         body: req.body.body,
         restaurant: req.body.restaurant,
         address: req.body.address
     } 
 
-    Post.findOneAndUpdate(filter, update, {new: true}, (err, docs) => {
+    Post.findByIdAndUpdate(req.params.id, update, {new: true})
+        .populate('user')
+        .exec((err, docs) => {
         if (err) {
             return res.status(400).json(err)
         } else {
@@ -72,9 +77,7 @@ router.patch('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {     
-    const filter = {id: req.params.id};
-
-    Post.findOneAndDelete(filter, (err, docs) => {
+    Post.findByIdAndDelete(req.params.id, (err, docs) => {
         if (err) {
             return res.status(400).json(err)
         } else {
