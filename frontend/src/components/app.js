@@ -9,7 +9,7 @@ import Feed from './feed/feed';
 import MessengerContainer from './messenger/messenger_container';
 import EditPostFormContainer from './post/edit_post_form_container';
 // import ShowPostContainer from './post/show_post_container';
-
+import SearchResultContainer from './search_result/search_result_container'
 
 const App = () => (
     <div>
@@ -24,6 +24,7 @@ const App = () => (
             <ProtectedRoute exact path="/edit_post/:postId" component={EditPostFormContainer}></ProtectedRoute>
             {/* <ProtectedRoute exact path="/posts/:postId" component={ShowPostContainer}></ProtectedRoute> */}
             <ProtectedRoute exact path="/messenger" component={MessengerContainer}></ProtectedRoute>
+            <ProtectedRoute exact path ="/search" component={SearchResultContainer}></ProtectedRoute>
         </Switch>
         </div>
         <footer className="splash-only regular">
