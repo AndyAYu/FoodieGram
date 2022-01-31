@@ -5,25 +5,22 @@ import {
     REMOVE_POST
 } from '../actions/post_actions';
 
-const postsReducer = (state = [], action) => {
+const postsReducer = (state = {}, action) => {
     Object.freeze(state);
     // debugger
-    let nextState = state.slice();
+    let nextState = Object.assign({}, state);
     switch(action.type) {
         case RECEIVE_ALL_POSTS:
-            return action.posts.data;
+            action.posts.data.forEach(post => nextState[post._id] = post);
+            return nextState;
         case RECEIVE_POST:
-            nextState.unshift(action.post.data);
+            nextState[action.post.data._id] = action.post.data;
             return nextState;
         case REMOVE_POST:
-            nextState.forEach((post, idx, object) => {
-                if (post._id === action.postId) {
-                    object.splice(idx, 1);
-                }
-            })
+            delete nextState[action.postId]
             return nextState;
-        case RECEIVE_EDITED_POST:
-            return [action.post];
+        // case RECEIVE_EDITED_POST:
+        //     return [action.post];
         default:
             return state;
     }

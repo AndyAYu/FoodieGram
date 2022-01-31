@@ -17,16 +17,20 @@ class PostIndex extends React.Component {
         if (!this.props.users) return null;
 
         const specificPosts = this.props.match.params.userId ? this.props.posts.filter(post => this.props.currentUser[0].friends.includes(post.user)) :
-        this.props.posts; 
+        (this.props.posts); 
     
-        const eachPost = specificPosts.map((post, idx) => <PostIndexItem post={post} key={idx} 
+        const eachPost = specificPosts.sort((post1, post2) => {
+            return new Date(post2.date) - new Date(post1.date);
+        })
+        // debugger
+        const postItem = eachPost.map((post, idx) => <PostIndexItem post={post} key={idx} 
         users={this.props.users} 
         currentUser={this.props.currentUser} 
         deletePost={this.props.deletePost} editPost={this.props.editPost} idx={idx}/>)
         return (
             <div className="post-index">
                 <ul>
-                    {eachPost}
+                    {postItem}
                 </ul>
             </div>
         )

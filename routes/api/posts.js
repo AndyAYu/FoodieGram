@@ -10,6 +10,7 @@ const validatePostInput = require('../../validation/posts');
 router.get('/', (req,res) => {
     Post.find()
         .sort({ date: -1})
+        .populate('user')
         .then(posts => res.json(posts))
         .catch(err => res.status(404).json({ nopostsfound: 'No posts found'}));
 });
@@ -45,13 +46,16 @@ router.post('/',
             body: req.body.body,
             address: req.body.address,
             user: req.body.user,
-            restaurant: req.body.restaurant,
+            restaurant: req.body.restaurant
             // postImage: req.body.postImage
         });
 
-        newPost.save().then(post => res.json(post));
-    }
-);
+        newPost.save((err, post) => {
+            post
+            .populate('user')
+            .then(post => res.json(post));
+    })
+});
 
 router.patch('/:id', (req, res) => {     
     const filter = {id: req.params.id};
