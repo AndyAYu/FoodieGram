@@ -61,6 +61,7 @@ class ProfilePage extends React.Component{
                         <div className='profile-name'> {upperCaseName}</div>
                         <div className="about-me">Hi my name is {upperCaseName} and I am a foodie from New York!</div>
                         {this.befriended()}
+                        <div>Show/Hide</div>
                         {/* <div>Shortcuts</div> */}
                     </div>
                     {/* <div className='profile-posts'> */}
