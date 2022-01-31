@@ -16,7 +16,10 @@ class SearchBar extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         if (this.state.search !== ''){
-            this.props.history.push(`/search?handle=${this.state.search}`)
+            let searchWord = this.state.search;
+            let form = document.getElementsByClassName("search-bar-input");
+            form[0].value= ''
+            this.props.history.push(`/search?handle=${searchWord}`)
         }
 
     }

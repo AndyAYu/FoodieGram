@@ -9,9 +9,6 @@ class SearchResult extends React.Component{
     render(){
         if(this.props.users.length === 0) return null;
         const {users} = this.props
-        let allHandles = users.map(user=>(
-            user.handle
-        ))
         let searchTerms = this.props.location.search.split('=')[1]
         let searchUsers = users.filter(user=>{
             if (user.handle === searchTerms) return user
@@ -19,19 +16,21 @@ class SearchResult extends React.Component{
         // debugger
         return(
             <div className='search-result-container'>
-                {searchUsers.map(user=>{
+                {searchUsers.length >= 1 ? searchUsers.map(user=>{
                     // debugger
                     return(
                         <div className='search-result-list-items'>
-                            {user.handle}
-                            <Link to={`/pages/${users.indexOf(user)}`}>{user.handle}</Link>
-                            HELLO
+                            <div>
+                                <Link to={`/pages/${users.indexOf(user)}`}>{user.handle}</Link>
+                                HELLO
+                            </div>
+                            
                         </div>
                     )
                    
                 }
                     
-                )}
+                ): <div className='no-search-result'>No search results found, all handles are unique and capitalization matters!</div>}
             </div>
         )
     }
