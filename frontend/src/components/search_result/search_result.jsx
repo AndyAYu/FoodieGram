@@ -20,9 +20,15 @@ class SearchResult extends React.Component{
                     // debugger
                     return(
                         <div className='search-result-list-items'>
-                            <div>
-                                <Link to={`/pages/${users.indexOf(user)}`}>{user.handle}</Link>
-                                HELLO
+                            <div className='search-result-info'>
+                                <div className='user-profile-picture'>   
+                                    User profile picture here
+                                </div>
+                                <div className='user-page-link' >
+                                    <Link to={`/pages/${users.indexOf(user)}`}>{user.handle}</Link>
+                                    Insert latest post here
+                                </div>
+                                
                             </div>
                             
                         </div>
