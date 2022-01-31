@@ -13,10 +13,9 @@ class PostIndex extends React.Component {
     }
 
     render(){
-        if (!this.props.posts) return null;
-        if (!this.props.users) return null;
+        if (!this.props.posts || !this.props.users) return null;
 
-        const specificPosts = this.props.match.params.userId ? this.props.posts.filter(post => this.props.currentUser[0].friends.includes(post.user)) :
+        const specificPosts = this.props.match.params.userId ? this.props.posts.filter(post => this.props.currentUser[0].friends.includes(post.user._id)) :
         (this.props.posts); 
     
         const eachPost = specificPosts.sort((post1, post2) => {
