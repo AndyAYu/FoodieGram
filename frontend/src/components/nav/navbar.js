@@ -3,6 +3,8 @@ import { Link, withRouter } from 'react-router-dom'
 import CreatePostFormContainer from '../post/create_post_form_container';
 // import './navbar.css'
 
+import SearchBarContainer from '../search_bar/search_bar_container'
+
 class NavBar extends React.Component {
     constructor(props) {
         super(props);
@@ -45,6 +47,7 @@ class NavBar extends React.Component {
                 
             return (
                 <div>
+                    <SearchBarContainer/>
                     <Link to={`/pages/${currentUserIndex}`} className="other-btn">Profile</Link>
                     <button onClick={this.showPostForm} className="other-btn">Write a Post</button>
                     <Link to={'/messenger'} className="other-btn">Live Chat</Link>
