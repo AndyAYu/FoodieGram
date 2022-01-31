@@ -58,7 +58,6 @@ router.post('/',
 });
 
 router.patch('/:id', (req, res) => {     
-    // const filter = req.params.id;
     const update = {
         body: req.body.body,
         restaurant: req.body.restaurant,

@@ -37,7 +37,6 @@ class EditPostForm extends React.Component {
             })
 
             this.props.removePostErrors();
-            // this.props.closeEditForm();
         }
 
 
@@ -51,9 +50,8 @@ class EditPostForm extends React.Component {
             address: this.state.address,
             user: this.state.user
             }
-            debugger
+
             this.props.editPost(editedPost).then((res) => {
-                debugger
                 if (res.errors) {
                     this.setState({errors: res.errors })
                 } else { this.props.history.push(`/feed`)
@@ -63,7 +61,6 @@ class EditPostForm extends React.Component {
 
 
         renderErrors(field) {
-            // debugger
             return (
                 <div>
                     {this.state.errors[field]}
@@ -72,12 +69,8 @@ class EditPostForm extends React.Component {
         }
 
         render() {
-          
-            // debugger
             if (!this.props.userId || !this.props.post) return null;
-            // const klass1 = this.props.editPostForm ? "post-bg" : "hidden";
-            // const klass2 = this.props.editPostForm ? "post-form" : "hidden";
-            // debugger
+    
             return (
                 <div>
                     <form onSubmit={this.handleSubmit} onClick={e => e.stopPropagation()}>
