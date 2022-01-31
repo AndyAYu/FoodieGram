@@ -9,8 +9,7 @@ const mSTP = (state, ownProps) => {
     currentUser: state.entities.users.filter(user => user._id === state.session.user.id),
     userId: state.session.user.id,
     errors: state.errors.post,
-    postId: ownProps.match.params.postId,
-    post: state.entities.posts[0]
+    post: state.entities.posts[ownProps.match.params.postId]
     }}
     else {
         return {};

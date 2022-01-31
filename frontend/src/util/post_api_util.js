@@ -13,7 +13,7 @@ export const createPost = (post) => {
 };
 
 export const editPost = (post) => {
-    return axios.patch(`/api/users/posts/${post.id}`, post)
+    return axios.patch(`/api/users/posts/${post._id}`, post)
 };
 
 export const deletePost = (postId) => {
