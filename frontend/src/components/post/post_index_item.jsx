@@ -18,8 +18,8 @@ class PostIndexItem extends React.Component {
         
         const edit = this.props.currentUser[0] && this.props.post.user._id === this.props.currentUser[0]._id ? (
             <div className="post-buttons">
-                <Link to={`/edit_post/${this.props.post._id}`} className="delete-post">Edit</Link> 
-                <button className="delete-post" onClick={()=>this.props.deletePost(this.props.post._id)}>Delete</button>
+                <Link to={`/edit_post/${this.props.post._id}`} className="delete-post"><i className="fas fa-marker"></i></Link> 
+                <button className="delete-post" onClick={()=>this.props.deletePost(this.props.post._id)}><i className="fas fa-trash-alt"></i></button>
             </div>
         ) : (
             null
