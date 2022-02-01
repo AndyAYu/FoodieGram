@@ -41,20 +41,26 @@ position: absolute;
 
 .delete-post {
   border: none;
- 
-  background-color:rgba(16, 196, 209, 0.904);
-  color: white;
+  background-color:transparent;
+  color: rgba(16, 196, 209, 0.904);
   height: 40px;
   font-size: 14px;
-  margin-left: 10px;
-  padding: 10px;
+  padding: 5px;
   border-radius: 4px;
   transition: all .3s;
   cursor: pointer;
+
+  i {
+    color: rgba(16, 196, 209, 0.904);
+    transition: all .3s;
+  }
+
+  i:hover {
+    color: $red;
+  }
 }
 
 .delete-post:hover{
-  background-color: rgb(255, 255, 209);
   color: $red;
 }
 

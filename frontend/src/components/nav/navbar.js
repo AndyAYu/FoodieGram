@@ -48,9 +48,9 @@ class NavBar extends React.Component {
             return (
                 <div>
                     <SearchBarContainer/>
-                    <Link to={`/pages/${currentUserIndex}`} className="other-btn">Profile</Link>
-                    <button onClick={this.showPostForm} className="other-btn">Write a Post</button>
-                    <Link to={'/messenger'} className="other-btn">Live Chat</Link>
+                    <Link to={`/pages/${currentUserIndex}`} className="other-btn"><i className="fas fa-user-circle"></i></Link>
+                    <button onClick={this.showPostForm} className="other-btn"><i className="fas fa-edit"></i></button>
+                    <Link to={'/messenger'} className="other-btn"><i className="far fa-comments"></i></Link>
                     <button className="logout-btn" onClick={this.logoutUser}>Logout</button>
                     <CreatePostFormContainer showPost={this.state.showPost} hidePostForm={this.hidePostForm} />
                 </div>

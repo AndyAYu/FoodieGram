@@ -320,12 +320,12 @@ a:visited{
 
 .other-btn {
   margin-left: 20px;
-  padding:12px;
-  border-radius: 4px;
+  padding: 10px;
+  border-radius: 50%;
   font-family: $main-font;
   color: white;
   height: inherit;
-  font-size: 13px;
+  font-size: 20px;
   // background: rgb(13, 177, 109);
   background: rgb(252, 101, 81);
   
@@ -337,25 +337,3 @@ a:visited{
 .other-btn:hover{
   background-color: rgb(21, 197, 197);
 }
-
-// .pizza {
-//     position: absolute;
-//     height: 50px;
-//     width: 50px;
-//     border-radius: 50%;
-//     background-image: url('../../images/pizza.png');
-//     // background-size: 600px;
-//     background-size: 50px;
-// }
-
-// .pizza:hover {
-//     animation-name: rotate;
-//     animation-duration: 80s;
-//     animation-iteration-count: infinite;
-//     animation-timing-function: linear;
-// }
-
-// @keyframes rotate{
-//     from{ transform: rotate(-360deg); }
-//     to{ transform: rotate(360deg); }
-// }
