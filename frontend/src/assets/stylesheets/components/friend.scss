@@ -29,7 +29,7 @@
 }
 
 .friend-list-item{
-    background-image: linear-gradient(to right, $red , lightblue);
+    background-image: linear-gradient(to right, rgb(255, 255, 197) , lightblue);
     display: flex;
     flex-direction: column;
     padding: 5px;
@@ -62,12 +62,12 @@
     margin-left: 10px;
     border: none;
     background-color: transparent;
-    transition: all .5s;
+    transition: all .3s;
     cursor: pointer;
 }
 
 .friend-name:hover{
-    color: white;
+    color:rgb(161, 161, 161);
 }
 
 
@@ -87,15 +87,15 @@
 }
 
 .friend-page-messenger {
-    color: white;
-    background-color: rgba(16, 196, 209, 0.904);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    color: rgba(16, 196, 209, 0.904);
     position: absolute;
     right: 5px;
     top: 5px;
     text-decoration: none;
     font-family: $main-font;
     height: 30px;
-    border: none;
     border-radius: 50%;
     width: 30px;
     box-sizing: border-box;
@@ -105,8 +105,8 @@
 }
 
 .friend-page-messenger:hover, .friend-page-button:hover {
-    background-color: rgb(255, 255, 209);
-    color: $red;
+    // background-color: rgb(255, 255, 209);
+    color: rgb(22, 224, 157);
 }
 
 .friend-buttons{
