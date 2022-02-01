@@ -1,36 +1,81 @@
-const aws = require('aws-sdk');
-const multer = require('multer');
-const multers3 = require('multer-s3');
+import React from 'react';
+import $ from 'jquery';
 
-const s3 = new aws.s3({
-    accessKeyId: process.env.S3_ACCESS_KEY,
-    secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
-    region: process.env.S3_BUCKET_REGION
-});
+class PictureUploader extends React.Component {
+    constructor(props) {
+        super(props);
 
-const upload = (bucketName) => 
-    multer({
-        storage: multers3({
-            s3,
-            bucket: bucketName,
-            metadata: function(req, file, cb) {
-                cb(null, { fieldName: file.fieldname });
-            },
-            key: function(req,file,cb){
-                cb(null, 'image.jpeg');
-            },
-        }),
-    });
-exports.setProfilePic = (req, res, next) => {
-    console.log(req.files);
+        this.state = {
+            picture: false,
+            src: false
+        }
+    }
 
-    const uploadsingle = upload('foodiegram-dev').single('image-upload');
+    handlePictureSelected(event) {
+        let picture = event.target.files[0];
+        let src = URL.createObjectURL(picture);
 
-    uploadsingle(req,res, err => {
-        if(err) return res.status(400).json({success:false, message: err.message });
+        this.setState({
+            picture: picture,
+            src: src
+        });
+    }
 
-        console.log(req.files)
+    renderPreview() {
+        if (this.state.src) {
+            return (
+                <img src={this.state.src} alt=""/>
+            );
+        } else {
+            return (
+                <p>
+                    No Preview
+                </p>
+            );
+        }
+    }
 
-        res.status(200).json({ data: req.files });
-    })
+    upload() {
+        let formData = new FormData();
+
+        formData.append('file', this.state.picture);
+
+        $.ajax({
+            url: '/some/api/endpoint',
+            method: 'POST',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                //successful response function
+            }
+        })
+    }
+
+
+    render() {
+        return (
+            <div>
+                <h5>Picture Uploader</h5>
+
+                <input
+                    type="file"
+                    onChange={this.handlePictureSelected.bind(this)}
+                />
+                <br />
+                <div>
+                    <div>
+                        {this.renderPreview()}
+                    </div>
+                </div>
+                <hr />
+                <button onClick={this.upload.bind(this)}>
+                    Upload
+                </button>
+            </div>
+        );
+    }
 }
+
+export default PictureUploader;
