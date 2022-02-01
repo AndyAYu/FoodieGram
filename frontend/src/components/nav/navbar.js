@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom'
 import CreatePostFormContainer from '../post/create_post_form_container';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faEdit } from '@fortawesome/free-solid-svg-icons'
+import { faComments } from '@fortawesome/free-regular-svg-icons'
 // import './navbar.css'
 
 import SearchBarContainer from '../search_bar/search_bar_container'
@@ -48,9 +51,9 @@ class NavBar extends React.Component {
             return (
                 <div>
                     <SearchBarContainer/>
-                    <Link to={`/pages/${currentUserIndex}`} className="other-btn"><i className="fas fa-user-circle"></i></Link>
-                    <button onClick={this.showPostForm} className="other-btn"><i className="fas fa-edit"></i></button>
-                    <Link to={'/messenger'} className="other-btn"><i className="far fa-comments"></i></Link>
+                    <Link to={`/pages/${currentUserIndex}`} className="other-btn"><FontAwesomeIcon icon={faUser}/></Link>
+                    <button onClick={this.showPostForm} className="other-btn"><FontAwesomeIcon icon={faEdit}/></button>
+                    <Link to={'/messenger'} className="other-btn"><FontAwesomeIcon icon={faComments}/></Link>
                     <button className="logout-btn" onClick={this.logoutUser}>Logout</button>
                     <CreatePostFormContainer showPost={this.state.showPost} hidePostForm={this.hidePostForm} />
                 </div>
