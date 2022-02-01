@@ -3,9 +3,21 @@ const router = express.Router();
 const mongoose = require('mongoose');
 // const { restart } = require('nodemon');
 const passport = require('passport');
+const multer = require('multer');
 
 const Post = require('../../models/Post');
 const validatePostInput = require('../../validation/posts');
+
+// const storage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, '/frontend/public/postImages');
+//     },
+//     filename: (req, file, callback) => {
+//         callback(null, file.orginalname);
+//     }
+// })
+
+const upload = multer({ dest: './frontend/public/storage' });
 
 router.get('/', (req,res) => {
     Post.find()
@@ -34,7 +46,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/',
-    passport.authenticate('jwt', { session: false }),
+    passport.authenticate('jwt', { session: false }), upload.single("postImage"),
     (req, res) => {
         const { errors, isValid } = validatePostInput(req.body);
         // debugger
@@ -46,8 +58,8 @@ router.post('/',
             body: req.body.body,
             address: req.body.address,
             user: req.body.user,
-            restaurant: req.body.restaurant
-            // postImage: req.body.postImage
+            restaurant: req.body.restaurant,
+            postImg: req.file.filename
         });
 
         newPost.save((err, post) => {
