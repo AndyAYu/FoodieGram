@@ -125,7 +125,7 @@ class EditPostForm extends React.Component {
                             {this.renderErrors("address")}
                             </label>
                             <br />
-                            <img src={`./storage/${this.props.post.postImg}`}/>
+                            <img src={`${this.props.post.postImg}`}/>
                             <label className="post-body-label">Thoughts on this place?
                             <input type="text" className="post-body"
                                 value={this.state.body}

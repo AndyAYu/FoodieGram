@@ -4,20 +4,33 @@ const mongoose = require('mongoose');
 // const { restart } = require('nodemon');
 const passport = require('passport');
 const multer = require('multer');
+const aws = require('aws-sdk');
+const multerS3 = require('multer-s3');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const Post = require('../../models/Post');
 const validatePostInput = require('../../validation/posts');
 
-// const storage = multer.diskStorage({
-//     destination: (req, file, cb) => {
-//         cb(null, '/frontend/public/postImages');
-//     },
-//     filename: (req, file, callback) => {
-//         callback(null, file.orginalname);
-//     }
-// })
 
-const upload = multer({ dest: './frontend/public/storage' });
+const s3 = new aws.S3({
+    secretAccessKey: process.env.SECRET_ACCESS_KEY,
+    accessKeyId: process.env.ACCESS_KEY_ID,
+    region: process.env.REGION
+});
+
+const upload = multer({
+    storage: multerS3({
+        s3: s3,
+        bucket: process.env.S3_BUCKET,
+        acl: 'public-read',
+        key: function (req, file, cb) {
+            console.log(file);
+            cb(null, file.originalname);
+        }
+    })
+});
 
 router.get('/', (req,res) => {
     Post.find()
@@ -47,29 +60,29 @@ router.get('/:id', (req, res) => {
 
 router.post('/',
     passport.authenticate('jwt', { session: false }), upload.single("postImage"),
-    (req, res) => {
+    async (req, res) => {
         const { errors, isValid } = validatePostInput(req.body);
         // debugger
         if (!isValid) {
             return res.status(400).json(errors);
         }
-
-        const newPost = new Post({
+      
+  const newPost = new Post({
             body: req.body.body,
             address: req.body.address,
             user: req.body.user,
             restaurant: req.body.restaurant,
-            postImg: req.file.filename
+            postImg: req.file.location
         });
 
-        newPost.save((err, post) => {
+        await newPost.save((err, post) => {
             post
             .populate('user')
             .then(post => res.json(post));
-    })
+        })
 });
 
-router.patch('/:id', upload.single("postImage"), (req, res) => {     
+router.patch('/:id', upload.single("postImage"), async(req, res) => {     
     const update = {
         body: req.body.body,
         restaurant: req.body.restaurant,
@@ -77,10 +90,10 @@ router.patch('/:id', upload.single("postImage"), (req, res) => {
     } 
 
     if (req.file) {
-        update.postImg = req.file.filename;
+        update.postImg = req.file.location;
     }
 
-    Post.findByIdAndUpdate(req.params.id, update, {new: true})
+    await Post.findByIdAndUpdate(req.params.id, update, {new: true})
         .populate('user')
         .exec((err, docs) => {
         if (err) {

@@ -32,7 +32,7 @@ class PostIndexItem extends React.Component {
             <div>Posted on {this.props.post.date.slice(0, 10)} by {this.props.post.user.handle}</div>
             <div className="rest-name">{this.props.post.restaurant}</div>
             <div className="rest-address">{this.props.post.address}</div>
-            <img src={`./storage/${this.props.post.postImg}`}/>
+            <img src={`${this.props.post.postImg}`}/>
             <div className="post-body">{this.props.post.body}</div>
            {edit}
            <EditPostFormContainer post={this.props.post} editPostForm={this.state.editPostForm} closeEditForm={this.closeEditForm} />

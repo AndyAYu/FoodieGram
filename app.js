@@ -11,6 +11,9 @@ const conversations = require("./routes/api/conversations")
 const messages = require("./routes/api/messages")
 const path = require('path');
 const socket = require('socket.io');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('frontend/build'));
