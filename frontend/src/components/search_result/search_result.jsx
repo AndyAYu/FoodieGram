@@ -25,8 +25,8 @@ class SearchResult extends React.Component{
                                     User profile picture here
                                 </div>
                                 <div className='user-page-link' >
-                                    <Link to={`/pages/${users.indexOf(user)}`}>{user.handle}</Link>
-                                    Insert latest post here
+                                    <Link className='search-result-link' to={`/pages/${users.indexOf(user)}`}>{user.handle}</Link>
+                                    
                                 </div>
                                 
                             </div>
@@ -36,7 +36,10 @@ class SearchResult extends React.Component{
                    
                 }
                     
-                ): <div className='no-search-result'>No search results found, all handles are unique and capitalization matters!</div>}
+                ): <div className='no-search-result'>
+                    No search results found, all handles are unique and capitalization matters!
+                    {/* <div className='hungry-dog-pic'></div> */}
+                    </div>}
             </div>
         )
     }

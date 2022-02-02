@@ -1,13 +1,15 @@
 .search-result-container{
     display: flex;
     justify-content: center;
-    border: 1px solid white;
-    width: 50%;
+    // border: 1px solid white;
+    width: 25%;
     height: 200px;
     position: relative;
-    left: 25%;
+    left: 40%;
+    background-color: white;
   
 }
+
 .search-result-info{
     margin-top: 25%;
     display: flex;
@@ -15,6 +17,22 @@
     justify-content: space-between;
 }
 
+.user-profile-picture{
+    position: absolute;
+    left: 0;
+}
+
+.user-page-link{
+    > a{
+        color: black;
+        font-size: 20px;
+    }
+}
+
+
 .no-search-result{
     margin-top: 10%;
+    color: black;
+        font-size: 20px;
 }
+
