@@ -65,7 +65,7 @@ class EditPostForm extends React.Component {
         // }
 
         if (this.state.body.length === 0 || this.state.restaurant.length === 0 || this.state.address.length === 0){
-            const fileError = document.querySelector(".file-errors")
+            const fileError = document.querySelector(".edit-file-errors")
              fileError.classList.remove("hidden");
          } else {
              const form = new FormData();
@@ -142,8 +142,8 @@ class EditPostForm extends React.Component {
                                 className="post-image"
                                 />
                             </label>
-                            <div className="file-errors hidden">
-                                Please fill out all fields and including an image
+                            <div className="edit-file-errors hidden">
+                                Please fill out all fields and upload an image
                             </div>
                             <div className="button-row">
                                 <input className="submit-form-btn" type="submit" value="Edit Post" />

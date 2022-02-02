@@ -24,8 +24,8 @@ position: absolute;
 
 .post-index-item{
   img{
-    width: 400px;
-    height: 400px;
+    max-width: 100%;
+    min-width: 100%;
   }
 }
 
@@ -82,8 +82,8 @@ a.delete-post{
 
 .post-buttons{
   position: absolute;
-  right: 10px;
-  bottom: 10px;
+  right: 0px;
+  top: 15px;
   display: flex;
 }
 

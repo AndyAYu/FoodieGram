@@ -69,7 +69,7 @@ class CreatePostForm extends React.Component {
            const fileError = document.querySelector(".file-errors")
             fileError.classList.remove("hidden");
         } else if ( this.state.body.length === 0 || this.state.restaurant.length === 0 || this.state.address.length === 0){
-            const postErrors = document.querySelector(".post-errors")
+            const postErrors = document.querySelector(".file-errors")
             postErrors.classList.remove("hidden");
         }
         else {
