@@ -32,7 +32,7 @@ class CreatePostForm extends React.Component {
     }
 
     updateFile(e){
-        debugger
+        
         if (e.target.files.length > 0){
             this.setState({
                 fileName: e.target.files[0].name, 

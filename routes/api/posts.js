@@ -69,12 +69,17 @@ router.post('/',
     })
 });
 
-router.patch('/:id', (req, res) => {     
+router.patch('/:id', upload.single("postImage"), (req, res) => {     
     const update = {
         body: req.body.body,
         restaurant: req.body.restaurant,
-        address: req.body.address
+        address: req.body.address,
     } 
+
+    if (req.file) {
+        const photo = req.file.filename;
+        update.postImg = photo;
+    }
 
     Post.findByIdAndUpdate(req.params.id, update, {new: true})
         .populate('user')
