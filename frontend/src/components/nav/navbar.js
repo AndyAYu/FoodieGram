@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom'
 import CreatePostFormContainer from '../post/create_post_form_container';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faEdit } from '@fortawesome/free-solid-svg-icons'
+import { faComments } from '@fortawesome/free-regular-svg-icons'
 // import './navbar.css'
+
+import SearchBarContainer from '../search_bar/search_bar_container'
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -45,9 +50,10 @@ class NavBar extends React.Component {
                 
             return (
                 <div>
-                    <Link to={`/pages/${currentUserIndex}`} className="other-btn">Profile</Link>
-                    <button onClick={this.showPostForm} className="other-btn">Write a Post</button>
-                    <Link to={'/messenger'} className="other-btn">Live Chat</Link>
+                    <SearchBarContainer/>
+                    <Link to={`/pages/${currentUserIndex}`} className="other-btn"><FontAwesomeIcon icon={faUser}/></Link>
+                    <button onClick={this.showPostForm} className="other-btn"><FontAwesomeIcon icon={faEdit}/></button>
+                    <Link to={'/messenger'} className="other-btn"><FontAwesomeIcon icon={faComments}/></Link>
                     <button className="logout-btn" onClick={this.logoutUser}>Logout</button>
                     <CreatePostFormContainer showPost={this.state.showPost} hidePostForm={this.hidePostForm} />
                 </div>

@@ -10,24 +10,19 @@ const PostSchema = new Schema ({
         type: String,
         required: true
     },
-    // postImage:{
-    //     type: String,
-    //     required: true
-    // },
+
     restaurant: {
         type: String,
         required: true
     },
-
-    // photo: {
-    //     type: String
-    // },
     
     date: {
         type: Date,
         default: Date.now
     },
-    user: { type: Schema.Types.ObjectId, 
+
+    user: { 
+        type: mongoose.Schema.Types.ObjectId, 
         ref: 'User' 
     },
     
