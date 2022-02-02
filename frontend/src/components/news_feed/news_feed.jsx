@@ -10,11 +10,6 @@ class NewsFeed extends React.Component {
         super(props);
     }
 
-    componentDidMount(){
-        // debugger
-        // this.props.fetchAllUsers();
-    }
-
     render(){
         return(
             <div className="main-feed">

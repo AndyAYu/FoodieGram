@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.removePost = removePost;
   window.receiveEditedPost = receiveEditedPost;
   window.createPost = createPost;
+  window.getAllPosts = getAllPosts;
   window.dispatch = store.dispatch;
   window.getPost = getPost;
   window.store = store;
