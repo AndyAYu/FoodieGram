@@ -1,6 +1,6 @@
 .search-bar-container{
     position: absolute;
-    left: 15%;
+    left: 20%;
     top: 3%;
 }
 
@@ -20,4 +20,8 @@
 .search-bar-submit{
     border-radius: 10px;
     border: none;
+   
 }
+  .search-bar-submit:hover{
+        cursor: pointer;
+    }
