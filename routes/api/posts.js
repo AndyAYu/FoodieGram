@@ -77,8 +77,7 @@ router.patch('/:id', upload.single("postImage"), (req, res) => {
     } 
 
     if (req.file) {
-        const photo = req.file.filename;
-        update.postImg = photo;
+        update.postImg = req.file.filename;
     }
 
     Post.findByIdAndUpdate(req.params.id, update, {new: true})

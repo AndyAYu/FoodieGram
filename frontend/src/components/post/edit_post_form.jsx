@@ -64,7 +64,7 @@ class EditPostForm extends React.Component {
         // user: this.state.user
         // }
 
-        if (this.state.file.name === undefined || this.state.body.length === 0 || this.state.restaurant.length === 0 || this.state.address.length === 0){
+        if (this.state.body.length === 0 || this.state.restaurant.length === 0 || this.state.address.length === 0){
             const fileError = document.querySelector(".file-errors")
              fileError.classList.remove("hidden");
          } else {
@@ -74,7 +74,10 @@ class EditPostForm extends React.Component {
              form.append("restaurant", this.state.restaurant);
              form.append("address", this.state.address);
              form.append("user", this.state.user);
-             form.append("postImage", this.state.file, this.state.postImg);
+
+             if(this.state.file.name !== undefined){
+                 form.append("postImage", this.state.file, this.state.postImg);
+             }
          
              this.props.editPost(form).then((res) => {
                 if (res.errors) {
