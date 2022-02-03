@@ -102,22 +102,23 @@ class EditPostForm extends React.Component {
             if (!this.props.userId || !this.props.post) return null;
     
             return (
-                <div>
+                <div className="edit-form-div">
                     <form onSubmit={this.handleSubmit} 
                     encType="multipart/form-data">
-                    <div className="login-header">Edit your post</div>
-                        <div className="form-div">
-                            <label className="rest-label">Restaurant name
+                    <div className="edit-form">
+                        <div className="login-header">Edit your post</div>
+                            <div className="edit-image"><img src={`${this.props.post.postImg}`}/></div>
+                            <label className="edit-rest-label">Restaurant name
                             <input type="text"
                                 value={this.state.restaurant}
                                 onChange={this.update('restaurant')}
-                                placeholder="Restaurant name" className="post-rest"
+                                placeholder="Restaurant name" className="edit-rest"
                             />
                             {this.renderErrors("restaurant")}
                             </label>
                             <br />
-                            <label className="post-address-label">Address
-                            <input type="text" className="post-address"
+                            <label className="edit-address-label">Address
+                            <input type="text" className="edit-address"
                                 value={this.state.address}
                                 onChange={this.update('address')}
                                 placeholder="Address"
@@ -125,9 +126,8 @@ class EditPostForm extends React.Component {
                             {this.renderErrors("address")}
                             </label>
                             <br />
-                            <img src={`${this.props.post.postImg}`}/>
-                            <label className="post-body-label">Thoughts on this place?
-                            <input type="text" className="post-body"
+                            <label className="edit-body-label">Thoughts on this place?
+                            <input type="text" className="edit-body"
                                 value={this.state.body}
                                 onChange={this.update('body')}
                                 placeholder="Comment"
@@ -135,11 +135,11 @@ class EditPostForm extends React.Component {
                             {this.renderErrors("body")}
                             </label>
                             <br />
-                            <label className="post-label">Change Image
+                            <label className="edit-label">Change Image
                             <input type="file"
                                 filename="postImage" ref={this.fileRef}
                                 onChange={this.updateFile}
-                                className="post-image"
+                                className="edit-image"
                                 />
                             </label>
                             <div className="edit-file-errors hidden">

@@ -132,3 +132,32 @@ textarea {
   color: rgb(243, 45, 45);
   position: absolute;
 }
+
+.edit-form-div {
+  width: 800px;
+  background-color: white;
+  margin: 0 auto;
+  min-height: 600px;
+  padding: 30px;
+}
+
+.edit-form {
+  width: 600px;
+  height:max-content;
+  margin: 0 auto;
+}
+
+.edit-image {
+  margin: 20px;
+}
+
+.edit-rest, .edit-address, .edit-body{
+  width:100%;
+  height: 40px;
+  border: none;
+  box-sizing: border-box;
+  background-color: white;
+  border: 1px solid rgb(255, 202, 27);
+  font-size: 15px;
+  margin-bottom: 5px;
+}
