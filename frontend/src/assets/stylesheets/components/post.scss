@@ -22,6 +22,13 @@ position: absolute;
   border-radius: 4px;
 }
 
+.post-index-item{
+  img{
+    max-width: 100%;
+    min-width: 100%;
+  }
+}
+
 .rest-name{
   font-size: 20px;
   font-weight: 700;
@@ -75,8 +82,8 @@ a.delete-post{
 
 .post-buttons{
   position: absolute;
-  right: 10px;
-  bottom: 10px;
+  right: 0px;
+  top: 15px;
   display: flex;
 }
 

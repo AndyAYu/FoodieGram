@@ -10,15 +10,16 @@ class CreatePostForm extends React.Component {
             restaurant: "",
             address: "",
             user: "",
-            // postImage: [],
+            fileName: "",
+            file: {},
             errors: {},
             haveErrors: false
         }
-        // this.getpostImage = this.getpostImage.bind(this);
+        this.fileRef = React.createRef();
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
         this.resetFields = this.resetFields.bind(this);
-        // debugger
+        this.updateFile = this.updateFile.bind(this);
     }
 
     
@@ -30,23 +31,32 @@ class CreatePostForm extends React.Component {
         })
     }
 
+    updateFile(e){
+        
+        if (e.target.files.length > 0){
+            this.setState({
+                fileName: e.target.files[0].name, 
+                file: e.target.files[0]
+            });
+        }
+    }
+
     resetFields(){
         this.setState({
             body: "",
             restaurant: "",
             address: "",
-            // postImage: []
+            fileName: "",
+            file: {},
             errors: {}
         })
-        // debugger
+
+        this.fileRef.current.value = "";
+        const postError = document.querySelector(".file-errors")
+        postError.classList.add("hidden");
         this.props.removePostErrors();
         this.props.hidePostForm();
     }
-
-    // getpostImage(postImage) {
-    //     // debugger
-    //     this.setState({ postImage: postImage })
-    // }
 
     componentWillReceiveProps(nextProps) {
         this.setState({ errors: nextProps.errors, haveErrors: true })
@@ -55,19 +65,27 @@ class CreatePostForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         // debugger
-        let newPost = {
-        body: this.state.body,
-        restaurant: this.state.restaurant,
-        address: this.state.address,
-        user: this.state.user,
-        postImage: this.state.postImage
+        if (this.state.file.name === undefined){
+           const fileError = document.querySelector(".file-errors")
+            fileError.classList.remove("hidden");
+        } else if ( this.state.body.length === 0 || this.state.restaurant.length === 0 || this.state.address.length === 0){
+            const postErrors = document.querySelector(".file-errors")
+            postErrors.classList.remove("hidden");
         }
-
-        this.props.createPost(newPost).then((res) => {
-            // debugger
-            if (res.errors) {
-                this.setState({errors: res.errors })
-            } else { this.resetFields() }})
+        else {
+            const form = new FormData();
+            form.append("body", this.state.body);
+            form.append("restaurant", this.state.restaurant);
+            form.append("address", this.state.address);
+            form.append("user", this.state.user);
+            form.append("postImage", this.state.file, this.state.fileName);
+    
+            this.props.createPost(form).then((res) => {
+                if (res.errors) {
+                    this.setState({errors: res.errors })
+                } else { this.resetFields() }})
+        }
+        
     }
 
     renderErrors(field) {
@@ -78,10 +96,10 @@ class CreatePostForm extends React.Component {
                     {this.state.errors[field]}
                 </div>
             );
-        }
-        
+        }   
     }
-        render() {
+
+    render() {
             // debugger
             if (!this.props.userId) return null;
             const klass1 = this.props.showPost ? "post-bg" : "hidden";
@@ -89,19 +107,9 @@ class CreatePostForm extends React.Component {
     
             return (
                 <div className={klass1} onClick={this.resetFields} >
-                    <form className={klass2} onSubmit={this.handleSubmit} onClick={e => e.stopPropagation()}>
+                    <form className={klass2} onSubmit={this.handleSubmit} encType="multipart/form-data" onClick={e => e.stopPropagation()}>
                     <div className="post-header">Write a new post</div>
                         <div className="form-div">
-                            {/* <label className="post-label">Upload Image
-                            <input type="text"
-                                value={this.state.postImage}
-                                onChange={this.update('postImage')}
-                                className="post-image"
-                                />
-                                <FileBase64
-                                    multiple={false}
-                                    onDone={this.getpostImage} />
-                            </label> */}
                             <br />
                             <label className="rest-label">Restaurant name
                             <input type="text"
@@ -130,6 +138,16 @@ class CreatePostForm extends React.Component {
                             {this.renderErrors("body")}
                             </label>
                             <br />
+                            <label className="post-label">Upload Image
+                            <input type="file"
+                                filename="postImage" ref={this.fileRef}
+                                onChange={this.updateFile}
+                                className="post-image"
+                                />
+                            </label>
+                            <div className="file-errors hidden">
+                                Please fill out all fields and upload image
+                            </div>
                             <div className="button-row">
                                 <input className="submit-form-btn" type="submit" value="Create Post" />
                             </div>
