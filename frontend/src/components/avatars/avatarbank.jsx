@@ -5,22 +5,50 @@ class AvatarBank extends React.Component {
         super(props);
 
         this.state = {
-            avatar: [
-            
-       
-        ],
+            avatar: '',
         }
-        // this.handleUpdate = this.handleUpdate.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    update(field) {
+        return e => this.setState({
+            [field]: e.currentTarget.value
+        })
     }
 
+    handleSubmit(e) {
+        e.preventDefault();
+
+        let user = {
+            avatar: this.state.avatar
+        }
+        console.log('clicked')
+        this.props.editAvatar(user)
+    }
+
+    handleAvatarSubmit(e) {
+        e.preventDefault();
+
+        this.props.editAvatar({
+            avatar: ""
+        })
+    }
 
 render(){
+    const imageClick = () => {
+        console.log(`clicked`);
+    }
+    const { users } = this.props
+    const usersAvatar = users.avatar
     const avatarImg = this.props.showAvatars ? (
         <div>
-            <form action="">
+            <form className="avatarBank" onSubmit={this.handleSubmit}>
             <div>
-                <img src='https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-svgrepo-com.svg' alt="" />
+                    <input type="image" onClick={() => usersAvatar ='https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-svgrepo-com.svg' } 
+                    src="https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-svgrepo-com.svg" 
+                    alt="submit form"/>
+                    <button type="submit">
                 <img src='https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-9-svgrepo-com.svg' alt="" />
+                    </button>
                 <img src='https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-8-svgrepo-com.svg' alt="" />
                 <img src='https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-7-svgrepo-com.svg' alt="" />
                 <img src='https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-6-svgrepo-com.svg' alt="" />

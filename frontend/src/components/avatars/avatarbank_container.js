@@ -4,10 +4,11 @@ import AvatarBank from "./avatarbank";
 
 const mSTP = (state, ownProps) => ({
     showAvatars: ownProps.showAvatars,
+    users: state.entities.users
 })
 
 const mDTP = (dispatch, ownProps) => {
-    return {editAvatar: avatar => dispatch(editAvatar(avatar)),
+    return {editAvatar: user => dispatch(editAvatar(user)),
         hideAvatars:() => ownProps.hideAvatars(),
 }};
 
