@@ -21,8 +21,7 @@ export const receivePost = post => {
     post
 }}
 
-export const receiveEditedPost = post => {
-//   debugger  
+export const receiveEditedPost = post => { 
     return {
     type: RECEIVE_EDITED_POST,
     post
@@ -42,8 +41,6 @@ export const removePostErrors = () => {
     return {type: REMOVE_POST_ERRORS
 }}
 
-
-//thunk action
 export const getAllPosts = () => dispatch => (
     PostAPIutil.getAllPosts()
     .then(posts => dispatch(receiveAllPosts(posts)))
@@ -63,7 +60,7 @@ export const createPost = post => dispatch => {
 
 export const editPost = post => dispatch => (
     PostAPIutil.editPost(post)
-    .then(post => dispatch(receiveEditedPost(post)))
+    .then(post => dispatch(receivePost(post)))
     .catch(err => dispatch(receivePostErrors(err.response.data)))
 )
 

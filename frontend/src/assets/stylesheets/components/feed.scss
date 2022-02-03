@@ -19,30 +19,31 @@
 }
 
 .post-index {
-    width: 800px;
-    height: 100vh;
-    overflow-y: scroll;
+    width: 550px;
     background-color: rgb(253, 255, 228);
-    margin-right: 20px;
-    padding-bottom: 30px;
-    margin-bottom: 50px;
+    padding: 10px 0 30px 10px;
+    margin: 0 30px 50px 30px;
     border-radius: 4px;
+    box-sizing: border-box;
+
+    ul{
+        width: 100%;
+    }
 }
 
 .post-index-item {
-    width: 80%;
+    width: 500px;
     padding: 30px;
     height: max-content;
     box-sizing: border-box;
-    background-color: #cfffeb;
-    margin-top: 30px;
+    border-bottom: 10px solid #cfffeb;
     margin-left: auto;
     margin-right: auto;
     position: relative;
 }
 
 .pi-container {
-    width: 1000px;
+    width: 600px;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 1px 1px 3px rgb(150, 150, 150);

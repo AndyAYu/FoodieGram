@@ -93,8 +93,6 @@
   text-align: center;
   box-sizing: border-box;
   font-size: 30px;
-  // font-size: 15px;
-  // margin-bottom: 5px;
 }
 
 .signup-password2{
@@ -162,7 +160,6 @@
   background-color: $red;
   cursor: pointer;
   color: white;
-  // margin-top: 20px;
 }
 
 .submit-form-btn:hover{
@@ -217,16 +214,9 @@
 }
 
 .navbar{
-  // position: fixed;
-  // top:0;
-  // left:0;
   display:flex;
-  // padding-left: 100px;
-  // padding-right: 100px;
-  // box-shadow: 0px 2px 8px 3px rgb(187, 219, 1);
   align-items:center;
   justify-content: space-between;
-  // background-color:rgb(247, 135, 8);
   background-color: rgb(252, 101, 81);
   height: 70px;
   width:100%;
@@ -320,12 +310,12 @@ a:visited{
 
 .other-btn {
   margin-left: 20px;
-  padding:12px;
-  border-radius: 4px;
+  padding: 10px;
+  border-radius: 3px;
   font-family: $main-font;
   color: white;
   height: inherit;
-  font-size: 13px;
+  font-size: 18px;
   // background: rgb(13, 177, 109);
   background: rgb(252, 101, 81);
   
@@ -337,25 +327,3 @@ a:visited{
 .other-btn:hover{
   background-color: rgb(21, 197, 197);
 }
-
-// .pizza {
-//     position: absolute;
-//     height: 50px;
-//     width: 50px;
-//     border-radius: 50%;
-//     background-image: url('../../images/pizza.png');
-//     // background-size: 600px;
-//     background-size: 50px;
-// }
-
-// .pizza:hover {
-//     animation-name: rotate;
-//     animation-duration: 80s;
-//     animation-iteration-count: infinite;
-//     animation-timing-function: linear;
-// }
-
-// @keyframes rotate{
-//     from{ transform: rotate(-360deg); }
-//     to{ transform: rotate(360deg); }
-// }

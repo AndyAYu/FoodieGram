@@ -42,10 +42,10 @@ const AboutUs = () => (
                     <a href="https://github.com/sonja-ng"></a>
                     </div>
                     <div className="linkedIn-Icon">
-                        <a href="https://www.google.com"></a>
+                        <a href="https://www.linkedin.com/in/sonja-ng-a22aa513/"></a>
                     </div>
                     <div className="angellist-Icon">
-                        <a href="https://www.angel.co"/>
+                        <a href="https://angel.co/u/sonja-ng"/>
                      </div>
                     <div className="linkedIn"></div>
                 </div>

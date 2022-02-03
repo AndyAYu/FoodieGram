@@ -1,0 +1,27 @@
+.search-bar-container{
+    position: absolute;
+    left: 20%;
+    top: 3%;
+}
+
+.search-bar-text{
+    color: yellowgreen;
+    margin-right: 5px;
+}
+
+.search-bar-input{
+    width: 300px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+     margin-right: 5px;
+}
+
+.search-bar-submit{
+    border-radius: 10px;
+    border: none;
+   
+}
+  .search-bar-submit:hover{
+        cursor: pointer;
+    }

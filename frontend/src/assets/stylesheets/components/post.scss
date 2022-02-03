@@ -22,6 +22,13 @@ position: absolute;
   border-radius: 4px;
 }
 
+.post-index-item{
+  img{
+    max-width: 100%;
+    min-width: 100%;
+  }
+}
+
 .rest-name{
   font-size: 20px;
   font-weight: 700;
@@ -41,24 +48,31 @@ position: absolute;
 
 .delete-post {
   border: none;
- 
-  background-color:rgba(16, 196, 209, 0.904);
-  color: white;
+  background-color: transparent;
+  color: rgba(16, 196, 209, 0.904);
   height: 40px;
   font-size: 14px;
-  margin-left: 10px;
-  padding: 10px;
+  padding: 5px;
   border-radius: 4px;
   transition: all .3s;
   cursor: pointer;
+
+  i {
+    color: rgba(16, 196, 209, 0.904);
+    transition: all .3s;
+  }
+
+  i:hover {
+    color: $red;
+  }
 }
 
 .delete-post:hover{
-  background-color: rgb(255, 255, 209);
   color: $red;
 }
 
 a.delete-post{
+  color: rgba(16, 196, 209, 0.904);
   display: block;
   line-height: 20px;
   height: 20px;
@@ -68,8 +82,8 @@ a.delete-post{
 
 .post-buttons{
   position: absolute;
-  right: 10px;
-  bottom: 10px;
+  right: 0px;
+  top: 15px;
   display: flex;
 }
 
@@ -119,50 +133,31 @@ textarea {
   position: absolute;
 }
 
-// .post-photo-0{
-//   width: 300px;
-//   height: 300px;
-//   // background-image: url('.././images/seed1.png');
-//   background-color: grey;
-//   margin-bottom: 20px;
-// }
-
-.post-photo-1{
-  width: 300px;
-  height: 300px;
-  background-image: url('../../images/mala.png');
-  // background-color: red;
-  margin-bottom: 20px;
+.edit-form-div {
+  width: 800px;
+  background-color: white;
+  margin: 0 auto;
+  min-height: 600px;
+  padding: 30px;
 }
 
-.post-photo-2{
-  width: 300px;
-  height: 266px;
-  background-image: url('../../images/ayada.png');
-  // background-color: red;
-  margin-bottom: 20px;
+.edit-form {
+  width: 600px;
+  height:max-content;
+  margin: 0 auto;
 }
 
-.post-photo-3{
-  width: 300px;
-  height: 300px;
-  background-image: url('../../images/corn.png');
-  // background-color: red;
-  margin-bottom: 20px;
+.edit-image {
+  margin: 20px;
 }
 
-// .post-photo-4{
-//   width: 300px;
-//   height: 300px;
-//   // background-image: url('.././images/seed1.png');
-//   background-color: red;
-//   margin-bottom: 20px;
-// }
-
-// .post-photo-5{
-//   width: 300px;
-//   height: 300px;
-//   // background-image: url('.././images/seed1.png');
-//   background-color: red;
-//   margin-bottom: 20px;
-// }
+.edit-rest, .edit-address, .edit-body{
+  width:100%;
+  height: 40px;
+  border: none;
+  box-sizing: border-box;
+  background-color: white;
+  border: 1px solid rgb(255, 202, 27);
+  font-size: 15px;
+  margin-bottom: 5px;
+}
