@@ -26,7 +26,6 @@ const upload = multer({
         bucket: process.env.S3_BUCKET,
         acl: 'public-read',
         key: function (req, file, cb) {
-            console.log(file);
             cb(null, file.originalname);
         }
     })

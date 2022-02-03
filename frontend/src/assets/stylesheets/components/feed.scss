@@ -21,9 +21,10 @@
 .post-index {
     width: 550px;
     background-color: rgb(253, 255, 228);
-    padding-bottom: 30px;
+    padding: 10px 0 30px 10px;
     margin: 0 30px 50px 30px;
     border-radius: 4px;
+    box-sizing: border-box;
 
     ul{
         width: 100%;

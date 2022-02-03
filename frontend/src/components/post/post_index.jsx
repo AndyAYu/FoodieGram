@@ -15,17 +15,31 @@ class PostIndex extends React.Component {
     render(){
         if (!this.props.posts || !this.props.users) return null;
 
-        const specificPosts = this.props.match.params.userId ? this.props.posts.filter(post => post.user._id === this.props.users[this.props.match.params.userId]._id) :
-        this.props.posts.filter(post => this.props.currentUser[0].friends.includes(post.user._id) || this.props.currentUser[0]._id === post.user._id); 
-
+        let specificPosts;
+        if (this.props.currentUser[0] === undefined) {
+            specificPosts = [];
+        } else if (this.props.match.params.userId) {
+           specificPosts = this.props.posts.filter(post => post.user._id === this.props.users[this.props.match.params.userId]._id) 
+        } else {
+            specificPosts = this.props.posts.filter(post => this.props.currentUser[0].friends.includes(post.user._id) || this.props.currentUser[0]._id === post.user._id);
+        }
+        // debugger
         const eachPost = specificPosts.sort((post1, post2) => {
             return new Date(post2.updatedAt) - new Date(post1.updatedAt);
         })
        
-        const postItem = eachPost.map((post, idx) => <PostIndexItem post={post} key={idx} 
-        users={this.props.users} 
-        currentUser={this.props.currentUser} 
-        deletePost={this.props.deletePost} editPost={this.props.editPost} idx={idx}/>)
+        let postItem;
+        
+        if (eachPost.length > 0){
+            postItem = eachPost.map((post, idx) => <PostIndexItem post={post} key={idx} users={this.props.users} currentUser={this.props.currentUser} 
+            deletePost={this.props.deletePost} editPost={this.props.editPost} idx={idx}/>)
+        }
+         else if (eachPost.length === 0 && this.props.match.params.userId) {
+            postItem = (<div>There is no post yet...</div>)
+         } else {
+             postItem = (<div>Your newsfeed is empty. Start finding foodies to see what's going on!</div>)
+         }
+
         return (
             <div className="post-index">
                 <ul>
