@@ -1,5 +1,5 @@
 import React from 'react';
-import FileBase64 from 'react-file-base64';
+import { withRouter } from 'react-router-dom';
 
 class CreatePostForm extends React.Component {
     constructor(props){
@@ -83,7 +83,10 @@ class CreatePostForm extends React.Component {
             this.props.createPost(form).then((res) => {
                 if (res.errors) {
                     this.setState({errors: res.errors })
-                } else { this.resetFields() }})
+                } else { 
+                    this.resetFields();
+                    this.props.history.push("/feed");
+                 }})
         }
         
     }
@@ -159,4 +162,4 @@ class CreatePostForm extends React.Component {
 
 }
 
-export default CreatePostForm;
+export default withRouter(CreatePostForm);
