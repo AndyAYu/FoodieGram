@@ -9,9 +9,10 @@ class AvatarBank extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    update(field) {
-        return e => this.setState({
-            [field]: e.currentTarget.value
+    update(field, src) {
+        debugger
+        this.setState({
+            [field]: src
         })
     }
 
@@ -33,7 +34,8 @@ class AvatarBank extends React.Component {
         })
     }
 
-render(){
+    
+    render(){
     const imageClick = () => {
         console.log(`clicked`);
     }
@@ -43,11 +45,15 @@ render(){
         <div>
             <form className="avatarBank" onSubmit={this.handleSubmit}>
             <div>
-                    <input type="image" onClick={() => usersAvatar ='https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-svgrepo-com.svg' } 
+                    <input type="image"
+                        value='https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-svgrepo-com.svg'
                     src="https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-svgrepo-com.svg" 
-                    alt="submit form"/>
-                    <button type="submit">
-                <img src='https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-9-svgrepo-com.svg' alt="" />
+                    alt="submitform"/>
+                    <button type="submit"> 
+                        <img src='https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-9-svgrepo-com.svg' 
+                        onClick={(e) => this.update('avatar', e.currentTarget.src)} 
+                            value='https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-9-svgrepo-com.svg'
+                        alt="submitform"/>
                     </button>
                 <img src='https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-8-svgrepo-com.svg' alt="" />
                 <img src='https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-7-svgrepo-com.svg' alt="" />
