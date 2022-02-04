@@ -15,6 +15,10 @@ const UserSchema = new Schema({
       type: String,
       required: true
     },
+    avatar:{
+      type: String,
+      default: 'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-12-svgrepo-com.svg'
+    },//photo
     posts: [{
       type: Schema.Types.ObjectId,
       ref: 'Post'}],
