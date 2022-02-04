@@ -5,7 +5,7 @@ class AvatarBank extends React.Component {
         super(props);
 
         this.state = {
-            avatar: '',
+            profileAvatar: '',
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -20,7 +20,7 @@ class AvatarBank extends React.Component {
         e.preventDefault();
 
         let user = {
-            avatar: this.state.avatar
+            avatar: this.state.profileAvatar
         }
         console.log('clicked')
         this.props.editAvatar(user)
