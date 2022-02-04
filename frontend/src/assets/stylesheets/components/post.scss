@@ -94,12 +94,16 @@ a.delete-post{
   box-sizing: border-box;
 }
 
-.rest-label, .post-address-label, .post-body-label {
+.rest-label, .post-address-label, .post-body-label, .post-label {
   margin: 5px 0 5px 0;
   width: 90%;
   font-size: 13px;
   color:rgba(82, 82, 82, 0.966);
   position: relative;
+}
+
+.post-image {
+  margin-bottom: 5px;
 }
 
 .rest-label input, .post-address-label input, .post-body-label input {
@@ -149,6 +153,10 @@ textarea {
 
 .edit-image {
   margin: 20px;
+
+  img {
+    max-width: 500px;
+  }
 }
 
 .edit-rest, .edit-address, .edit-body{

@@ -126,7 +126,7 @@ class EditPostForm extends React.Component {
                             {this.renderErrors("address")}
                             </label>
                             <br />
-                            <label className="edit-body-label">Thoughts on this place?
+                            <label className="edit-body-label">Thoughts?
                             <input type="text" className="edit-body"
                                 value={this.state.body}
                                 onChange={this.update('body')}
