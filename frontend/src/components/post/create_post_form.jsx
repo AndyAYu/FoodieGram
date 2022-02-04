@@ -141,7 +141,7 @@ class CreatePostForm extends React.Component {
                             {this.renderErrors("body")}
                             </label>
                             <br />
-                            <label className="post-label">Upload Image
+                            <label className="post-label">Upload Image<br></br>
                             <input type="file"
                                 filename="postImage" ref={this.fileRef}
                                 onChange={this.updateFile}

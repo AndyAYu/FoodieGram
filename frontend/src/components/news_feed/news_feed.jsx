@@ -13,14 +13,9 @@ class NewsFeed extends React.Component {
     render(){
         return(
             <div className="main-feed">
-                <aside className="aside-left">
-                </aside>
                 <div className="pi-container">
                 <PostIndexContainer />
                 </div>
-               <aside className="aside-right">
-                {/* <FriendsBarContainer/> */}
-               </aside>
             </div>
         )
     }
