@@ -9,7 +9,7 @@ export default function Conversation({ conversation, currentUser }) {
         const friendId = conversation.members.find(m => m !== currentUser.id)
         const getUser = async () => {
             try{
-                const res = await axios.get(`/api/users?userId=${friendId}`)
+                const res = await axios.get(`/api/users/${friendId}`)
                 setUser(res.data);
             } catch(err){
                 console.log(err);
@@ -21,8 +21,8 @@ export default function Conversation({ conversation, currentUser }) {
 
     return (
         <div className='conversation'>
-            <img src={img2} alt="" className="conversationImg" />
-            <span className="conversationName">{"user"}</span>
+            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/637057ab-e96d-4cef-8e18-fe67f4bfb343/de7am4n-8729f211-870d-4475-b8b7-fe525854e8f8.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzYzNzA1N2FiLWU5NmQtNGNlZi04ZTE4LWZlNjdmNGJmYjM0M1wvZGU3YW00bi04NzI5ZjIxMS04NzBkLTQ0NzUtYjhiNy1mZTUyNTg1NGU4ZjgucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.ukD5SFWZwoj_ZoPDuieCTdFaiN0vOehbQ9-mq3z-ycQ" alt="" className="conversationImg" />
+            <span className="conversationName">{user ? user.handle.charAt(0).toUpperCase() + user.handle.slice(1): ""}</span>
         </div>
     )
 }
