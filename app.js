@@ -11,6 +11,9 @@ const conversations = require("./routes/api/conversations")
 const messages = require("./routes/api/messages")
 const path = require('path');
 const socket = require('socket.io');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('frontend/build'));
@@ -72,18 +75,18 @@ io.on("connection", (socket) => {
     });
 
 
-    // socket.on("sendMessage", ({ senderId, receiverId, text}) => {
-    //     const user = getUser(receiverId);
-    //     io.to(user.socketId).emit("getMessage", {
-    //         senderId, 
-    //         text,
-    //     })
-    // })
+    socket.on("sendMessage", ({ senderId, receiverId, text}) => {
+        const user = getUser(receiverId);
+        io.to(user.socketId).emit("getMessage", {
+            senderId, 
+            text,
+        })
+    })
 
 
-    // socket.on("disconnect", () => {
-    //     console.log("a user disconnected!")
-    //     removeUser(socket.id);
-    //     socket.emit("getUsers", usersArr)
-    // });
+    socket.on("disconnect", () => {
+        console.log("a user disconnected!")
+        removeUser(socket.id);
+        socket.emit("getUsers", usersArr)
+    });
 });

@@ -16,12 +16,13 @@ export default function Conversation({ conversation, currentUser }) {
             };
         };
         getUser();
+        console.log(user);
     },[currentUser, conversation]);
 
     return (
         <div className='conversation'>
             <img src={img2} alt="" className="conversationImg" />
-            <span className="conversationName">{"Jason"}</span>
+            <span className="conversationName">{"user"}</span>
         </div>
     )
 }

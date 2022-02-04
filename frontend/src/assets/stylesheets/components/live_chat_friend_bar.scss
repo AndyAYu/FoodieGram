@@ -1,0 +1,24 @@
+.friend-wrapper{
+    background-color: rgb(235, 232, 232);
+    height: 100%;
+
+}
+
+.friend-live-item{
+    background-image: linear-gradient(to right, $red , lightblue);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding-top: 10%;
+    margin-top: 10px;
+    // padding-bottom: 10%;
+    height: 18%;
+    justify-content: center;
+    align-content: center;
+}
+
+.friend-buttons-live{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
