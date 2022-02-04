@@ -6,7 +6,8 @@ import ProfilePage from "./profile_page";
 const mSTP = state => ({
     loggedIn: state.session.isAuthenticated,
     users: state.entities.users,
-    currentUser: state.session.user.id
+    currentUser: state.session.user.id,
+    avatar: state.session.user.avatar
 })
 
 const mDTP = dispatch => ({

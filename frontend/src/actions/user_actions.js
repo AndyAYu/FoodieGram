@@ -29,6 +29,7 @@ const deleteFriend = friendInfo => ({
     friendInfo
 })
 
+
 // const addPost = post => ({
 //     type: RECEIVE_POST,
 //     post
@@ -50,6 +51,12 @@ export const addFriendship = friendId => dispatch =>(
 export const deleteFriendship = (friendId) => dispatch => (
     UserAPIUtil.removeFriend(friendId)
         .then(friendId=> dispatch(deleteFriend(friendId)))
+)
+
+export const editAvatar = user => dispatch => (
+    UserAPIUtil.editAvatar(user)
+        .then(user => dispatch(receiveUser(user)))
+        // .catch(err => dispatch(receiveAvatarErrors(err.response.data)))
 )
 
 // export const fetchPost = postId => dispatch => (
