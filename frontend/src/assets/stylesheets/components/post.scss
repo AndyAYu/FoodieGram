@@ -177,3 +177,27 @@ textarea {
   left: 20px;
   font-size: 13px;
 }
+
+.heart {
+  border: none;
+  background-color: transparent;
+  color: rgb(87, 87, 87);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.empty-heart {
+  border: none;
+  background-color: transparent;
+  color: rgb(255, 42, 42);
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.like-num {
+  font-size: 12px;
+}
+
+.like-row{
+  margin: 10px 0;
+}

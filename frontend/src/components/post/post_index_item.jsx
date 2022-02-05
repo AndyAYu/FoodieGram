@@ -34,14 +34,14 @@ class PostIndexItem extends React.Component {
             likesNum = null;
         }
         else if (this.props.likes.length === 1){
-            likesNum = (<div>{this.props.likes.length} like</div>);
+            likesNum = (<span className="like-num">{this.props.likes.length} like</span>);
         } else {
-            likesNum = (<div>{this.props.likes.length} likes</div>)
+            likesNum = (<span className="like-num">{this.props.likes.length} likes</span>)
         }
 
         const likeButtons = !this.props.likes.includes(this.props.currentUser[0]._id) ? 
-        (<button onClick={()=> this.props.addLike({"userId": this.props.currentUser[0]._id, "postId": this.props.post._id})}><FontAwesomeIcon icon={faHeart}/></button>) : 
-        (<button onClick={()=> this.props.removeLike({"userId": this.props.currentUser[0]._id, "postId": this.props.post._id})}><FontAwesomeIcon icon={regularHeart}/></button>)
+        (<button className="heart" onClick={()=> this.props.addLike({"userId": this.props.currentUser[0]._id, "postId": this.props.post._id})}><FontAwesomeIcon icon={regularHeart}/></button>) : 
+        (<button className="empty-heart" onClick={()=> this.props.removeLike({"userId": this.props.currentUser[0]._id, "postId": this.props.post._id})}><FontAwesomeIcon icon={faHeart}/></button>)
 
         return (
         <li className="post-index-item">
@@ -49,8 +49,8 @@ class PostIndexItem extends React.Component {
             <div className="rest-name">{this.props.post.restaurant}</div>
             <div className="rest-address">{this.props.post.address}</div>
             <img src={`${this.props.post.postImg}`}/>
+            <div className="like-row">{likeButtons}{likesNum}</div>
             <div className="post-body">{this.props.post.body}</div>
-            {likesNum}{likeButtons}
            <EditPostFormContainer post={this.props.post} editPostForm={this.state.editPostForm} closeEditForm={this.closeEditForm} />
         </li>
         )
