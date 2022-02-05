@@ -114,4 +114,26 @@ router.delete('/:id', (req, res) => {
     })    
 });
 
+router.post('/like/:id', (req, res) => {
+    Post.findByIdAndUpdate(req.body.postId, { $push: { likes: req.body.userId } }, 
+        { new: true}, (err, data) => {
+        if (err) {
+            return res.status(500).json(err)
+        } else {
+            return res.json(data)
+        }
+    })
+});
+
+router.put('/like/:id', (req, res) => {
+    Post.findByIdAndUpdate(req.body.postId, { $pull: { likes: req.body.userId } }, 
+        { new: true }, (err, data) => {
+        if (err) {
+            return res.status(500).json(err)
+        } else {
+            return res.json({postId: req.body.postId, userId: req.body.userId})
+        }
+    })
+});
+
 module.exports = router;

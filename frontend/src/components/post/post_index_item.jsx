@@ -1,8 +1,9 @@
 import React from 'react';
 import EditPostFormContainer from './edit_post_form_container';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrashAlt, faPen } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt, faPen, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons'
 
 class PostIndexItem extends React.Component {
     constructor(props){
@@ -26,7 +27,22 @@ class PostIndexItem extends React.Component {
         ) : (
             null
         )
-            
+
+        let likesNum; 
+        
+        if (this.props.likes.length === 0){
+            likesNum = null;
+        }
+        else if (this.props.likes.length === 1){
+            likesNum = (<div>{this.props.likes.length} like</div>);
+        } else {
+            likesNum = (<div>{this.props.likes.length} likes</div>)
+        }
+
+        const likeButtons = !this.props.likes.includes(this.props.currentUser[0]._id) ? 
+        (<button onClick={()=> this.props.addLike({"userId": this.props.currentUser[0]._id, "postId": this.props.post._id})}><FontAwesomeIcon icon={faHeart}/></button>) : 
+        (<button onClick={()=> this.props.removeLike({"userId": this.props.currentUser[0]._id, "postId": this.props.post._id})}><FontAwesomeIcon icon={regularHeart}/></button>)
+
         return (
         <li className="post-index-item">
             <div>Posted on {this.props.post.date.slice(0, 10)} by {this.props.post.user.handle}</div>{edit}
@@ -34,6 +50,7 @@ class PostIndexItem extends React.Component {
             <div className="rest-address">{this.props.post.address}</div>
             <img src={`${this.props.post.postImg}`}/>
             <div className="post-body">{this.props.post.body}</div>
+            {likesNum}{likeButtons}
            <EditPostFormContainer post={this.props.post} editPostForm={this.state.editPostForm} closeEditForm={this.closeEditForm} />
         </li>
         )
