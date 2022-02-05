@@ -7,6 +7,7 @@ export const RECEIVE_USER = 'RECEIVE_USER';
 export const ADD_FRIEND = 'ADD_FRIEND';
 export const DELETE_FRIEND = 'DELETE_FRIEND';
 export const RECEIVE_POST = 'RECEIVE_POST';
+export const RECEIVE_AVATAR_ERRORS= 'RECEIVE_AVATAR_ERRORS'
 
 //actions
 export const receiveAllUsers = users => ({
@@ -28,6 +29,11 @@ const deleteFriend = friendInfo => ({
     type: DELETE_FRIEND,
     friendInfo
 })
+
+const receiveAvatarErrors = errors => {
+    return {type: RECEIVE_AVATAR_ERRORS,
+    errors
+}}
 
 
 // const addPost = post => ({
@@ -56,7 +62,7 @@ export const deleteFriendship = (friendId) => dispatch => (
 export const editAvatar = user => dispatch => (
     UserAPIUtil.editAvatar(user)
         .then(user => dispatch(receiveUser(user)))
-        // .catch(err => dispatch(receiveAvatarErrors(err.response.data)))
+        .catch(err => dispatch(receiveAvatarErrors(err.response.data)))
 )
 
 // export const fetchPost = postId => dispatch => (
