@@ -23,7 +23,7 @@
     // background-color: rgb(253, 255, 228);
     background-color: white;
     padding: 10px 0 30px 0;
-    margin: 0 30px 50px 30px;
+    margin: 0 auto;
     border-radius: 4px;
     min-height: 700px;
     box-sizing: border-box;
@@ -54,8 +54,27 @@
     margin: 0 auto 50px auto;
 }
 
+.pi-container-profile {
+    width: max-content;
+    margin: 0 30px 0 30px;
+    min-height: 600px;
+    background-color: white;
+}
+
 .food-feed {
     width: inherit;
+    height: auto;
+    padding: 20px 20px 18px 20px;
+    // border-bottom: 2px solid #cfffeb;
+    box-sizing: border-box;
+    background-color: #cfffeb;
+    color: rgba(16, 196, 209, 0.904);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.food-feed-profile {
+    width: 100%;
     height: auto;
     padding: 20px 20px 18px 20px;
     // border-bottom: 2px solid #cfffeb;
