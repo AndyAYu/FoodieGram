@@ -52,7 +52,7 @@ class NavBar extends React.Component {
                 <span className='welcome'>Hello {this.props.users[currentUserIndex].handle}</span>
             )
             return (
-                <div>
+                <div className="nav-container">
                     <SearchBarContainer/>
                     {welcomeMsg}
                     <Link to={`/pages/${currentUserIndex}`} className="other-btn"><FontAwesomeIcon icon={faUser}/></Link>
