@@ -46,8 +46,9 @@ class PostIndexItem extends React.Component {
 
         let likesNum;
         let klass2; 
-        
-        if (this.props.likes.length === 0){
+        if (this.props.likes === undefined) return null;
+
+        if (this.props.likes.length === 0 ){
             likesNum = null;
             klass2 = "hidden";
         }
@@ -55,7 +56,7 @@ class PostIndexItem extends React.Component {
             klass2 = "like-num-btn";
             likesNum = (<span className="like-num">{this.props.likes.length}</span>)
         }
-
+    
         const likeButtons = !this.props.likes.includes(this.props.currentUser[0]._id) ? 
         (<button className="heart" 
         onClick={()=> this.props.addLike({"userId": this.props.currentUser[0]._id, "postId": this.props.post._id})}>
@@ -67,8 +68,7 @@ class PostIndexItem extends React.Component {
         let userObj = {};
         // debugger
         this.props.users.map(user => userObj[user._id] = user.handle);
-        const likers = this.props.likes.map(liker => <div className="liker">{userObj[liker]}</div>);
-
+        const likers = this.props.likes.map((liker, idx) => <div className="liker" key={idx}>{userObj[liker]}</div>);
         const klass = this.state.likers ? "liker-bg" : "hidden";
 
         return (
