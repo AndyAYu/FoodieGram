@@ -324,6 +324,15 @@ a:visited{
   cursor: pointer;
 }
 
+.other-btn:first-child{
+  margin-left: 10px;
+}
+
 .other-btn:hover{
   background-color: rgb(21, 197, 197);
+}
+
+.welcome {
+  color: white;
+  font-size: 13px;
 }

@@ -20,10 +20,12 @@
 
 .post-index {
     width: 550px;
-    background-color: rgb(253, 255, 228);
-    padding: 10px 0 30px 10px;
+    // background-color: rgb(253, 255, 228);
+    background-color: white;
+    padding: 10px 0 30px 0;
     margin: 0 30px 50px 30px;
     border-radius: 4px;
+    min-height: 700px;
     box-sizing: border-box;
 
     ul{
@@ -33,10 +35,10 @@
 
 .post-index-item {
     width: 500px;
-    padding: 30px 30px 10px 30px;
+    padding: 30px 0 10px 0;
     height: max-content;
     box-sizing: border-box;
-    border-bottom: 10px solid #cfffeb;
+    border-bottom: 2px solid #cfffeb;
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -44,9 +46,22 @@
 
 .pi-container {
     width: 600px;
-    padding: 20px;
-    border-radius: 5px;
+    // padding: 0 20px 20px 20px;
+    min-height: 600px;
     box-shadow: 1px 1px 3px rgb(150, 150, 150);
-    background-color: rgb(253, 255, 228);
+    // background-color: rgb(253, 255, 228);
+    background-color: white;
     margin: 0 auto 50px auto;
+}
+
+.food-feed {
+    width: inherit;
+    height: auto;
+    padding: 20px 20px 18px 20px;
+    // border-bottom: 2px solid #cfffeb;
+    box-sizing: border-box;
+    background-color: #cfffeb;
+    color: rgba(16, 196, 209, 0.904);
+    font-size: 25px;
+    font-weight: 700;
 }

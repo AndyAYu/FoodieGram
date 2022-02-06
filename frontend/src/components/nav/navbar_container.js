@@ -10,11 +10,13 @@ const mapStateToProps = state => {
         // debugger
         let currentUserId = state.session.user.id 
         let currentUserIndex = state.entities.users.findIndex(user => user._id === currentUserId)
+        let users = state.entities.users
     return(
         {
             loggedIn: state.session.isAuthenticated,
             currentUser: currentUserId,
-            currentUserIndex: currentUserIndex
+            currentUserIndex: currentUserIndex,
+            users: users
         }
     )}
     else return null;
