@@ -7,6 +7,8 @@ import { setAuthToken } from './util/session_api_util';
 import { logout, login, signup } from './actions/session_actions';
 import { addLike, removeLike, removePost, receiveEditedPost, getPost } from './actions/post_actions';
 import { createPost} from './util/post_api_util';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -1,9 +1,10 @@
 import React from 'react';
-import Conversation from '../conversations/conversation';
+import ConversationContainer from '../conversations/conversation_container';
 import Message from '../message/message';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { io } from 'socket.io-client';
+import * as ReactBootStrap from 'react-bootstrap';
 
 
 export default function Messenger (props) {
@@ -16,6 +17,7 @@ export default function Messenger (props) {
     const scrollRef = useRef();
     const socket = io();
     const [value, setValue] = useState(0);
+    const [loading, setLoading] = useState(false);
 
 
     useEffect(() => {
@@ -44,7 +46,6 @@ export default function Messenger (props) {
     useEffect(() => {
         const getConversations = async () => {
             try{
-                console.log("use effect ran")
                 const res =  await axios.get(`/api/conversations/${user.id}`);
                 setConversations([...res.data]);
             } catch(err) {
@@ -58,10 +59,8 @@ export default function Messenger (props) {
         setMessages([]);
         const getMessages = async () => {
             try {
-                console.log(currentChat._id)
                 await axios.get(`/api/messages/${currentChat?._id}`)
                 .then(res => setMessages(res.data))
-                console.log(messages);
             } catch(err) {
                 console.log("error is " + err)
             }
@@ -71,6 +70,7 @@ export default function Messenger (props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         const message = {
             sender: user.id,
             text: newMessage,
@@ -79,15 +79,16 @@ export default function Messenger (props) {
 
         const receiverId = currentChat.members.find(member => member !== user.id)
 
-        // socket.emit("sendMessage", {
-        //     senderId: user.id,
-        //     receiverId,
-        //     text: newMessage
-        // })
+        socket.emit("sendMessage", {
+            senderId: user.id,
+            receiverId,
+            text: newMessage
+        })
         try {
             const res = await axios.post(`/api/messages`, message);
             setMessages([...messages, res.data]);
             setNewMessage("");
+            setLoading(false);
         } catch(err){
             console.log(err);
         }
@@ -113,7 +114,6 @@ export default function Messenger (props) {
         console.log(value);
     }
 
-
     return (
         <div className="messenger">
             <div className="chatMenu">
@@ -123,7 +123,7 @@ export default function Messenger (props) {
                         conversations.map((convo, idx) => (
                             convo ? 
                             <div key={idx} onClick={() => setCurrentChat(convo)}>
-                                <Conversation  currentUser={user} conversation={convo} />
+                                <ConversationContainer  currentUser={user} conversation={convo} />
                             </div>
                             :
                             null
@@ -146,13 +146,28 @@ export default function Messenger (props) {
                             </div>
                         } 
 
-                        {
+                        {   
+
+                            messages.length > 0 ?
                             
                             messages.map((message, idx) => ( 
                                 <div key={idx} ref={scrollRef}>
                                     <Message message={message} own={message.sender === user.id}/>
                                 </div>
-                            ))
+                            )):
+                            <div className='spinner'>
+                               <ReactBootStrap.Spinner animation="border" />
+                            </div>
+                        }
+
+                        {
+                            loading?
+                            <div className='spinner-new-msg'>
+                                <h4>Sending...</h4>
+                               <ReactBootStrap.Spinner animation="border" />
+                            </div>
+                            :
+                            null
                         }
                     </div> 
                      : <span className='noConversationText'>Open a Conversation to start a chat!</span>
