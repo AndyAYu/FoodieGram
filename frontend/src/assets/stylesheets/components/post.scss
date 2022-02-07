@@ -44,6 +44,7 @@ position: absolute;
 .post-body {
   font-size: 13px;
   font-weight: 300;
+  margin-bottom: 10px;
 }
 
 .delete-post {
@@ -176,4 +177,73 @@ textarea {
   bottom: 90px;
   left: 20px;
   font-size: 13px;
+}
+
+.heart {
+  border: none;
+  background-color: transparent;
+  color: rgb(87, 87, 87);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.empty-heart {
+  border: none;
+  background-color: transparent;
+  font-size: 17px;
+  color: rgb(255, 100, 100);
+  cursor: pointer;
+}
+
+.like-num {
+  font-size: 12px;
+}
+
+.like-num-btn {
+  border: none;
+  background-color: transparent;
+  padding: none;
+  cursor: pointer;
+}
+
+.like-num-btn:hover {
+  color: $red;
+}
+
+.like-row{
+  margin: 10px 0;
+}
+
+.liker-bg {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(187, 187, 187, 0.7);
+    z-index: 10;
+}
+
+.likers {
+  background-color: white;
+  height: max-content;
+  width: max-content;
+  min-height: 200px;
+  min-width: 200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 3px;
+  color: $red;
+  padding: 10px;
+  transform: translate(-50%, -50%);
+}
+
+.liker {
+  margin-top: 10px;
+  color: rgb(99, 99, 99);
+}
+
+.no-post {
+  padding-left: 20px;
 }
