@@ -29,13 +29,14 @@ class PostIndex extends React.Component {
         })
        
         let postItem;
-        
+
         if (eachPost.length > 0){
             postItem = eachPost.map((post, idx) => <PostIndexItem post={post} key={idx} users={this.props.users} currentUser={this.props.currentUser} 
+            likes={this.props.likes[post._id]} addLike={this.props.addLike} removeLike={this.props.removeLike}
             deletePost={this.props.deletePost} editPost={this.props.editPost} idx={idx}/>)
         }
          else if (eachPost.length === 0 && this.props.match.params.userId) {
-            postItem = (<div>There is no post yet...</div>)
+            postItem = (<div className="no-post">There is no post yet...</div>)
          } else {
              postItem = (<div>Your newsfeed is empty. Start finding foodies to see what's going on!</div>)
          }

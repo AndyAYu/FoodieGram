@@ -16,16 +16,17 @@
     background-color: rgb(255, 255, 213);
     box-shadow: 1px 1px 3px 1px #aaaaaa;
     height: max-content;
-    padding: 5px;
+    padding-bottom: 10px;
     position: sticky;
     top: 0;
     // justify-content: space-evenly;
 }
 
 .friends-bar-title {
-    height: 30px;
-    font-size: 30px;
-    margin-bottom: 20px;
+    height: 43px;
+    font-size: 25px;
+    font-weight: 700;
+    padding: 20px 0 0 10px;
 }
 
 .friend-list-item{
