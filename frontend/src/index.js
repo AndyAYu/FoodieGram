@@ -7,6 +7,8 @@ import { setAuthToken } from './util/session_api_util';
 import { logout, login, signup } from './actions/session_actions';
 import { getAllPosts, receivePost, removePost, receiveEditedPost, getPost } from './actions/post_actions';
 import { createPost} from './util/post_api_util';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 // import './assets/stylesheets/index.scss';
 
