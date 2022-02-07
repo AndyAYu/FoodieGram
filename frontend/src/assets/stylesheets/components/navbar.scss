@@ -289,18 +289,24 @@ a:visited{
 
 .logout-btn {
   margin-left: 20px;
-  padding:12px;
+  // padding:12px;
   margin-right: 50px;
-  border-radius: 4px;
+  // border-radius: 4px;
   font-family: $main-font;
   color: white;
-  height: inherit;
+  height: 100%;
   // background: rgb(13, 177, 109);
   background: rgb(252, 101, 81);
   
   border: none;
   transition: all .5s;
   cursor: pointer;
+}
+
+.nav-container {
+  height: inherit;
+  display: flex;
+  align-items: center;
 }
 
 
@@ -314,7 +320,6 @@ a:visited{
   border-radius: 3px;
   font-family: $main-font;
   color: white;
-  height: inherit;
   font-size: 18px;
   // background: rgb(13, 177, 109);
   background: rgb(252, 101, 81);
@@ -324,6 +329,15 @@ a:visited{
   cursor: pointer;
 }
 
+.other-btn:first-child{
+  margin-left: 10px;
+}
+
 .other-btn:hover{
   background-color: rgb(21, 197, 197);
+}
+
+.welcome {
+  color: white;
+  font-size: 13px;
 }

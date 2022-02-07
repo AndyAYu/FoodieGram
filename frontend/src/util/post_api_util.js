@@ -19,3 +19,11 @@ export const editPost = (post) => {
 export const deletePost = (postId) => {
     return axios.delete(`/api/users/posts/${postId}`)
 }
+
+export const addLike = post => {
+    return axios.post(`/api/users/posts/like/${post.postId}`, post)
+}
+
+export const removeLike = post => {
+    return axios.put(`/api/users/posts/like/${post.postId}`, post)
+}
