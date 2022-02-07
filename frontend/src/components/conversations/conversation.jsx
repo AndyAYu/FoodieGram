@@ -1,16 +1,18 @@
 import axios from 'axios';
 import React from 'react'
 import { useState, useEffect } from 'react'
-import img2 from '../../assets/images/user2.jpg';
 
-export default function Conversation({ conversation, currentUser }) {
+export default function Conversation({ conversation, currentUser, allUsers }) {
     const [user, setUser] = useState(null);
     useEffect(() => {
-        const friendId = conversation.members.find(m => m !== currentUser.id)
-        const getUser = async () => {
+        const friendId = conversation.members.find(m => m !== currentUser.id);
+        let friendIndex = allUsers.findIndex(user => user._id === friendId);
+        let friend = allUsers[friendIndex];
+        console.log(friendIndex);
+        const getUser =  () => {
             try{
-                const res = await axios.get(`/api/users/${friendId}`)
-                setUser(res.data);
+                const res = friend
+                setUser(res);
             } catch(err){
                 console.log(err);
             };
