@@ -7,6 +7,7 @@ const keys = require('../../config/keys');
 const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
+const Post = require("../../models/Post");
 
 router.get("/test", (req, res) => {
     res.json({ msg: "This is the user route"})
@@ -101,7 +102,7 @@ router.post("/register", (req, res) => {
       .then(users => res.json(users))
   })
 
-  router.get('/:id', (req, res) => {
+  router.get('/', (req, res) => {
     try {
       const userId = req.params.id
       User.findById(userId)
@@ -157,5 +158,16 @@ router.delete( '/:friendId', passport.authenticate('jwt', {session:false}),  (re
   res.send({ friendId: req.body.userId, currentUserId: req.user.id })
   })
 
+
+// update Avatar
+// router.patch('/', (req, res) => {
+//   debugger
+//   User.findByIdAndUpdate(req.params.id, req.body)
+//   debugger
+//   .then(avatar => res.json({ msg:'Updated Successfully'}))
+//   .catch(err =>
+//     res.status(400).json({ error: 'Unable to update the Database' })
+//     );
+// });
 
 module.exports = router;

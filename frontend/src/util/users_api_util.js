@@ -13,5 +13,5 @@ export const removeFriend = (friendId) => (
 )
 
 export const editAvatar = user => (
-    axios.patch(`/api/users/${user._id}`, user)
+    axios.patch(`/api/users/${user.id}`, user)
 )

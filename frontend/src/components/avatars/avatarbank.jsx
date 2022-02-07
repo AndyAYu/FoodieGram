@@ -5,7 +5,7 @@ class AvatarBank extends React.Component {
         super(props);
 
         this.state = {
-            profileAvatar: '',
+            profileAvatar: this.props.profileAvatar,
             avatarBank: [
                 'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-svgrepo-com.svg',
                 'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-9-svgrepo-com.svg',
@@ -37,6 +37,7 @@ class AvatarBank extends React.Component {
     handleSubmit(e) {
         debugger
         e.preventDefault();
+        this.props.handleAvatarChange(e)
 
         let user = {
             avatar: this.state.profileAvatar
@@ -64,8 +65,8 @@ class AvatarBank extends React.Component {
                     <button  type="submit" className="avatarBank">
                         {this.state.avatarBank.map(avatar => <div key={avatar}><img  
                         src={avatar} 
-                        value={avatar}
-                        onClick={(e) => this.update('profileAvatar', e.currentTarget.src),this.handleSubmit}
+                        // onClick={(e) => this.update('profileAvatar', e.currentTarget.src)}
+                        onClick={(e) => this.handleSubmit(e)}
                         alt="submitform" /></div>)}
                     </button>
                 {/* <img src='https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-8-svgrepo-com.svg' alt="" />
@@ -91,8 +92,9 @@ class AvatarBank extends React.Component {
     ) : (null)
     return (
         <div className="profilebackground" onClick={() => this.props.hideAvatars()} width="500" height="500">
+            <div>
             {avatarImg}
-            <img src={this.state.profileAvatar}/>
+            </div>
         </div>
     );
 }}

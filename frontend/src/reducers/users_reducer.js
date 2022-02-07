@@ -6,6 +6,7 @@ import {
 } from '../actions/user_actions';
 
 const usersReducer = (oldState = [], action) => {
+    console.log(action)
     Object.freeze(oldState);
     let nextState = oldState.slice();
     let index;
