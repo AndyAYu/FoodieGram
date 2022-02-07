@@ -16,26 +16,21 @@ class SearchResult extends React.Component{
         // debugger
         return(
             <div className='search-result-container'>
+                <div className="login-header">Search Results</div>
                 {searchUsers.length >= 1 ? searchUsers.map(user=>{
                     // debugger
                     return(
                         <div className='search-result-list-items'>
                             <div className='search-result-info'>
-                                <div className='user-profile-picture'>   
-                                    User profile picture here
+                                <div className='user-profile-picture'> 
                                 </div>
                                 <div className='user-page-link' >
                                     <Link className='search-result-link' to={`/pages/${users.indexOf(user)}`}>{user.handle}</Link>
-                                    
                                 </div>
-                                
                             </div>
-                            
                         </div>
                     )
-                   
                 }
-                    
                 ): <div className='no-search-result'>
                     No search results found, all handles are unique and capitalization matters!
                     {/* <div className='hungry-dog-pic'></div> */}
