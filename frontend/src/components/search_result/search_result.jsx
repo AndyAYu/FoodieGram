@@ -14,7 +14,7 @@ class SearchResult extends React.Component{
             if (user.handle === searchTerms) return user
         })
         // debugger
-        if (searchTerms === " ") {
+        if (searchTerms === "all") {
             return(
             users.map(user => (
                 <div className='search-result-container'>
