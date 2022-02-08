@@ -4,7 +4,6 @@ import Message from '../message/message';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { io } from 'socket.io-client';
-import * as ReactBootStrap from 'react-bootstrap';
 
 
 export default function Messenger (props) {
@@ -156,15 +155,14 @@ export default function Messenger (props) {
                                 </div>
                             )):
                             <div className='spinner'>
-                               <ReactBootStrap.Spinner animation="border" />
+                               
                             </div>
                         }
 
                         {
                             loading?
-                            <div className='spinner-new-msg'>
+                            <div className='spinner'>
                                 <h4>Sending...</h4>
-                               <ReactBootStrap.Spinner animation="border" />
                             </div>
                             :
                             null
