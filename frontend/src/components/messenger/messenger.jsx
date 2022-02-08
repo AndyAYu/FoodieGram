@@ -155,15 +155,14 @@ export default function Messenger (props) {
                                 </div>
                             )):
                             <div className='spinner'>
-                               <h2>Loading...</h2>
+                               
                             </div>
                         }
 
                         {
                             loading?
-                            <div className='spinner-new-msg'>
+                            <div className='spinner'>
                                 <h4>Sending...</h4>
-                               
                             </div>
                             :
                             null
