@@ -14,6 +14,7 @@ class NewsFeed extends React.Component {
         return(
             <div className="main-feed">
                 <div className="pi-container">
+                    <div className="food-feed">Foodie Feed</div>
                 <PostIndexContainer />
                 </div>
             </div>

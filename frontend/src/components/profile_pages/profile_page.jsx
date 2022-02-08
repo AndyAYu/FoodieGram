@@ -82,17 +82,10 @@ class ProfilePage extends React.Component{
                         <div> {this.befriended()} </div>
                         {/* <div>Shortcuts</div> */}
                     </div>
-                    {/* <div className='profile-posts'> */}
-                        {/* <PostIndexContainer />   */}
-                        {/* <div></div>
-                        <div>Create Post form component</div>
-                        <div>Posts container component</div> */}
-
-
-                    {/* </div> */}
-                    {/* <div className='profile-posts'> */}
+                    <div className='pi-container-profile'>
+                        <div className="food-feed-profile">Posts</div>
                         <PostIndexContainer />
-                    {/* </div> */}
+                    </div>
                     {loggedIn ? <FriendsBarContainer/> : <div></div>}
                 </div>
             </div>

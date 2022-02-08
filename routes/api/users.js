@@ -102,17 +102,17 @@ router.post("/register", (req, res) => {
       .then(users => res.json(users))
   })
 
-  router.get('/', (req, res) => {
-    try {
-      const userId = req.params.id
-      User.findById(userId)
-        .then(user => res.status(200).json(user));
+  // router.get('/:id', (req, res) => {
+  //   try {
+  //     const userId = req.params.id
+  //     User.findById(userId)
+  //       .then(user => res.status(200).json(user));
      
-    } catch (err) {
-      res.status(500).json(err);
-    }
+  //   } catch (err) {
+  //     res.status(500).json(err);
+  //   }
 
-  })
+  // })
 
   router.get('/',async (req, res) => {
     const userId = req.query.userId;

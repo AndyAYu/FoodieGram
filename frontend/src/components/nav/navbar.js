@@ -45,12 +45,16 @@ class NavBar extends React.Component {
     getLinks() {
         const {currentUserIndex} = this.props;
         // let currentUserId;
-    
+        
+
         if (this.props.loggedIn) {          
-                
+            const welcomeMsg = this.props.users[currentUserIndex] === undefined ? (null) : (
+                <span className='welcome'>Hello {this.props.users[currentUserIndex].handle}</span>
+            )
             return (
-                <div>
+                <div className="nav-container">
                     <SearchBarContainer/>
+                    {welcomeMsg}
                     <Link to={`/pages/${currentUserIndex}`} className="other-btn"><FontAwesomeIcon icon={faUser}/></Link>
                     <button onClick={this.showPostForm} className="other-btn"><FontAwesomeIcon icon={faEdit}/></button>
                     <Link to={'/messenger'} className="other-btn"><FontAwesomeIcon icon={faComments}/></Link>
