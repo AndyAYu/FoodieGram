@@ -44,7 +44,7 @@ const server = app.listen(port, () => {console.log(`Listening on port ${port}`)}
 
 io = socket(server, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://foodiegram-aa.herokuapp.com/" || "http://localhost:3000",
         methods: ["GET", "POST"],
         transports: ['websocket', 'polling'],
         enabledTransports: ['ws', 'wss'],

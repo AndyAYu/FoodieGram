@@ -60,7 +60,7 @@ class AvatarBank extends React.Component {
         this.handleAvatarChange(e)
         let user = {
             id: this.props.userId,
-            avatar: e.currentTarget.src
+            avatar: e.currentTarget.src 
         }
         // console.log(user)
         // debugger
