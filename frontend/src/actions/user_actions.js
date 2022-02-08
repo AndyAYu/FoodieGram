@@ -59,11 +59,24 @@ export const deleteFriendship = (friendId) => dispatch => (
         .then(friendId=> dispatch(deleteFriend(friendId)))
 )
 
-export const editAvatar = (user) => dispatch => (
-    UserAPIUtil.editAvatar(user)
-        .then(user => dispatch(receiveUser(user)))
-        .catch(err => dispatch(receiveAvatarErrors(err.response.data)))
-)
+// export const editAvatar = (user) => dispatch => (
+//     UserAPIUtil.editAvatar(user)
+//         .then(user => dispatch(receiveUser(user)))
+//         .catch(err => dispatch(receiveAvatarErrors(err.response.data)))
+// )
+
+export async function editAvatar(url){
+    debugger
+    const user = await fetch(url).then(data => data.json())
+
+    return (dispatch) => {
+        debugger
+        dispatch({
+            type: RECEIVE_USER,
+            payload: user
+        })
+    }
+}
 
 // export const fetchPost = postId => dispatch => (
 //     PostAPIutil.getPost(postId)

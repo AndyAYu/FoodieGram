@@ -53,7 +53,6 @@ class ProfilePage extends React.Component{
         const {users, currentUser, currentUserIndex} = this.props;
         let index = currentUserIndex;
         // index = users.findIndex(user => user._id === currentUser);
-        console.log(index)
         // debugger
         if (index === Number(this.props.match.params.userId)) return <div className='not-own-friend'>You can't be your own friend</div>
 

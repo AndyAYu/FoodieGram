@@ -45,12 +45,13 @@ class AvatarBank extends React.Component {
         // debugger
         e.preventDefault();
         this.handleAvatarChange(e)
-
+        console.log("1")
+        console.log(e.src)
         let user = {
             id: this.props.userId,
-            avatar: this.state.profileAvatar
+            profileAvatar: e.src
         }
-        console.log(this.state.profileAvatar)
+        console.log(user)
         this.props.editAvatar(user)
     }
 

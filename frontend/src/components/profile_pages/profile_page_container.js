@@ -4,7 +4,6 @@ import {fetchAllUsers, addFriendship, deleteFriendship} from '../../actions/user
 import ProfilePage from "./profile_page";
 
 const mSTP = state => {
-  console.log(state)
     if (state.entities.users && state.entities.users.length > 1){
         let currentUserId= state.session.user.id
         // debugger
