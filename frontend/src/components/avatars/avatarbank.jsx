@@ -34,6 +34,7 @@ class AvatarBank extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleAvatarChange = this.handleAvatarChange.bind(this);
+        // this.changeState = this.changeState.bind(this);
     }
     update(field, src) {
         // debugger
@@ -44,11 +45,16 @@ class AvatarBank extends React.Component {
 
     
     handleAvatarChange(e) {
-        this.setState({
-            profileAvatar:e.currentTarget.src
-        })
+        let {avatar} = this.props
+        avatar = e.currentTarget.src
+        // this.setState({
+        //     avatar:e.currentTarget.src
+        // })
     }
-
+    // changeState(e){
+    //     debugger
+    //     this.props.avatar = e.currentTarget.src
+    // }
     handleSubmit(e) {
         e.preventDefault();
         this.handleAvatarChange(e)
@@ -56,7 +62,12 @@ class AvatarBank extends React.Component {
             id: this.props.userId,
             avatar: e.currentTarget.src
         }
-        console.log(user)
+        // console.log(user)
+        // debugger
+        // this.state.change+=1;
+        // this.setState({change: this.state.change+=1})
+        // this.forceUpdate();
+        // this.changeState(e);
         this.props.editAvatar(user)
     }
 
