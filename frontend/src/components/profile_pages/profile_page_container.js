@@ -13,9 +13,11 @@ const mSTP = state => {
         let currentUser = state.entities.users[currentUserIndex]
         debugger
         let currentUserAvatar = currentUser.avatar
+        debugger
     return({
         loggedIn: state.session.isAuthenticated,
         currentUserIndex: currentUserIndex,
+        currentUserId: currentUserId,
         currentUser: currentUser,
         avatar: currentUserAvatar,
         users: state.entities.users,

@@ -26,27 +26,39 @@ class AvatarBank extends React.Component {
             ],
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleAvatarChange = this.handleAvatarChange.bind(this);
     }
     update(field, src) {
-        debugger
+        // debugger
         this.setState({
             [field]: src
+        })
+    }
+
+    
+    handleAvatarChange(e) {
+        debugger
+        this.setState({
+            profileAvatar:e.currentTarget.src
         })
     }
 
     handleSubmit(e) {
         debugger
         e.preventDefault();
-        this.props.handleAvatarChange(e)
+        this.handleAvatarChange(e)
 
         let user = {
+            id: this.props.userId,
             avatar: this.state.profileAvatar
         }
-        console.log('clicked')
+        console.log(this.state.profileAvatar)
         this.props.editAvatar(user)
     }
+
     
     render(){
+    debugger
     const { users } = this.props
     const usersAvatar = users.avatar
     const avatarImg = this.props.showAvatars ? (

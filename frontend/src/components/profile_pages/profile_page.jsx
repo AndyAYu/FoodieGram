@@ -11,22 +11,15 @@ class ProfilePage extends React.Component{
         super(props);
         // debugger
         this.state={
-            profileAvatar: this.props.currentUserAvatar,
+            // profileAvatar: this.props.currentUserAvatar,
             showAvatars: false,
         }
         
-        this.handleAvatarChange = this.handleAvatarChange.bind(this);
         this.addFriend = this.addFriend.bind(this);
         this.removeFriend = this.removeFriend.bind(this);
         this.befriended = this.befriended.bind(this);
         this.showAvatars = this.showAvatars.bind(this);
         this.hideAvatars = this.hideAvatars.bind(this);
-    }
-
-    handleAvatarChange(e) {
-        this.setState({
-            profileAvatar:e.currentTarget.src
-        })
     }
 
     showAvatars(){
@@ -57,9 +50,9 @@ class ProfilePage extends React.Component{
     }
 
     befriended(){
-        const {users, currentUser} = this.props;
-        let index;
-        index = users.findIndex(user => user._id === currentUser);
+        const {users, currentUser, currentUserIndex} = this.props;
+        let index = currentUserIndex;
+        // index = users.findIndex(user => user._id === currentUser);
         console.log(index)
         // debugger
         if (index === Number(this.props.match.params.userId)) return <div className='not-own-friend'>You can't be your own friend</div>
@@ -82,9 +75,9 @@ class ProfilePage extends React.Component{
                 <div className='profile-info-container'>
                     <div className='profile-picture'>
                         {/* <img src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/637057ab-e96d-4cef-8e18-fe67f4bfb343/de7am4n-8729f211-870d-4475-b8b7-fe525854e8f8.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzYzNzA1N2FiLWU5NmQtNGNlZi04ZTE4LWZlNjdmNGJmYjM0M1wvZGU3YW00bi04NzI5ZjIxMS04NzBkLTQ0NzUtYjhiNy1mZTUyNTg1NGU4ZjgucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.ukD5SFWZwoj_ZoPDuieCTdFaiN0vOehbQ9-mq3z-ycQ'></img> */}
-                        <img src={this.state.profileAvatar} alt="" />
+                        <img src={this.props.avatar} alt="" />
                         <button className="avatarButton" onClick={this.showAvatars}>Update Avatar</button>
-                        <AvatarBankContainer profileAvatar={this.state.profileAvatar} handleAvatarChange={this.handleAvatarChange} showAvatars={this.state.showAvatars} hideAvatars={this.hideAvatars} />
+                        <AvatarBankContainer userId={this.props.currentUserId} avatar={this.props.avatar}showAvatars={this.state.showAvatars} hideAvatars={this.hideAvatars} />
                         {/* <div>Shortcuts</div> */}
                         <div className='profile-name'> {upperCaseName}</div>
                         <div className="about-me">Hi my name is {upperCaseName} and I am a foodie from New York!</div>

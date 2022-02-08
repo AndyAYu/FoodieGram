@@ -72,7 +72,7 @@ router.post("/register", (req, res) => {
   
       bcrypt.compare(password, user.password).then(isMatch => {
         if (isMatch) {
-          const payload = { id: user.id, email: user.email };
+          const payload = { id: user.id, email: user.email, avatar: user.avatar };
   
           jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
             res.json({
@@ -160,14 +160,13 @@ router.delete( '/:friendId', passport.authenticate('jwt', {session:false}),  (re
 
 
 // update Avatar
-// router.patch('/', (req, res) => {
-//   debugger
-//   User.findByIdAndUpdate(req.params.id, req.body)
-//   debugger
-//   .then(avatar => res.json({ msg:'Updated Successfully'}))
-//   .catch(err =>
-//     res.status(400).json({ error: 'Unable to update the Database' })
-//     );
-// });
+router.patch('/:id', (req, res) => {
+  debugger
+  User.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(avatar => res.json(avatar))
+  .catch(err =>
+    res.status(400).json({ error: 'Unable to update the Database' })
+    );
+});
 
 module.exports = router;
