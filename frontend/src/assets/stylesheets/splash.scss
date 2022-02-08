@@ -76,6 +76,7 @@ footer {
     justify-content: space-evenly;
     // padding-top: 20px;
     align-items: center;
+    background-color: rgb(253, 230, 127);
     height: 110px;
 }
 
@@ -149,6 +150,10 @@ footer {
     justify-content: center;
 }
 
+a {
+    text-decoration: none;
+}
+
 .botFooter {
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
 }
