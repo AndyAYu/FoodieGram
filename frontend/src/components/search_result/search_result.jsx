@@ -14,29 +14,56 @@ class SearchResult extends React.Component{
             if (user.handle === searchTerms) return user
         })
         // debugger
+        if (searchTerms === " ") {
+            return(
+            users.map(user => (
+                <div className='search-result-container'>
+                    <div className='search-result-list-items'>
+                        <div className='search-result-info'>
+                            <div className='user-profile-picture'>
+                                <img src={user.avatar}></img>
+                            </div>
+                            <div className='user-page-link' >
+                                <Link className='search-result-link' to={`/pages/${users.indexOf(user)}`}>{user.handle}</Link>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                )
+            )
+         
+        )}
         return(
             <div className='search-result-container'>
+                <div className="login-header">Search Results</div>
                 {searchUsers.length >= 1 ? searchUsers.map(user=>{
                     // debugger
                     return(
                         <div className='search-result-list-items'>
                             <div className='search-result-info'>
+<<<<<<< HEAD
                                 <div className='user-profile-picture'>   
                                     <img className='user-avatar' src={user.avatar}></img>
+=======
+                                <div className='user-profile-picture'> 
+>>>>>>> main
                                 </div>
                                 <div className='user-page-link' >
                                     <Link className='search-result-link' to={`/pages/${users.indexOf(user)}`}>{user.handle}</Link>
-                                    
                                 </div>
-                                
                             </div>
-                            
                         </div>
                     )
-                   
                 }
+<<<<<<< HEAD
                     
                 ) : <div  className='no-search-result'>
+=======
+                ): <div className='no-search-result'>
+>>>>>>> main
                     No search results found, all handles are unique and capitalization matters!
                     {/* <div className='hungry-dog-pic'></div> */}
                     </div>}
