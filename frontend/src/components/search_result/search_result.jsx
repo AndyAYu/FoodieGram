@@ -14,6 +14,28 @@ class SearchResult extends React.Component{
             if (user.handle === searchTerms) return user
         })
         // debugger
+        if (searchTerms === " ") {
+            return(
+            users.map(user => (
+                <div className='search-result-container'>
+                    <div className='search-result-list-items'>
+                        <div className='search-result-info'>
+                            <div className='user-profile-picture'>
+                                <img src={user.avatar}></img>
+                            </div>
+                            <div className='user-page-link' >
+                                <Link className='search-result-link' to={`/pages/${users.indexOf(user)}`}>{user.handle}</Link>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                )
+            )
+         
+        )}
         return(
             <div className='search-result-container'>
                 {searchUsers.length >= 1 ? searchUsers.map(user=>{
@@ -22,7 +44,7 @@ class SearchResult extends React.Component{
                         <div className='search-result-list-items'>
                             <div className='search-result-info'>
                                 <div className='user-profile-picture'>   
-                                    User profile picture here
+                                    <img src={user.avatar}></img>
                                 </div>
                                 <div className='user-page-link' >
                                     <Link className='search-result-link' to={`/pages/${users.indexOf(user)}`}>{user.handle}</Link>
