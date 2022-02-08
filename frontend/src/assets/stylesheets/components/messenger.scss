@@ -94,15 +94,34 @@
     color:#fc6551;
 }
 
-.spinner{
-    position: absolute;
-    top:50%;
-    left: 49%;
+ .spinner::before {
+        animation: 1s linear infinite spinner;
+        animation-play-state: inherit;
+        border: solid 5px #cfd0d1;
+        border-bottom-color: #1c87c9;
+        border-radius: 50%;
+        content: "";
+        height: 40px;
+        width: 40px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        will-change: transform;
 }
 
-.spinner-new-msg{
+.spinner h4 {
     position: absolute;
-    top:50%;
-    left: 45%;
-    text-align: center;
+    top:43%;
+    left:47%;
+    font-size: 18px;
 }
+
+@keyframes spinner {
+        0% {
+          transform: translate3d(-50%, -50%, 0) rotate(0deg);
+        }
+        100% {
+          transform: translate3d(-50%, -50%, 0) rotate(360deg);
+        }
+      }
