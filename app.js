@@ -43,10 +43,14 @@ const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {console.log(`Listening on port ${port}`)});
 
 io = socket(server, {
-    cors:{
-        origin:"http://localhost:3000",
-        transports: ["websocket", "polling"]
-    }
+    cors: {
+        origin: "http://localhost:3000",
+        methods: ["GET", "POST"],
+        transports: ['websocket', 'polling'],
+        enabledTransports: ['ws', 'wss'],
+        credentials: true
+    },
+    allowEIO3: true
 });
 
 

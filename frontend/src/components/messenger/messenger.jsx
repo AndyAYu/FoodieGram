@@ -3,7 +3,7 @@ import ConversationContainer from '../conversations/conversation_container';
 import Message from '../message/message';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import { io } from 'socket.io-client';
+import  io  from 'socket.io-client';
 
 
 export default function Messenger (props) {
