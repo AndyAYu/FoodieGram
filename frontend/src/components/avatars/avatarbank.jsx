@@ -9,20 +9,27 @@ class AvatarBank extends React.Component {
                 'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-svgrepo-com.svg',
                 'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-9-svgrepo-com.svg',
                 'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-8-svgrepo-com.svg',
-                'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-7-svgrepo-com.svg',
-                'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-6-svgrepo-com.svg',
+               
             ],
-            avatarBank2:['https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-5-svgrepo-com.svg',
+            avatarBank2:[
+                'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-5-svgrepo-com.svg',
                 'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-4-svgrepo-com.svg',
-                'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-2-svgrepo-com.svg',
-                'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-16-svgrepo-com.svg',
-                'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-15-svgrepo-com.svg',
+                'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-2-svgrepo-com.svg',      
             ],
-            avatarBank3:[ 'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-14-svgrepo-com.svg',
+            avatarBank3:[ 
+                'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-14-svgrepo-com.svg',
                 'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-13-svgrepo-com.svg',
                 'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-12-svgrepo-com.svg',
-                'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-11-svgrepo-com.svg',
+            ],
+            avatarBank4:[
+                'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-7-svgrepo-com.svg',
+                'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-6-svgrepo-com.svg',
                 'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-10-svgrepo-com.svg',
+            ],
+            avatarBank5:[
+                'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-16-svgrepo-com.svg',
+                'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-15-svgrepo-com.svg',
+                'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-11-svgrepo-com.svg',
             ],
         }
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -89,6 +96,20 @@ class AvatarBank extends React.Component {
                         </button>
                         <button  type="submit" className="avatarBankButtons">
                             {this.state.avatarBank3.map(a => <div key={a}><img  
+                            src={a} 
+                            // onClick={(e) => this.update('profileAvatar', e.currentTarget.src)}
+                            onClick={(e) => this.handleSubmit(e)}
+                            alt="submitform" /></div>)}
+                        </button>
+                        <button  type="submit" className="avatarBankButtons">
+                            {this.state.avatarBank4.map(a => <div key={a}><img  
+                            src={a} 
+                            // onClick={(e) => this.update('profileAvatar', e.currentTarget.src)}
+                            onClick={(e) => this.handleSubmit(e)}
+                            alt="submitform" /></div>)}
+                        </button>
+                        <button  type="submit" className="avatarBankButtons">
+                            {this.state.avatarBank5.map(a => <div key={a}><img  
                             src={a} 
                             // onClick={(e) => this.update('profileAvatar', e.currentTarget.src)}
                             onClick={(e) => this.handleSubmit(e)}
