@@ -36,9 +36,9 @@ class PostIndex extends React.Component {
             deletePost={this.props.deletePost} editPost={this.props.editPost} idx={idx}/>)
         }
          else if (eachPost.length === 0 && this.props.match.params.userId) {
-            postItem = (<div className="no-post">There is no post yet...</div>)
+            postItem = (<div className="no-post">There are no posts yet...</div>)
          } else {
-             postItem = (<div>Your newsfeed is empty. Start finding foodies to see what's going on!</div>)
+             postItem = (<div>Your feed is empty. Start finding foodies to see what's going on!</div>)
          }
 
         return (
