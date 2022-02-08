@@ -16,6 +16,7 @@ const mSTP = state => {
         currentUser: currentUser,
         avatar: currentUserAvatar,
         users: state.entities.users,
+        session: state.session.user.id
     })
     }
     else{ return{}}
