@@ -16,12 +16,18 @@ class SearchBar extends React.Component{
     }
 
     handleSubmit(e){
+        // debugger
         e.preventDefault();
         if (this.state.search !== ''){
             let searchWord = this.state.search;
+            this.setState({search: ''})
             let form = document.getElementsByClassName("search-bar-input");
             form[0].value= ''
             this.props.history.push(`/search?handle=${searchWord}`)
+        }else{
+            let form = document.getElementsByClassName("search-bar-input");
+            form[0].value = ''
+            this.props.history.push(`/search?handle=all`)
         }
 
     }
