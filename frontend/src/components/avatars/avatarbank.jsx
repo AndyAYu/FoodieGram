@@ -4,7 +4,7 @@ class AvatarBank extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            profileAvatar: this.props.profileAvatar,
+            profileAvatar: this.props.avatar,
             avatarBank: [
                 'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-svgrepo-com.svg',
                 'https://foodiegram-dev.s3.amazonaws.com/FoodieGram-avatars/account-avatar-profile-user-9-svgrepo-com.svg',
@@ -42,14 +42,11 @@ class AvatarBank extends React.Component {
     }
 
     handleSubmit(e) {
-        // debugger
         e.preventDefault();
         this.handleAvatarChange(e)
-        console.log("1")
-        console.log(e.src)
         let user = {
             id: this.props.userId,
-            profileAvatar: e.src
+            avatar: e.currentTarget.src
         }
         console.log(user)
         this.props.editAvatar(user)
@@ -73,9 +70,9 @@ class AvatarBank extends React.Component {
                         onClick={(e) => this.update('profileAvatar', e.currentTarget.src)} 
                         alt="submitform"/>
                     </button> */}
-                    <button  type="submit" className="avatarBank">
-                        {this.state.avatarBank.map(avatar => <div key={avatar}><img  
-                        src={avatar} 
+                    <button  type="submit" className="avatarBankButtons">
+                        {this.state.avatarBank.map(a => <div key={a}><img  
+                        src={a} 
                         // onClick={(e) => this.update('profileAvatar', e.currentTarget.src)}
                         onClick={(e) => this.handleSubmit(e)}
                         alt="submitform" /></div>)}
@@ -103,7 +100,7 @@ class AvatarBank extends React.Component {
     ) : (null)
     return (
         <div className="profilebackground" onClick={() => this.props.hideAvatars()} width="500" height="500">
-            <div>
+            <div className="avatarBank">
             {avatarImg}
             </div>
         </div>

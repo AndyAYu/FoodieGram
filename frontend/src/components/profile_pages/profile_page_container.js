@@ -1,18 +1,14 @@
 import {connect} from "react-redux";
 import { receiveAllPosts } from '../../actions/post_actions'
-import {fetchAllUsers, addFriendship, deleteFriendship} from '../../actions/user_actions'
+import {fetchAllUsers, fetchUser, addFriendship, deleteFriendship} from '../../actions/user_actions'
 import ProfilePage from "./profile_page";
 
 const mSTP = state => {
     if (state.entities.users && state.entities.users.length > 1){
         let currentUserId= state.session.user.id
-        // debugger
         let currentUserIndex = state.entities.users.findIndex(user => user._id === currentUserId)
-        // debugger
         let currentUser = state.entities.users[currentUserIndex]
-        // debugger
-        let currentUserAvatar = currentUser.avatar
-        // debugger
+        let currentUserAvatar = state.session.user.avatar
     return({
         loggedIn: state.session.isAuthenticated,
         currentUserIndex: currentUserIndex,
@@ -28,6 +24,7 @@ const mSTP = state => {
 const mDTP = dispatch => ({
     fetchAllPosts: () => dispatch(receiveAllPosts()),
     fetchAllUsers: () => dispatch(fetchAllUsers()),
+    fetchUser: (user) => dispatch(fetchUser(user)),
     addFriend: (friendId) => dispatch(addFriendship(friendId)),
     removeFriend: (friendId) => dispatch(deleteFriendship(friendId))
     // fetchFriends: () => dispatch(fetchFriends())

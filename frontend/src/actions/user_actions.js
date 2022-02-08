@@ -48,6 +48,10 @@ export const fetchAllUsers = () => dispatch => (
         .then(users => dispatch(receiveAllUsers(users)))
 );
 
+export const fetchUser = () => dispatch => (
+    UserAPIUtil.getUser()
+        .then(user => dispatch(receiveUser(user)))
+)
 
 export const addFriendship = friendId => dispatch => (
     UserAPIUtil.addFriend(friendId)
@@ -59,24 +63,24 @@ export const deleteFriendship = (friendId) => dispatch => (
         .then(friendId=> dispatch(deleteFriend(friendId)))
 )
 
-// export const editAvatar = (user) => dispatch => (
-//     UserAPIUtil.editAvatar(user)
-//         .then(user => dispatch(receiveUser(user)))
-//         .catch(err => dispatch(receiveAvatarErrors(err.response.data)))
-// )
+export const editAvatar = (user) => dispatch => (
+    UserAPIUtil.editAvatar(user)
+        .then(user => dispatch(receiveUser(user)))
+        .catch(err => dispatch(receiveAvatarErrors(err.response.data)))
+)
 
-export async function editAvatar(url){
-    debugger
-    const user = await fetch(url).then(data => data.json())
+// export async function editAvatar(url){
+//     debugger
+//     const user = await fetch(url).then(data => data.json())
 
-    return (dispatch) => {
-        debugger
-        dispatch({
-            type: RECEIVE_USER,
-            payload: user
-        })
-    }
-}
+//     return (dispatch) => {
+//         debugger
+//         dispatch({
+//             type: RECEIVE_USER,
+//             payload: user
+//         })
+//     }
+// }
 
 // export const fetchPost = postId => dispatch => (
 //     PostAPIutil.getPost(postId)

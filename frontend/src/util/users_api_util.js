@@ -4,6 +4,10 @@ export const getAllUsers = () => (
     axios.get(`/api/users/`)
 )
 
+export const getUser = user => (
+    axios.get(`/api/users/user`)
+)
+
 export const addFriend = userId => (
     axios.post(`/api/users`, {userId})
 )

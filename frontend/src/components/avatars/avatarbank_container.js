@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { editAvatar } from '../../util/users_api_util';
+import { editAvatar } from '../../actions/user_actions';
 import AvatarBank from "./avatarbank";
 
 const mSTP = (state, ownProps) => ({
