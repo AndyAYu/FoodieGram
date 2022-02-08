@@ -7,6 +7,7 @@ import {
 
 const usersReducer = (oldState = [], action) => {
     console.log(action)
+    debugger
     Object.freeze(oldState);
     let nextState = oldState.slice();
     let index;

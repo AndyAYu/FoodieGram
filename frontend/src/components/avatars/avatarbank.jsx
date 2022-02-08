@@ -3,7 +3,6 @@ import React from "react";
 class AvatarBank extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             profileAvatar: this.props.profileAvatar,
             avatarBank: [
@@ -37,14 +36,13 @@ class AvatarBank extends React.Component {
 
     
     handleAvatarChange(e) {
-        debugger
         this.setState({
             profileAvatar:e.currentTarget.src
         })
     }
 
     handleSubmit(e) {
-        debugger
+        // debugger
         e.preventDefault();
         this.handleAvatarChange(e)
 
@@ -58,7 +56,7 @@ class AvatarBank extends React.Component {
 
     
     render(){
-    debugger
+    // debugger
     const { users } = this.props
     const usersAvatar = users.avatar
     const avatarImg = this.props.showAvatars ? (

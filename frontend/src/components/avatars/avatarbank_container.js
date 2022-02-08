@@ -8,7 +8,8 @@ const mSTP = (state, ownProps) => ({
 })
 
 const mDTP = (dispatch, ownProps) => {
-    return {editAvatar: user => dispatch(editAvatar(user)),
+    return {
+        editAvatar: user => dispatch(editAvatar(user)),
         hideAvatars:() => ownProps.hideAvatars(),
 }};
 

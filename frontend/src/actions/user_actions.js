@@ -49,7 +49,7 @@ export const fetchAllUsers = () => dispatch => (
 );
 
 
-export const addFriendship = friendId => dispatch =>(
+export const addFriendship = friendId => dispatch => (
     UserAPIUtil.addFriend(friendId)
         .then(friend => dispatch(addFriend(friend)))
 )
@@ -59,7 +59,7 @@ export const deleteFriendship = (friendId) => dispatch => (
         .then(friendId=> dispatch(deleteFriend(friendId)))
 )
 
-export const editAvatar = user => dispatch => (
+export const editAvatar = (user) => dispatch => (
     UserAPIUtil.editAvatar(user)
         .then(user => dispatch(receiveUser(user)))
         .catch(err => dispatch(receiveAvatarErrors(err.response.data)))

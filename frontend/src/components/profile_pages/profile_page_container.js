@@ -7,13 +7,13 @@ const mSTP = state => {
   console.log(state)
     if (state.entities.users && state.entities.users.length > 1){
         let currentUserId= state.session.user.id
-        debugger
+        // debugger
         let currentUserIndex = state.entities.users.findIndex(user => user._id === currentUserId)
-        debugger
+        // debugger
         let currentUser = state.entities.users[currentUserIndex]
-        debugger
+        // debugger
         let currentUserAvatar = currentUser.avatar
-        debugger
+        // debugger
     return({
         loggedIn: state.session.isAuthenticated,
         currentUserIndex: currentUserIndex,
