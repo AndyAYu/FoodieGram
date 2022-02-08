@@ -44,7 +44,12 @@ class SearchResult extends React.Component{
                     return(
                         <div className='search-result-list-items'>
                             <div className='search-result-info'>
+<<<<<<< HEAD
+                                <div className='user-profile-picture'>   
+                                    <img className='user-avatar' src={user.avatar}></img>
+=======
                                 <div className='user-profile-picture'> 
+>>>>>>> main
                                 </div>
                                 <div className='user-page-link' >
                                     <Link className='search-result-link' to={`/pages/${users.indexOf(user)}`}>{user.handle}</Link>
@@ -53,7 +58,12 @@ class SearchResult extends React.Component{
                         </div>
                     )
                 }
+<<<<<<< HEAD
+                    
+                ) : <div  className='no-search-result'>
+=======
                 ): <div className='no-search-result'>
+>>>>>>> main
                     No search results found, all handles are unique and capitalization matters!
                     {/* <div className='hungry-dog-pic'></div> */}
                     </div>}
