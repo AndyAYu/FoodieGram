@@ -3,7 +3,9 @@ import ConversationContainer from '../conversations/conversation_container';
 import Message from '../message/message';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import  io  from 'socket.io-client';
+import { io } from 'socket.io-client';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCommentMedical } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function Messenger (props) {
@@ -184,7 +186,7 @@ export default function Messenger (props) {
             <div className="chatOnline">
                 <div className="chatOnlineWrapper">
                     <div className='friend-wrapper'>
-                <div className='friends-bar-title'>My Friends:</div>
+                <div className='friends-bar-title'>My Friends</div>
                 {props.allUsers.map((user,i) => {
                     // debugger
                     if(props.currentUserFriends.includes(user._id) && user._id !== props.currentUserId){
@@ -193,12 +195,9 @@ export default function Messenger (props) {
                             <div  key={i} className='friend-live-item'>
                                 <div className='friend-info'>
                                     <img className='friend-profile-photo' src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/637057ab-e96d-4cef-8e18-fe67f4bfb343/de7am4n-8729f211-870d-4475-b8b7-fe525854e8f8.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzYzNzA1N2FiLWU5NmQtNGNlZi04ZTE4LWZlNjdmNGJmYjM0M1wvZGU3YW00bi04NzI5ZjIxMS04NzBkLTQ0NzUtYjhiNy1mZTUyNTg1NGU4ZjgucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.ukD5SFWZwoj_ZoPDuieCTdFaiN0vOehbQ9-mq3z-ycQ'></img>
-                                    <div className='friend-name' onClick={() => handlePage(i)}>{user.handle.charAt(0).toUpperCase() + user.handle.slice(1)}</div>
-                                
+                                    <div className='friend-name-live' onClick={() => handlePage(i)}>{user.handle.charAt(0).toUpperCase() + user.handle.slice(1)}</div>
+                                    <button className='friend-page-messenger'  onClick={() => handleChat(user._id)}><FontAwesomeIcon icon={faCommentMedical}/></button>
                                 </div>
-                                <div className="friend-buttons-live">
-                                    <button className='friend-page-button'  onClick={() => handleChat(user._id)}>Create Conversation</button>
-                                </div>                 
                             </div>
                         )
                     }

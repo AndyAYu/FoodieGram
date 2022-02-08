@@ -1,20 +1,24 @@
 .friend-wrapper{
     background-color: rgb(235, 232, 232);
-    height: 100%;
+    width: 200px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 213);
+    box-shadow: 1px 1px 3px 1px #aaaaaa;
+    height: max-content;
+    padding-bottom: 10px;
 
 }
 
 .friend-live-item{
-    background-image: linear-gradient(to right, $red , lightblue);
+    background-image: linear-gradient(to right, rgb(255, 255, 197) , lightblue);
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
-    padding-top: 10%;
-    margin-top: 10px;
-    // padding-bottom: 10%;
-    height: 18%;
+    padding: 5px;
     justify-content: center;
-    align-content: center;
+    height: max-content;
+    margin-top: 2px;
 }
 
 .friend-buttons-live{
@@ -25,4 +29,22 @@
 
 .friend-page-button{
     margin:5px;
+}
+
+.friend-name-live {
+    padding-top: 13px;
+    font-size: 15px;
+    color: rgb(0, 40, 100);
+    font-family: $main-font;
+    font-weight: 700;
+    box-sizing: border-box;
+    margin-left: 10px;
+    border: none;
+    background-color: transparent;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.friend-name-live:hover{
+    color:rgb(161, 161, 161);
 }
