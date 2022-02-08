@@ -15,34 +15,33 @@ class SearchResult extends React.Component{
         })
         // debugger
         if (searchTerms === "all") {
-            return(
-            users.map(user => (
-                <div className='search-result-container'>
-                    <div className='search-result-list-items'>
-                        <div className='search-result-info'>
-                            <div className='user-profile-picture'>
-                                <img src={user.avatar}></img>
-                            </div>
-                            <div className='user-page-link' >
-                                <Link className='search-result-link' to={`/pages/${users.indexOf(user)}`}>{user.handle}</Link>
-
-                            </div>
-
+            const allResults = users.map(user => (
+                <div className='search-result-list-items'>
+                    <div className='search-result-info'>
+                        <div className='user-profile-picture'>
+                            <img src={user.avatar}></img>
                         </div>
-
+                        <div className='user-page-link' >
+                            <Link className='search-result-link' to={`/pages/${users.indexOf(user)}`}>{user.handle}</Link>
+                        </div>
                     </div>
                 </div>
-                )
             )
-         
-        )}
+        )
+            return(
+                <div className='search-result-container'>
+                    <div className="login-header">Search Results</div>
+                    {allResults}
+                </div>
+            )
+        }
         return(
             <div className='search-result-container'>
                 <div className="login-header">Search Results</div>
                 {searchUsers.length >= 1 ? searchUsers.map(user=>{
                     // debugger
                     return(
-                        <div className='search-result-list-items'>
+                        // <div className='search-result-list-items'>
                             <div className='search-result-info'>
                                 <div className='user-profile-picture'>   
                                     <img className='user-avatar' src={user.avatar}></img>
@@ -51,7 +50,7 @@ class SearchResult extends React.Component{
                                     <Link className='search-result-link' to={`/pages/${users.indexOf(user)}`}>{user.handle}</Link>
                                 </div>
                             </div>
-                        </div>
+                        // </div>
                     )
                 }
                     

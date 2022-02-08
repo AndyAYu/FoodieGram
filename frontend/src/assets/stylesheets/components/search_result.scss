@@ -2,7 +2,7 @@
     // display: flex;
     // justify-content: center;
     // border: 1px solid white;
-    padding: 20px 0 0 50px;
+    padding: 20px 50px 30px 50px;
     width: 800px;
     min-height: 700px;
     position: relative;
@@ -16,18 +16,18 @@
     display: flex;
     // justify-content: center;
     align-items: center;
-    width: 600px;
-    padding-left: 20px;
-    margin-bottom: 100px;
+    width: 100%;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(16, 196, 209, 0.904);
 }
 
 .user-profile-picture{
     // position: absolute;
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    background-color: gray;
-    margin-right: 100px;
+    height: max-content;
+    width: max-content;
+    // border-radius: 50%;
+    // background-color: gray;
+    margin-right: 50px;
 }
 .user-avatar{
     width: 150px;
@@ -36,10 +36,15 @@
 .user-page-link{
     > a{
         color: black;
-        font-size: 40px;
+        font-size: 30px;
+        transition: all .3s;
+        font-family: $second-font;
+    }
+
+    > a:hover {
+        color: rgb(247, 174, 40);
     }
 }
-
 
 .no-search-result{
     margin-top: 10%;
