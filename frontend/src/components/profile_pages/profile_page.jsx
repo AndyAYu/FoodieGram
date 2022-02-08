@@ -36,7 +36,6 @@ class ProfilePage extends React.Component{
 
     componentDidMount(){
         this.props.fetchAllUsers();
-        this.props.fetchUser();
     }
 
     addFriend(){

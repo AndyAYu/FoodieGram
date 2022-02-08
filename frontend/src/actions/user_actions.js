@@ -51,6 +51,7 @@ export const fetchAllUsers = () => dispatch => (
 export const fetchUser = () => dispatch => (
     UserAPIUtil.getUser()
         .then(user => dispatch(receiveUser(user)))
+        .catch(err => dispatch(receiveUser(err.response.data)))
 )
 
 export const addFriendship = friendId => dispatch => (

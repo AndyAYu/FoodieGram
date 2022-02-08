@@ -98,6 +98,10 @@
     padding-top: 50px;
 }
 
-.avatarBank {
-    background-color: black;
+.avatarBankButtons {
+    display: flex;
+}
+
+.avatarBankBox {
+    position: absolute;
 }

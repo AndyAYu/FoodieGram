@@ -5,7 +5,7 @@ export const getAllUsers = () => (
 )
 
 export const getUser = user => (
-    axios.get(`/api/users/user`)
+    axios.get(`/api/users/user`, user)
 )
 
 export const addFriend = userId => (
