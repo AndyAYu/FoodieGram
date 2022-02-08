@@ -109,9 +109,14 @@ export default function Messenger (props) {
             senderId: props.currentUserId,
             receiverId: id
         }
-        props.createConvo(convo)
-        const changeVal = () => setValue(value + 1);
-        changeVal();
+        conversations.forEach(convo => {
+            if (convo.receiverId !== id) {
+                props.createConvo(convo)
+                const changeVal = () => setValue(value + 1);
+                changeVal();
+            }
+        })
+        
         console.log(value);
     }
 
