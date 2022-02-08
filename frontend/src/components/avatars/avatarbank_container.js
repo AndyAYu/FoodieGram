@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { editAvatar } from '../../util/users_api_util';
+import { editAvatar } from '../../actions/user_actions';
 import AvatarBank from "./avatarbank";
 
 const mSTP = (state, ownProps) => ({
@@ -8,7 +8,8 @@ const mSTP = (state, ownProps) => ({
 })
 
 const mDTP = (dispatch, ownProps) => {
-    return {editAvatar: user => dispatch(editAvatar(user)),
+    return {
+        editAvatar: user => dispatch(editAvatar(user)),
         hideAvatars:() => ownProps.hideAvatars(),
 }};
 
