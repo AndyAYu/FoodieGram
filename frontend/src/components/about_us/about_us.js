@@ -10,13 +10,13 @@ const AboutUs = () => (
             </div>
                 <div className="topFooterIcons">
                     <div className="gitHub-Icon">
-                        <a href="https://www.github.com/AndyAYu"><FontAwesomeIcon icon={faGithub}/></a>
+                        <a target="_blank" href="https://www.github.com/AndyAYu"><FontAwesomeIcon icon={faGithub}/></a>
                     </div>
                     <div className="linkedIn-Icon">
-                        <a href="https://www.linkedin.com/in/andy-yu-the-human/"><FontAwesomeIcon icon={faLinkedin}/></a>
+                        <a target="_blank" href="https://www.linkedin.com/in/andy-yu-the-human/"><FontAwesomeIcon icon={faLinkedin}/></a>
                     </div>
                     <div className="angellist-Icon">
-                        <a href="https://www.angel.co"><FontAwesomeIcon icon={faAngellist}/></a>
+                        <a target="_blank" href="https://www.angel.co"><FontAwesomeIcon icon={faAngellist}/></a>
                      </div>
                     <div className="linkedIn"></div>
                 </div>
@@ -27,13 +27,13 @@ const AboutUs = () => (
                 </div>
                 <div className="topFooterIcons">
                     <div className="gitHub-Icon">
-                        <a href="https://www.github.com/apgupta3091"><FontAwesomeIcon icon={faGithub}/></a>
+                        <a target="_blank" href="https://www.github.com/apgupta3091"><FontAwesomeIcon icon={faGithub}/></a>
                     </div>
                     <div className="linkedIn-Icon">
-                        <a href="https://www.linkedin.com/in/anujgupta19/"><FontAwesomeIcon icon={faLinkedin}/></a>
+                        <a target="_blank" href="https://www.linkedin.com/in/anujgupta19/"><FontAwesomeIcon icon={faLinkedin}/></a>
                     </div>
                     <div className="angellist-Icon">
-                        <a href="https://www.angel.co"><FontAwesomeIcon icon={faAngellist}/></a>
+                        <a target="_blank" href="https://www.angel.co"><FontAwesomeIcon icon={faAngellist}/></a>
                      </div>
                     <div className="linkedIn"></div>
                 </div>
@@ -44,13 +44,13 @@ const AboutUs = () => (
                     </div>
                 <div className="topFooterIcons">
                     <div className="gitHub-Icon">
-                    <a href="https://github.com/sonja-ng"><FontAwesomeIcon icon={faGithub}/></a>
+                    <a target="_blank" href="https://github.com/sonja-ng"><FontAwesomeIcon icon={faGithub}/></a>
                     </div>
                     <div className="linkedIn-Icon">
-                        <a href="https://www.linkedin.com/in/sonja-ng-a22aa513/"><FontAwesomeIcon icon={faLinkedin}/></a>
+                        <a target="_blank" href="https://www.linkedin.com/in/sonja-ng-a22aa513/"><FontAwesomeIcon icon={faLinkedin}/></a>
                     </div>
                     <div className="angellist-Icon">
-                        <a href="https://angel.co/u/sonja-ng"><FontAwesomeIcon icon={faAngellist}/></a>
+                        <a target="_blank" href="https://angel.co/u/sonja-ng"><FontAwesomeIcon icon={faAngellist}/></a>
                      </div>
                     <div className="linkedIn"></div>
                 </div>
@@ -61,13 +61,13 @@ const AboutUs = () => (
                     </div>
                 <div className="topFooterIcons">
                     <div className="gitHub-Icon">
-                    <a href="https://github.com/Jasonchu94"><FontAwesomeIcon icon={faGithub}/></a>
+                    <a target="_blank" href="https://github.com/Jasonchu94"><FontAwesomeIcon icon={faGithub}/></a>
                     </div>
                     <div className="linkedIn-Icon">
-                    <a href="https://www.linkedin.com/in/jasonchu94/"><FontAwesomeIcon icon={faLinkedin}/></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/jasonchu94/"><FontAwesomeIcon icon={faLinkedin}/></a>
                     </div>
                     <div className="angellist-Icon">
-                    <a href="https://angel.co/u/jason-chu-20"><FontAwesomeIcon icon={faAngellist}/></a>
+                    <a target="_blank" href="https://angel.co/u/jason-chu-20"><FontAwesomeIcon icon={faAngellist}/></a>
                      </div>
                     <div className="linkedIn"></div>
                 </div>
