@@ -37,6 +37,32 @@ FoodieGram is a social media app built for foodies. Use it to follow your friend
 ### 4. Live chat with friends
 <img width="1439" alt="Screen Shot 2022-02-09 at 12 49 34 AM" src="https://user-images.githubusercontent.com/53449807/153129918-b7b5728b-bb59-4423-b795-6940919c79dd.png">
 
+- The following code below is for the livechat functionality backend for FoodieGram. This Code utilizes the Socket.io Library to send different actions including on connect, disconnect, addUser, and sending messages/getting messages
+
+```
+io.on("connection", (socket) => {
+    socket.on("addUser", userId => {
+        addUser(userId, socket.id);
+        io.emit("getUsers", usersArr)
+    });
+
+
+    socket.on("sendMessage", ({ senderId, receiverId, text}) => {
+        const user = getUser(receiverId);
+        io.to(user.socketId).emit("getMessage", {
+            senderId, 
+            text,
+        })
+    })
+
+
+    socket.on("disconnect", () => {
+        removeUser(socket.id);
+        socket.emit("getUsers", usersArr)
+    });
+});
+```
+
 ### 5. Search bar for friends and restaurants
 <img width="1439" alt="Screen Shot 2022-02-09 at 12 50 28 AM" src="https://user-images.githubusercontent.com/53449807/153130002-60562dfa-d01a-4f07-a666-a1a32b746df9.png">
 
