@@ -112,12 +112,12 @@ export default function Messenger (props) {
         
         let convos = [];
         conversations.forEach(conversation => {
-            if (conversation.receiverId !== id) {
+            if (!conversation.members.includes(id)) {
                 convos.push(conversation);
             }
         })
-
-        if (convos.length === 1) {
+        // debugger
+        if (convos.length === conversations.length) {
             props.createConvo(convo)
             const changeVal = () => setValue(value + 1);
             changeVal();
@@ -166,11 +166,11 @@ export default function Messenger (props) {
                             
                             messages.map((message, idx) => ( 
                                 <div key={idx} ref={scrollRef}>
-                                    <Message message={message} own={message.sender === user.id}/>
+                                    <Message message={message} own={message.sender === user.id} sender={message.sender} allUsers={props.allUsers}/>
                                 </div>
                             )):
-                            <div className='spinner'>
-                               
+                            <div>
+                               No messages, send one below!
                             </div>
                         }
 
