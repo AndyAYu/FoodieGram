@@ -86,6 +86,7 @@ class CreatePostForm extends React.Component {
                 } else { 
                     this.resetFields();
                     this.props.history.push("/feed");
+                    this.props.getAllPosts();
                  }})
         }
         
