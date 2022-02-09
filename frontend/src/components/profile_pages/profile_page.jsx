@@ -73,7 +73,7 @@ class ProfilePage extends React.Component{
         // debugger
         const upperCaseName = user.handle.charAt(0).toUpperCase() + user.handle.slice(1)
         const userAvatar = user.avatar
-        debugger
+        // debugger
         return(
             <div className='profile-page-container'>
                 <div className='profile-info-container'>
