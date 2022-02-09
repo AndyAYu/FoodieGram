@@ -166,7 +166,7 @@ export default function Messenger (props) {
                             
                             messages.map((message, idx) => ( 
                                 <div key={idx} ref={scrollRef}>
-                                    <Message message={message} own={message.sender === user.id}/>
+                                    <Message message={message} own={message.sender === user.id} sender={message.sender} allUsers={props.allUsers}/>
                                 </div>
                             )):
                             <div>
