@@ -73,10 +73,13 @@ class PostIndexItem extends React.Component {
 
         return (
         <li className="post-index-item">
-            <div>Posted on {this.props.post.date.slice(0, 10)} by {this.props.post.user.handle}</div>{edit}
+            <div>Posted on {this.props.post.date.slice(0, 10)} by {this.props.post.user.handle}
+                <img className="postAvatarImg" width="25" height="25"src={this.props.post.user.avatar} alt=""/>
+            </div>{edit} 
+            
             <div className="rest-name">{this.props.post.restaurant}</div>
             <div className="rest-address">{this.props.post.address}</div>
-            <img src={`${this.props.post.postImg}`}/>
+            <img className="post-image"src={`${this.props.post.postImg}`}/>
             <div className="like-row">{likeButtons}<button className={klass2} onClick={this.toggle}>{likesNum}</button></div>
             <div className={klass} onClick={this.hidePopup}>
                 <div className="likers" ref={this.likeRef} onClick={(e) => e.stopPropagation()}>Liked by {likers}</div>
