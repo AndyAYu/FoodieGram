@@ -1,4 +1,5 @@
 # FoodieGram
+![FoodieGram](./wireframe/logogit.jpg)
 
 [FoodieGram](https://foodiegram-aa.herokuapp.com/)
 
@@ -63,6 +64,32 @@ io.on("connection", (socket) => {
 });
 ```
 
+- The below code implements the 'like' function to all posts by updating the likes array field in the posts schema
+
+```
+router.post('/like/:id', (req, res) => {
+    Post.findByIdAndUpdate(req.body.postId, { $push: { likes: req.body.userId } }, 
+        { new: true, timestamps: false }, (err, data) => {
+        if (err) {
+            return res.status(500).json(err)
+        } else {
+            return res.json(data)
+        }
+    })
+});
+
+router.put('/like/:id', (req, res) => {
+    Post.findByIdAndUpdate(req.body.postId, { $pull: { likes: req.body.userId } }, 
+        { new: true, timestamps: false }, (err, data) => {
+        if (err) {
+            return res.status(500).json(err)
+        } else {
+            return res.json({postId: req.body.postId, userId: req.body.userId})
+        }
+    })
+});
+```
+
 ### 5. Search bar for friends and restaurants
 <img width="1439" alt="Screen Shot 2022-02-09 at 12 50 28 AM" src="https://user-images.githubusercontent.com/53449807/153130002-60562dfa-d01a-4f07-a666-a1a32b746df9.png">
 
@@ -92,7 +119,3 @@ Jason/Andy (1/18)
 Bonus:
 Live map, Groups, Top foodies leaderboard
 
-# Wireframe:
-![Index page](./wireframe/user_index.png)
-
-![Profile page](./wireframe/user_profile.png)
