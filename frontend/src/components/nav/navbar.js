@@ -57,7 +57,7 @@ class NavBar extends React.Component {
                     {welcomeMsg}
                     <Link to={`/pages/${currentUserIndex}`} className="other-btn"><FontAwesomeIcon icon={faUser}/></Link>
                     <button onClick={this.showPostForm} className="other-btn"><FontAwesomeIcon icon={faEdit}/></button>
-                    <Link to={'/messenger'} className="other-btn"><FontAwesomeIcon icon={faComments}/></Link>
+                    {/* <Link to={'/messenger'} className="other-btn"><FontAwesomeIcon icon={faComments}/></Link> */}
                     <button className="logout-btn" onClick={this.logoutUser}>Logout</button>
                     <CreatePostFormContainer showPost={this.state.showPost} hidePostForm={this.hidePostForm} />
                 </div>

@@ -9,7 +9,7 @@ class FriendsBar extends React.Component{
     constructor(props){
         super(props)
       
-        this.handleMessenger = this.handleMessenger.bind(this);
+        // this.handleMessenger = this.handleMessenger.bind(this);
         this.handlePage = this.handlePage.bind(this);
     }
 
@@ -17,9 +17,9 @@ class FriendsBar extends React.Component{
         this.props.history.push(`/pages/${num}`)
     }
 
-    handleMessenger(){
-        this.props.history.push(`/messenger`)
-    }
+    // handleMessenger(){
+    //     this.props.history.push(`/messenger`)
+    // }
     render(){
         const {currentUserFriends, allUsers, currentUserId} = this.props;
         // debugger
@@ -35,7 +35,7 @@ class FriendsBar extends React.Component{
                                 <div className='friend-info'>
                                     <img className='friend-profile-photo' src={user.avatar}></img>
                                     <button className='friend-name' onClick={() => this.handlePage(i)}>{user.handle.charAt(0).toUpperCase() + user.handle.slice(1)}</button>
-                                    <button className='friend-page-messenger' onClick={() => this.handleMessenger()}><FontAwesomeIcon icon={faComments}/></button>
+                                    {/* <button className='friend-page-messenger' onClick={() => this.handleMessenger()}><FontAwesomeIcon icon={faComments}/></button> */}
                                 </div>
                             </div>
                         )
