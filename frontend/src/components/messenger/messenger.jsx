@@ -116,7 +116,7 @@ export default function Messenger (props) {
                 convos.push(conversation);
             }
         })
-        debugger
+        // debugger
         if (convos.length === conversations.length) {
             props.createConvo(convo)
             const changeVal = () => setValue(value + 1);
