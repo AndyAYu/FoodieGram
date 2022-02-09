@@ -1,6 +1,6 @@
 # FoodieGram
 
-[Live Link](https://foodiegram-aa.herokuapp.com/)
+[FoodieGram](https://foodiegram-aa.herokuapp.com/)
 
 ## Background and Overview
 FoodieGram is a social media app for foodies. Allows you to connect with friends and share your favorite restaurants in town. 
