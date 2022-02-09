@@ -109,15 +109,21 @@ export default function Messenger (props) {
             senderId: props.currentUserId,
             receiverId: id
         }
+        
+        let convos = [];
         conversations.forEach(conversation => {
-            if (conversation.receiverId !== id) {
-                props.createConvo(convo)
-                const changeVal = () => setValue(value + 1);
-                changeVal();
-            } else {
-                console.log("convo with this user already exists")
+            if (conversation.receiverId === id) {
+                convos.push(conversation);
             }
         })
+
+        if (convos.length < 1) {
+            props.createConvo(convo)
+            const changeVal = () => setValue(value + 1);
+            changeVal();
+        } else{
+            console.log("conversation already exists")
+        }
         
         console.log(value);
     }
