@@ -1,10 +1,9 @@
-# FoodieGram
 ![FoodieGram](./wireframe/logogit.jpg)
 
 [FoodieGram](https://foodiegram-aa.herokuapp.com/)
 
-## Background and Overview
-FoodieGram is a social media app for foodies. Allows you to connect with friends and share your favorite restaurants in town. 
+## Overview
+FoodieGram is a social media app for foodies to connect with friends and share favorite restaurants in town. 
 
 ## Technologies and Technical Challenges
 
@@ -24,7 +23,8 @@ FoodieGram is a social media app for foodies. Allows you to connect with friends
 
 ## Functionality and MVPs
 
-FoodieGram is a social media app built for foodies. Use it to follow your friends and other avid foodies on their food adventures around the city. Users will be able to interact with others through many different ways: Posts, likes, personal pages, events
+Use our many features to follow your friends and other avid foodies on their food adventures around the city. Users will be able to interact with each other through: posts, likes, live chat, personal pages, and (in the future) events
+
 ### 1. Splash/ User Auth
 <img width="1435" alt="Screen Shot 2022-02-09 at 12 45 18 AM" src="https://user-images.githubusercontent.com/53449807/153129492-7f71cae7-556f-4cdf-ba46-395294b5a90d.png">
 
@@ -34,6 +34,32 @@ FoodieGram is a social media app built for foodies. Use it to follow your friend
 ### 3. News feed, make posts, tracked likes
 <img width="605" alt="Screen Shot 2022-02-09 at 12 47 46 AM" src="https://user-images.githubusercontent.com/53449807/153129741-00ab6538-c985-4a4d-a907-e9dd353270c2.png">
 <img width="452" alt="Screen Shot 2022-02-09 at 12 47 56 AM" src="https://user-images.githubusercontent.com/53449807/153129763-b7a7be21-7e68-4023-9b07-314925fd57c6.png">
+
+- The below code implements the 'like' function to all posts by updating the likes array field in the posts schema
+
+```
+router.post('/like/:id', (req, res) => {
+    Post.findByIdAndUpdate(req.body.postId, { $push: { likes: req.body.userId } }, 
+        { new: true, timestamps: false }, (err, data) => {
+        if (err) {
+            return res.status(500).json(err)
+        } else {
+            return res.json(data)
+        }
+    })
+});
+
+router.put('/like/:id', (req, res) => {
+    Post.findByIdAndUpdate(req.body.postId, { $pull: { likes: req.body.userId } }, 
+        { new: true, timestamps: false }, (err, data) => {
+        if (err) {
+            return res.status(500).json(err)
+        } else {
+            return res.json({postId: req.body.postId, userId: req.body.userId})
+        }
+    })
+});
+```
 
 ### 4. Live chat with friends
 <img width="1439" alt="Screen Shot 2022-02-09 at 12 49 34 AM" src="https://user-images.githubusercontent.com/53449807/153129918-b7b5728b-bb59-4423-b795-6940919c79dd.png">
@@ -64,58 +90,14 @@ io.on("connection", (socket) => {
 });
 ```
 
-- The below code implements the 'like' function to all posts by updating the likes array field in the posts schema
-
-```
-router.post('/like/:id', (req, res) => {
-    Post.findByIdAndUpdate(req.body.postId, { $push: { likes: req.body.userId } }, 
-        { new: true, timestamps: false }, (err, data) => {
-        if (err) {
-            return res.status(500).json(err)
-        } else {
-            return res.json(data)
-        }
-    })
-});
-
-router.put('/like/:id', (req, res) => {
-    Post.findByIdAndUpdate(req.body.postId, { $pull: { likes: req.body.userId } }, 
-        { new: true, timestamps: false }, (err, data) => {
-        if (err) {
-            return res.status(500).json(err)
-        } else {
-            return res.json({postId: req.body.postId, userId: req.body.userId})
-        }
-    })
-});
-```
-
 ### 5. Search bar for friends and restaurants
 <img width="1439" alt="Screen Shot 2022-02-09 at 12 50 28 AM" src="https://user-images.githubusercontent.com/53449807/153130002-60562dfa-d01a-4f07-a666-a1a32b746df9.png">
 
 
-
 # Bonus: 
-+ General groups for multi-purpose
-+ Top foodies based on posts
++ Ability for users to create groups for meetups and other purposes
++ A top foodies leaderboard based on posts engagement
 + Live map to reflect addresses from posts with descriptive pins
 
-# Group Members:
-1. Anuj P Gupta
-2. Sonja Ng
-3. Andy Yu
-4. Jason Chu
 
-
-# Work Breakdown:
-1. Splash/Auth (collective baseline before branching)
-- All work together (1/17-1/18)
-2. Profile Pages 
-Jason/Andy (1/18)
-3. News feed, posts, tracked likes (Andy/ Sonja/Jason)
-6. Live Chat (Anuj)
-7. Search Bar (Jason)
-
-Bonus:
-Live map, Groups, Top foodies leaderboard
 
