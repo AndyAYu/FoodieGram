@@ -1,4 +1,4 @@
-![FoodieGram](./wireframe/logogit.jpg)
+![FoodieGram](./wireframe/logofoodie.jpg)
 
 [FoodieGram](https://foodiegram-aa.herokuapp.com/)
 
