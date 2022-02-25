@@ -73,7 +73,6 @@
 
 .not-own-friend {
   border: none;
- 
   background-color:rgba(16, 196, 209, 0.904);
   color: white;
   height: 30px;
@@ -95,8 +94,24 @@
     position: fixed,
 }
 
-.profile-picture > div {
-    padding-top: 50px;
+// .profile-picture > div {
+//     padding-top: 50px;
+// }
+
+.avatarButton {
+    border: none;
+    background-color:rgba(16, 196, 209, 0.904);
+    color: white;
+    border-radius: 4px;
+    height: 30px;
+    margin-top: 5px;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.avatarButton:hover{
+    background-color: rgb(255, 255, 209);
+    color: $red;
 }
 
 .avatarBankButtons {

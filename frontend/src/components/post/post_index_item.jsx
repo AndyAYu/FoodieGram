@@ -2,8 +2,7 @@ import React from 'react';
 import EditPostFormContainer from './edit_post_form_container';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt, faPen, faHeart, faIceCream } from '@fortawesome/free-solid-svg-icons';
-import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons'
+import { faTrashAlt, faPen, faIceCream } from '@fortawesome/free-solid-svg-icons';
 
 class PostIndexItem extends React.Component {
     constructor(props){
@@ -73,7 +72,7 @@ class PostIndexItem extends React.Component {
 
         return (
         <li className="post-index-item">
-            <div>Posted on {this.props.post.date.slice(0, 10)} by {this.props.post.user.handle}
+            <div className="post-heading">Posted on {this.props.post.date.slice(0, 10)} by {this.props.post.user.handle}
                 <img className="postAvatarImg" width="25" height="25"src={this.props.post.user.avatar} alt=""/>
             </div>{edit} 
             
