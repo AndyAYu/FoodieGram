@@ -61,8 +61,13 @@ const AboutUs = () => (
                     </div>
                 <div className="topFooterIcons">
                     <div className="gitHub-Icon">
+<<<<<<< HEAD
                         <a target="_blank" href="https://github.com/Jasonchu94"><FontAwesomeIcon icon={faGithub}/></a>
                     </div>                    
+=======
+                    <a target="_blank" href="https://github.com/Jasonchu94"><FontAwesomeIcon icon={faGithub}/></a>
+                    </div>                   
+>>>>>>> 80a797bf2332678ed8e5266b9c9ec7be6e0588f7
                 </div>
             </div>
     </div>
