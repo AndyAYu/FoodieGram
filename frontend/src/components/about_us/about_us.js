@@ -61,15 +61,8 @@ const AboutUs = () => (
                     </div>
                 <div className="topFooterIcons">
                     <div className="gitHub-Icon">
-                    <a target="_blank" href="https://github.com/Jasonchu94"><FontAwesomeIcon icon={faGithub}/></a>
-                    </div>
-                    <div className="linkedIn-Icon">
-                    <a target="_blank" href="https://www.linkedin.com/in/jasonchu94/"><FontAwesomeIcon icon={faLinkedin}/></a>
-                    </div>
-                    <div className="angellist-Icon">
-                    <a target="_blank" href="https://angel.co/u/jason-chu-20"><FontAwesomeIcon icon={faAngellist}/></a>
-                     </div>
-                    <div className="linkedIn"></div>
+                        <a target="_blank" href="https://github.com/Jasonchu94"><FontAwesomeIcon icon={faGithub}/></a>
+                    </div>                    
                 </div>
             </div>
     </div>
