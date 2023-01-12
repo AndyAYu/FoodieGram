@@ -1,8 +1,8 @@
 import React from 'react';
-import { useStore } from 'react-redux';
-import { withRouter, Link, Redirect } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faComments } from '@fortawesome/free-solid-svg-icons'
+// import { useStore } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faComments } from '@fortawesome/free-solid-svg-icons'
 
 class FriendsBar extends React.Component{
 
@@ -33,7 +33,7 @@ class FriendsBar extends React.Component{
                         return(
                             <div className='friend-list-item' key={i}>
                                 <div className='friend-info'>
-                                    <img className='friend-profile-photo' src={user.avatar}></img>
+                                    <img className='friend-profile-photo' alt='friend profile photo'src={user.avatar}></img>
                                     <button className='friend-name' onClick={() => this.handlePage(i)}>{user.handle.charAt(0).toUpperCase() + user.handle.slice(1)}</button>
                                     {/* <button className='friend-page-messenger' onClick={() => this.handleMessenger()}><FontAwesomeIcon icon={faComments}/></button> */}
                                 </div>

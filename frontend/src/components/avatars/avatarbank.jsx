@@ -46,7 +46,7 @@ class AvatarBank extends React.Component {
     
     handleAvatarChange(e) {
         let {avatar} = this.props
-        avatar = e.currentTarget.src
+        // avatar = e.currentTarget.src
         // this.setState({
         //     avatar:e.currentTarget.src
         // })
@@ -75,7 +75,7 @@ class AvatarBank extends React.Component {
     render(){
     // debugger
     const { users } = this.props
-    const usersAvatar = users.avatar
+    // const usersAvatar = users.avatar
     const avatarImg = this.props.showAvatars ? (
         <div>
             <form className="avatarBank" onSubmit={this.handleSubmit}>

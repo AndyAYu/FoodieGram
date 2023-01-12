@@ -1,6 +1,6 @@
-import React from 'react';
+// import React from 'react';
 import {connect} from 'react-redux'
-import { addFriendship, deleteFriendship, fetchAllUsers } from '../../actions/user_actions';
+// import { addFriendship, deleteFriendship, fetchAllUsers } from '../../actions/user_actions';
 
 import FriendsBar from './friends_bar'
 

@@ -3,9 +3,6 @@ import PostIndexItem from './post_index_item';
 import { withRouter } from 'react-router-dom';
 
 class PostIndex extends React.Component {
-    constructor(props){
-        super(props);
-    }
 
     componentDidMount(){
         this.props.fetchAllUsers();

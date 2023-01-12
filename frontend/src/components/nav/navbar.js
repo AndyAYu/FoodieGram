@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom'
 import CreatePostFormContainer from '../post/create_post_form_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faEdit } from '@fortawesome/free-solid-svg-icons'
-import { faComments } from '@fortawesome/free-regular-svg-icons'
+// import { faComments } from '@fortawesome/free-regular-svg-icons'
 // import './navbar.css'
 
 import SearchBarContainer from '../search_bar/search_bar_container'

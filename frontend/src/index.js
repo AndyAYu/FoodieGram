@@ -4,7 +4,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
-import { logout, login, signup } from './actions/session_actions';
+import { logout } from './actions/session_actions';
 import { addLike, removeLike, removePost, receiveEditedPost, getPost } from './actions/post_actions';
 import { createPost} from './util/post_api_util';
 

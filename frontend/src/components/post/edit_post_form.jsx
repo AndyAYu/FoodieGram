@@ -107,7 +107,7 @@ class EditPostForm extends React.Component {
                     encType="multipart/form-data">
                     <div className="edit-form">
                         <div className="login-header">Edit your post</div>
-                            <div className="edit-image"><img src={`${this.props.post.postImg}`}/></div>
+                            <div className="edit-image"><img src={`${this.props.post.postImg}`} alt='post image'/></div>
                             <label className="edit-rest-label">Restaurant name
                             <input type="text"
                                 value={this.state.restaurant}

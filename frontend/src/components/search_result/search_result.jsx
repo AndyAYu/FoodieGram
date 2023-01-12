@@ -19,7 +19,7 @@ class SearchResult extends React.Component{
                 <div className='search-result-list-items'>
                     <div className='search-result-info'>
                         <div className='user-profile-picture'>
-                            <img src={user.avatar}></img>
+                            <img src={user.avatar} alt=''></img>
                         </div>
                         <div className='user-page-link' >
                             <Link className='search-result-link' to={`/pages/${users.indexOf(user)}`}>{user.handle}</Link>
@@ -44,7 +44,7 @@ class SearchResult extends React.Component{
                         // <div className='search-result-list-items'>
                             <div className='search-result-info'>
                                 <div className='user-profile-picture'>   
-                                    <img className='user-avatar' src={user.avatar}></img>
+                                    <img className='user-avatar' src={user.avatar} alt=''></img>
                                 </div>
                                 <div className='user-page-link' >
                                     <Link className='search-result-link' to={`/pages/${users.indexOf(user)}`}>{user.handle}</Link>

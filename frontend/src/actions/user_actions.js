@@ -1,5 +1,5 @@
 import * as UserAPIUtil from '../util/users_api_util';
-import * as PostAPIutil from '../util/post_api_util';
+// import * as PostAPIutil from '../util/post_api_util';
 
 //action types
 export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';

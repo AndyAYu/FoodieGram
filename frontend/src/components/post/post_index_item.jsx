@@ -78,7 +78,7 @@ class PostIndexItem extends React.Component {
             
             <div className="rest-name">{this.props.post.restaurant}</div>
             <div className="rest-address">{this.props.post.address}</div>
-            <img className="post-image"src={`${this.props.post.postImg}`}/>
+            <img className="post-image"src={`${this.props.post.postImg}`} alt='post image'/>
             <div className="like-row">{likeButtons}<button className={klass2} onClick={this.toggle}>{likesNum}</button></div>
             <div className={klass} onClick={this.hidePopup}>
                 <div className="likers" ref={this.likeRef} onClick={(e) => e.stopPropagation()}>Liked by {likers}</div>
