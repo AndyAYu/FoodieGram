@@ -1,14 +1,14 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const db = require ("../config/keys").mongoURI;
-const users = require("../routes/api/users");
-const posts = require("../routes/api/posts");
-const comments = require("../routes/api/comments")
+const db = require ("./config/keys").mongoURI;
+const users = require("./routes/api/users");
+const posts = require("./routes/api/posts");
+const comments = require("./routes/api/comments")
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const conversations = require("../routes/api/conversations")
-const messages = require("../routes/api/messages")
+const conversations = require("./routes/api/conversations")
+const messages = require("./routes/api/messages")
 const path = require('path');
 const socket = require('socket.io');
 const dotenv = require('dotenv');
@@ -59,7 +59,7 @@ app.use("/api/conversations", conversations);
 app.use("/api/messages", messages);
 
 app.use(passport.initialize());
-require('../config/passport')(passport);
+require('./config/passport')(passport);
 
 const port = process.env.PORT || 4000;
 
