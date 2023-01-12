@@ -1,4 +1,4 @@
-import { deleteModel } from 'mongoose';
+// import { deleteModel } from 'mongoose';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
