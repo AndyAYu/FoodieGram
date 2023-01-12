@@ -1,0 +1,6 @@
+{
+  "scripts": {
+  "start": "node ./bin/www",
+  "dev": "dotenv nodemon ./bin/www --inspect"
+}
+}
