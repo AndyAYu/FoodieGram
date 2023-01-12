@@ -1,19 +1,19 @@
 {
   "name": "foodiegram",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "Food Social Media Platform",
+  "engines": {
+    "node": "14.18.2"
+  },
   "scripts": {
-    "server:debug": "nodemon --inspect app.js",
-    "server": "nodemon app.js --ignore client",
-    "start": "node app.js",
+    "backend-install": "npm install --prefix backend",
+    "backend": "npm run dev --prefix backend",
     "frontend-install": "npm install --prefix frontend",
     "frontend": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
-    "web": "npm start",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+    "frontend-build": "npm run build --prefix frontend",
+    "build": "npm run backend-install && npm run frontend-install && npm run frontend-build"
   },
-  "author": "",
+  "author": "Andy Yu, Sonja Ng, Jason Chu, Anuj Gupta",
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.1066.0",
@@ -36,5 +36,14 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndyAYu/FoodieGram.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/AndyAYu/FoodieGram/issues"
+  },
+  "homepage": "https://github.com/AndyAYu/FoodieGram#readme"
 }
