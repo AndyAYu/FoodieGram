@@ -30,14 +30,14 @@ class FriendsBar extends React.Component{
                     // debugger
                     if(currentUserFriends.includes(user._id) && user._id !== currentUserId){
                         // debugger
-                        return(
-                            <div className='friend-list-item' key={i}>
-                                <div className='friend-info'>
-                                    <img className='friend-profile-photo' alt='friend profile photo'src={user.avatar}></img>
-                                    <button className='friend-name' onClick={() => this.handlePage(i)}>{user.handle.charAt(0).toUpperCase() + user.handle.slice(1)}</button>
-                                    {/* <button className='friend-page-messenger' onClick={() => this.handleMessenger()}><FontAwesomeIcon icon={faComments}/></button> */}
-                                </div>
+                    return(
+                        <div className='friend-list-item' key={i}>
+                            <div className='friend-info'>
+                                <img className='friend-profile-photo' alt=''src={user.avatar}></img>
+                                <button className='friend-name' onClick={() => this.handlePage(i)}>{user.handle.charAt(0).toUpperCase() + user.handle.slice(1)}</button>
+                                {/* <button className='friend-page-messenger' onClick={() => this.handleMessenger()}><FontAwesomeIcon icon={faComments}/></button> */}
                             </div>
+                        </div>
                         )
                     }
                 })}

@@ -13,7 +13,7 @@ class SearchResult extends React.Component{
         let searchUsers = users.filter(user=>{
             if (user.handle === searchTerms) return user
         })
-        // debugger
+        
         if (searchTerms === "all") {
             const allResults = users.map(user => (
                 <div className='search-result-list-items'>
