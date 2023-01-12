@@ -10,7 +10,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const Post = require('../../models/Post');
+const Post = require('../../../models/Post');
 const validatePostInput = require('../../validation/posts');
 
 

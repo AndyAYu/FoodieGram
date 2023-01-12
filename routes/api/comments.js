@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 // const { restart } = require('nodemon');
 const passport = require('passport');
 
-const Comment = require('../../models/Comment');
+const Comment = require('../../../models/Comment');
 const validateCommentInput = require('../../validation/comments');
 
 router.get('/', (req, res) => {
