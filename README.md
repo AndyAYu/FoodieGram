@@ -1,6 +1,6 @@
 ![FoodieGram](./wireframe/logofoodie.jpg)
 
-[Live Site](https://foodiegram-aa.onrender.com/)
+[Live Site](https://foodiegram.onrender.com/)
 
 ## Overview
 FoodieGram is a social media app for foodies to connect with friends and share favorite restaurants in town. 
